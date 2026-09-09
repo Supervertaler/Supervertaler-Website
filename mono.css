@@ -142,9 +142,15 @@ footer a { color: var(--ink-soft); }
     /* The header stacks: brand on its own line, then the links wrapping under
        it. A row of eight links squeezed beside the wordmark is unreadable on a
        phone, and a hamburger would be a script and a state for five links. */
-    header .wrap { flex-direction: column; align-items: flex-start; gap: .85rem; }
-    nav { margin-left: 0; gap: .35rem 1.1rem; }
-    nav a { font-size: .95rem; }
+    header .wrap { flex-wrap: wrap; gap: .85rem; }
+    .nav-toggle { display: block; }
+
+    /* Hidden until opened. display:none rather than height/opacity, so the
+       links are out of the tab order while the menu is shut. */
+    nav { display: none; margin-left: 0; width: 100%;
+          flex-direction: column; gap: 0; padding-bottom: .4rem; }
+    nav.open { display: flex; }
+    nav a { font-size: 1rem; padding: .55rem 0; border-top: 1px solid var(--rule); }
 
     h1 { max-width: none; }
     .standfirst { font-size: 1.1rem; }
@@ -193,3 +199,19 @@ footer a { color: var(--ink-soft); }
 .to-top:hover { border-color: var(--ink); }
 .to-top:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }
+
+/* ---- mobile menu ------------------------------------------------------- */
+.nav-toggle {
+    display: none;                 /* desktop: the links speak for themselves */
+    margin-left: auto;
+    width: 44px; height: 44px;     /* the accessible minimum tap target */
+    background: none; border: 1px solid var(--rule); border-radius: 4px;
+    cursor: pointer; padding: 0;
+}
+.nav-toggle span { display: block; width: 20px; height: 2px; background: var(--ink);
+                   margin: 4px auto; transition: transform .18s ease, opacity .18s ease; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.nav-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .nav-toggle span { transition: none; } }

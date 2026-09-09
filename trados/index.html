@@ -6,7 +6,7 @@
 <title>Supervertaler for Trados — AI translation inside Trados Studio</title>
 <meta name="description" content="A Trados Studio plugin: AI translation, TermLens inline terminology, SuperSearch cross-file search and replace, and SuperMemory — the client decisions you cannot look up, in every prompt.">
 <link rel="icon" href="/favicon.ico">
-<link rel="stylesheet" href="/mono.css?v=3">
+<link rel="stylesheet" href="/mono.css?v=4">
 <style>:root { --accent: var(--trados); }</style>
 </head>
 <body>
@@ -15,7 +15,10 @@
 <header id="top">
   <div class="wrap">
     <a class="brand" href="/"><img src="/sv-icon.svg" width="30" height="30" alt=""> Supervertaler</a>
-    <nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
       <a href="/">Home</a>
       <a href="/trados/" class="here">for Trados</a>
       <a href="/memoq/">for memoQ</a>
@@ -308,6 +311,6 @@
 
 
 <a href="#top" class="to-top" aria-label="Back to top" title="Back to top">↑</a>
-<script src="/top.js?v=1"></script>
+<script src="/site.js?v=1"></script>
 </body>
 </html>
