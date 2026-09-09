@@ -1,4 +1,4 @@
-/* supervertaler.com — the two bits of behaviour the site has.
+/* supervertaler.com – the two bits of behaviour the site has.
    Replaces top.js, which only did the first. */
 
 /* ---- 1. the mobile menu -------------------------------------------------

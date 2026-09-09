@@ -1,5 +1,5 @@
 /* ===========================================================================
-   supervertaler.com — the restrained house style.
+   supervertaler.com – the restrained house style.
 
    Matches beijer.uk, which is the identity anyone who knows the author
    already recognises. Black type on white, generous measure, one accent per
@@ -230,3 +230,8 @@ footer a { color: var(--ink-soft); }
 .hero-shot { margin: 2.5rem 0 0; }
 .hero-shot img { display: block; width: 100%; border: 1px solid var(--rule); border-radius: 4px; }
 .hero-shot figcaption { font-size: .9rem; color: var(--ink-faint); margin-top: .55rem; }
+
+/* The line the standfirst lands on. Bigger than body text and set in the ink
+   colour, so it reads as a conclusion rather than another paragraph. */
+.punch { font-size: 1.2rem; color: var(--ink); max-width: var(--measure);
+         margin: 0 0 2rem; font-weight: 600; letter-spacing: -.01em; }
