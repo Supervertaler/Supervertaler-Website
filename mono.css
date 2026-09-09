@@ -60,6 +60,10 @@ h1 .host { color: var(--accent, var(--ink)); }
 .standfirst { font-size: 1.2rem; color: var(--ink-soft); max-width: var(--measure); margin: 0 0 2rem; }
 
 /* ---- the licence note, and any bordered aside -------------------------- */
+/* The measure is set here as well as on .standfirst and .punch: without it
+   this paragraph ran to the full page width while the two above it stopped
+   at 46rem, and the hero had two different right edges. */
+.licence { max-width: var(--measure); }
 .note { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
         padding: 1.1rem 0; max-width: var(--measure); }
 
