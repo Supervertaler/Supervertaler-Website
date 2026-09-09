@@ -83,7 +83,11 @@ h1 .host { color: var(--accent, var(--ink)); }
 .product { border-top: 2px solid var(--c); padding-top: 1.4rem; }
 .product.trados { --c: var(--trados); }
 .product.memoq  { --c: var(--memoq);  }
-.mark { width: 40px; height: 40px; display: block; margin-bottom: 1rem; }
+/* Set into the heading rather than stacked above it: the same lockup as
+   the brand mark in the header, and one row of vertical furniture fewer
+   between the card's coloured rule and its name. Inline rather than flex,
+   so 'Supervertaler for memoQ' still wraps as ordinary text. */
+.mark { width: 30px; height: 30px; vertical-align: -.32em; margin-right: .45rem; }
 .product h2 { font-size: 1.4rem; margin: 0 0 .2rem; letter-spacing: -.01em; }
 .product h2 .host { color: var(--c); }
 .product .where { color: var(--ink-faint); font-size: .97rem; margin: 0 0 1rem; }
