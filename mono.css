@@ -225,3 +225,8 @@ footer a { color: var(--ink-soft); }
 @media (max-width: 760px) {
     .nav-toggle { display: block; }
 }
+
+/* ---- the hero screenshot ----------------------------------------------- */
+.hero-shot { margin: 2.5rem 0 0; }
+.hero-shot img { display: block; width: 100%; border: 1px solid var(--rule); border-radius: 4px; }
+.hero-shot figcaption { font-size: .9rem; color: var(--ink-faint); margin-top: .55rem; }
