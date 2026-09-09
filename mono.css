@@ -215,3 +215,10 @@ footer a { color: var(--ink-soft); }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 .nav-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .nav-toggle span { transition: none; } }
+
+/* Must come after the .nav-toggle base rule above: equal specificity, so
+   source order decides. Appending the base rule below the earlier media block
+   is exactly how the toggle ended up invisible on a phone. */
+@media (max-width: 760px) {
+    .nav-toggle { display: block; }
+}
