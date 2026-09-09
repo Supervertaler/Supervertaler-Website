@@ -172,3 +172,7 @@ footer a { color: var(--ink-soft); }
 .foot-col a:hover { color: var(--ink); text-decoration: underline; }
 .foot-bottom { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
 .foot-bottom p { margin: 0 0 .35rem; }
+
+/* NOTE: the pages link this as /mono.css?v=N. Cloudflare caches CSS for four
+   hours, so without the query a style change reaches visitors long after the
+   markup that depends on it. Bump N in all three pages when this file changes. */
