@@ -3,14 +3,14 @@
 The source of **https://supervertaler.com**, served by GitHub Pages from the
 root of this repository.
 
-Plain HTML, CSS and one small `script.js` — no build step, no framework. Edit a
+Plain HTML, CSS and one small `script.js` – no build step, no framework. Edit a
 file, commit, and it is live. (The *documentation* site is a different thing:
 Astro + Starlight, in `Supervertaler-Help`, published at docs.supervertaler.com.)
 
 ## Why this repo exists
 
-The site used to live in `docs/` inside `Supervertaler-Workbench` — the repo of
-a retired product — which made it hard to find and tied the public face of the
+The site used to live in `docs/` inside `Supervertaler-Workbench` – the repo of
+a retired product – which made it hard to find and tied the public face of the
 project to something no longer developed. It now stands on its own.
 
 Two things were left behind in that move, deliberately: several folders of

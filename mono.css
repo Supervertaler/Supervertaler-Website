@@ -232,6 +232,9 @@ footer a { color: var(--ink-soft); }
 .hero-shot figcaption { font-size: .9rem; color: var(--ink-faint); margin-top: .55rem; }
 
 /* The line the standfirst lands on. Bigger than body text and set in the ink
-   colour, so it reads as a conclusion rather than another paragraph. */
+   colour, so it reads as a conclusion rather than another paragraph. Not
+   bold: the licence note directly below it is, and two bold blocks in a row
+   read as a pair of subheadings rather than as a sentence - on a phone
+   especially, where both wrap to three lines. */
 .punch { font-size: 1.2rem; color: var(--ink); max-width: var(--measure);
-         margin: 0 0 2rem; font-weight: 600; letter-spacing: -.01em; }
+         margin: 0 0 2rem; }
