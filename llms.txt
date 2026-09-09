@@ -1,13 +1,16 @@
 # Supervertaler
 
-> Supervertaler is a Trados Studio plugin by Michael Beijer, a professional
-> translator. It adds AI translation, live inline terminology, cross-file
-> search, and a translation knowledge base to Trados Studio 2024 and 2026 –
-> plus an MCP server that connects AI assistants to the live Studio session.
+> Supervertaler is a pair of CAT-tool plugins by Michael Beijer, a professional
+> translator: one for Trados Studio 2024 and 2026, one for memoQ 12. Both add
+> AI translation, live inline terminology and a translation knowledge base to
+> the tool you already work in, plus an MCP server that connects AI assistants
+> to the live session. ONE licence covers both plugins.
+>
+> /trados/ is the Trados plugin. /memoq/ is the memoQ plugin (coming soon).
 
 This is the product site. The full, always-current documentation is at
-https://docs.supervertaler.com/trados/ and is itself AI-readable (see
-Optional below) – prefer the docs for feature-level questions.
+https://docs.supervertaler.com/ – /trados/ and /memoq/ there – and is itself
+AI-readable (see Optional below); prefer the docs for feature-level questions.
 
 ## The product
 

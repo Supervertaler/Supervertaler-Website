@@ -3,45 +3,308 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Supervertaler for Trados</title>
-
-<!--
-  /trados/ moved to the site root on 2026-08-24.
-
-  Why this page still exists: the RWS App Store listing, the in-plugin help
-  and About links, screencast descriptions, past customer emails and any
-  external backlink all point at /trados/. Deleting the folder would 404
-  every one of them, including the App Store listing we do not control.
-
-  GitHub Pages serves static files only, so the redirect is done three ways:
-  a canonical tag (tells search engines where the page went), a meta refresh
-  (works with JS disabled), and a visible link (works if both are blocked).
--->
-
-<link rel="canonical" href="https://supervertaler.com/">
-<meta http-equiv="refresh" content="0; url=/">
-<meta name="robots" content="noindex, follow">
-
-<style>
-  :root { color-scheme: light dark; }
-  body {
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    display: flex; align-items: center; justify-content: center;
-    min-height: 100vh; margin: 0; padding: 1.5rem;
-    text-align: center; line-height: 1.6;
-  }
-  .card { max-width: 32rem; }
-  h1 { font-size: 1.25rem; font-weight: 600; margin: 0 0 .5rem; }
-  p { margin: 0; color: #555; }
-  @media (prefers-color-scheme: dark) { p { color: #aaa; } }
-  a { color: #2563eb; }
-</style>
+<title>Supervertaler for Trados — AI translation inside Trados Studio</title>
+<meta name="description" content="A Trados Studio plugin: AI translation, TermLens inline terminology, SuperSearch cross-file search and replace, and SuperMemory — the client decisions you cannot look up, in every prompt.">
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/mono.css">
+<style>:root { --accent: var(--trados); }</style>
 </head>
 <body>
-  <div class="card">
-    <h1>Supervertaler for Trados</h1>
-    <p>This page has moved to <a href="/">supervertaler.com</a>.</p>
+
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/sv-icon.svg" width="30" height="30" alt=""> Supervertaler</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/trados/" class="here">for Trados</a>
+      <a href="/memoq/">for memoQ</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#install">Install</a>
+      <a href="https://docs.supervertaler.com/trados/">Docs</a>
+      <a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a>
+    </nav>
   </div>
-  <script>location.replace("/");</script>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Supervertaler <span class="host">for Trados</span></h1>
+    <p class="standfirst">
+      AI translation, inline terminology, cross-file search &amp; replace, and a translation
+      knowledge base – built directly into Trados Studio 2024 and 2026.
+    </p>
+    <p>
+      <a class="go" href="https://appstore.rws.com/plugin/432">Try free for 14 days</a>
+      <a class="go-quiet" href="https://docs.supervertaler.com/trados/">Help</a>
+      <span class="when">No credit card required – full access for 14 days, then €20/month.</span>
+    </p>
+    <p style="margin-top:2rem">
+      <img class="shot" src="/screenshots/Supervertaler-for-Trados-context-sensitive-help.png"
+           alt="Supervertaler for Trados – the TermLens terminology panel inside Trados Studio" loading="lazy">
+    </p>
+  </div>
+</section>
+
+<section class="band" id="features">
+  <div class="wrap">
+    <h2>Features</h2>
+    <p>Professional terminology and AI tools inside Trados Studio.</p>
+
+    <div class="features">
+
+      <div class="feature">
+        <h3>AI Translation</h3>
+        <p>A complete AI translation system with a project-aware chat assistant, batch translation, and a prompt library.</p>
+        <ul>
+          <li>AI Assistant – dockable chat panel with access to your segment, terms, and TM matches</li>
+          <li>Batch Translate – selected segments, untranslated, or the entire document</li>
+          <li>Clipboard Mode – use any web-based AI (ChatGPT, Claude, Gemini) without an API key</li>
+          <li>QuickLauncher (Ctrl+Q) – one-click access to custom prompts</li>
+          <li>AutoPrompt – the AI writes a domain-specific prompt from your document</li>
+          <li>OpenAI, Anthropic, Google, OpenRouter and Ollama providers</li>
+          <li>Incognito Mode – anonymises project data for screen sharing and demos</li>
+        </ul>
+      </div>
+
+      <div class="feature">
+        <h3>TermLens</h3>
+        <p>Inline terminology display with colour-coded chips for every matched term, right inside the Trados editor.</p>
+        <ul>
+          <li>Colour-coded chips: blue, pink (project), yellow (non-translatable), green (MultiTerm)</li>
+          <li>Click or Alt+1–9 to insert terms into the target</li>
+          <li>MultiTerm <code>.sdltb</code> support – reads termbases attached to your project</li>
+          <li>Quick-add shortcuts: Alt+Down, Alt+Up, Ctrl+Alt+T</li>
+          <li>TermPicker (Ctrl+Shift+G) for segments with many matches</li>
+          <li>Non-translatable term management (Ctrl+Alt+N)</li>
+        </ul>
+      </div>
+
+      <div class="feature">
+        <h3>SuperSearch</h3>
+        <p>Cross-file search and find &amp; replace across all SDLXLIFF files in a project – not just the file you have open.</p>
+        <ul>
+          <li>Search source, target or both, with case-sensitive and regex support</li>
+          <li>Results grid with match highlighting and confirmation status</li>
+          <li>Preview pane – single-click a result to see the full segment text</li>
+          <li>Click-to-navigate – double-click to jump to the segment in the editor</li>
+          <li>Find &amp; Replace in target text, with a Replace All confirmation</li>
+          <li>Alt+S to open; auto-fills from the editor selection</li>
+        </ul>
+      </div>
+
+      <div class="feature">
+        <h3>SuperMemory</h3>
+        <p>The client decisions you cannot look up – which term they insist on, what they rejected last time – written down where the AI reads them on every translation.</p>
+        <ul>
+          <li>Three Markdown files per client: a brief, a terminology table, and style rules</li>
+          <li>You write them – small enough to read start to finish, so a wrong entry is findable</li>
+          <li>A shared bank of house defaults that any client bank can override</li>
+          <li>Quick-add a term while translating with Ctrl+Alt+M</li>
+          <li>Plain files – edit in any text editor, sync them, keep them in Git</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="band wash">
+  <div class="wrap">
+    <h2>Context layers</h2>
+    <p>
+      An engine that sees only the sentence in front of it translates that sentence well and the
+      document badly. Every request assembles a fresh snapshot of your work – ten layers of it – and
+      hands the whole thing to the AI. Some layers come from Studio, some from what you have recorded
+      about the client, and two from parts of the document no CAT tool normally shows you at all.
+    </p>
+    <p><a href="https://docs.supervertaler.com/trados/context-layers/">The ten layers, and where each one comes from</a></p>
+  </div>
+</section>
+
+<section class="band" id="screencasts">
+  <div class="wrap">
+    <h2>Screencasts</h2>
+    <div class="shot-grid">
+      <figure>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/549Ulc92FiU"
+                  title="SuperSearch – cross-file search in Supervertaler for Trados"
+                  allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption><strong>SuperSearch</strong> (3 min) – cross-file search across every SDLXLIFF file in a Trados project.</figcaption>
+      </figure>
+      <figure>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/bOIwMAoP7xc"
+                  title="Supervertaler for Trados – Getting Started"
+                  allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <figcaption><strong>Getting started</strong> (16 min) – TermLens, AI translation, prompt generation, the Chat window, help and purchasing.</figcaption>
+      </figure>
+    </div>
+    <p style="margin-top:1.25rem"><a href="https://www.youtube.com/playlist?list=PLKzCjqTaOj20o4zyXAWmOR-e3ZHG4_NLU">All screencasts on YouTube →</a></p>
+  </div>
+</section>
+
+<section class="band wash" id="screenshots">
+  <div class="wrap">
+    <h2>Screenshots</h2>
+    <div class="shot-grid">
+      <figure>
+        <a href="/screenshots/1_TermLens-in-Trados-Studio-2024.png">
+          <img class="shot" src="/screenshots/1_TermLens-in-Trados-Studio-2024.png" alt="TermLens in Trados Studio 2024" loading="lazy">
+        </a>
+        <figcaption><strong>TermLens in Trados Studio</strong> – inline terminology with colour-coded chips, Alt+1–9 insertion and full glossary context.</figcaption>
+      </figure>
+      <figure>
+        <a href="/screenshots/Supervertaler-for-Trados-context-sensitive-help.png">
+          <img class="shot" src="/screenshots/Supervertaler-for-Trados-context-sensitive-help.png" alt="Context-sensitive help in Trados Studio" loading="lazy">
+        </a>
+        <figcaption><strong>Context-sensitive help</strong> – press F1 or use the ? menu for documentation on any feature.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="price">€20 <small>a month, or €200 a year (two months free)</small></p>
+    <p class="price-note">One licence covers Supervertaler for Trados <em>and</em> Supervertaler for memoQ.</p>
+    <p>
+      Everything is included – AI Assistant and Batch Translate, TermLens, SuperSearch, SuperMemory,
+      Studio Tools, Clipboard Mode, AutoPrompt, QuickLauncher and the prompt library, MultiTerm
+      support, Incognito Mode, multimodal image support, context-sensitive help, and all future
+      features.
+    </p>
+    <p>
+      <a class="go" href="/buy">Subscribe</a>
+      <a class="go-quiet" href="https://appstore.rws.com/plugin/432">Try free for 14 days</a>
+      <span class="when">No credit card · no sign-up · full access for 14 days.</span>
+    </p>
+    <p style="margin-top:2rem">
+      <strong>Teams and enterprise.</strong> Need multiple seats, volume licensing or invoicing?
+      <a href="https://beijer.uk/contact/">Get in touch</a> and we will put together a plan that works for your team.
+    </p>
+    <p>
+      <strong>Pricing should never be a barrier.</strong> If these rates are a stretch – whether you
+      are just starting out, based in a lower-income region, or going through a tough time – a
+      reduced rate is available. Just <a href="https://beijer.uk/contact/">get in touch</a> and we
+      will work something out.
+    </p>
+  </div>
+</section>
+
+<section class="band wash" id="install">
+  <div class="wrap">
+    <h2>Installation</h2>
+    <p>Up and running in under a minute.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>Download</h3>
+        <p>Install directly from the <a href="https://appstore.rws.com/plugin/432">RWS AppStore</a>.</p>
+      </div>
+      <div class="step">
+        <h3>Install</h3>
+        <p>Double-click the <code>.sdlplugin</code> file. Trados installs it automatically.</p>
+      </div>
+      <div class="step">
+        <h3>Restart and use</h3>
+        <p>Restart Trados Studio. The Supervertaler panel appears in the Editor view.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="support">
+  <div class="wrap">
+    <h2>Support and community</h2>
+    <p>Questions, bug reports, feature requests, or just want to see how others are using it?</p>
+    <div class="steps">
+      <div class="step" style="counter-increment:none">
+        <h3 style="--accent:transparent"><a href="https://github.com/orgs/Supervertaler/discussions">Supervertaler Forum</a></h3>
+        <p>Questions, tips, feature requests and announcements.</p>
+      </div>
+      <div class="step" style="counter-increment:none">
+        <h3><a href="https://github.com/Supervertaler/Supervertaler-for-Trados/issues">GitHub Issues</a></h3>
+        <p>Bug reports and feature requests. Requires a free GitHub account.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band wash">
+  <div class="wrap">
+    <h2>Open source and transparent</h2>
+    <p>
+      Your API keys stay between you and your AI provider. Supervertaler for Trados makes
+      <strong>no network calls</strong> except to your chosen AI provider, the licence server, and
+      optional anonymous usage statistics – strictly opt-in, no personal data, just version and
+      locale. The full source is
+      <a href="https://github.com/Supervertaler/Supervertaler-for-Trados">available on GitHub</a>
+      so you can verify that yourself.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/sv-icon.svg" width="30" height="30" alt=""> Supervertaler</a>
+        <p>AI translation inside the CAT tool you already use.</p>
+        <p>Built by <a href="https://beijer.uk/">Michael Beijer</a>, a Dutch–English technical translator in Hastings.</p>
+      </div>
+
+      <div class="foot-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="/trados/">for Trados</a></li>
+          <li><a href="/memoq/">for memoQ</a></li>
+          <li><a href="/trados/#pricing">Pricing</a></li>
+          <li><a href="https://appstore.rws.com/plugin/432">RWS AppStore</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://docs.supervertaler.com/trados/">Trados docs</a></li>
+          <li><a href="https://docs.supervertaler.com/memoq/">memoQ docs</a></li>
+          <li><a href="https://github.com/Supervertaler/Supervertaler-for-Trados/blob/main/CHANGELOG.md">Changelog</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Community</h3>
+        <ul>
+          <li><a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a></li>
+          <li><a href="https://github.com/Supervertaler">GitHub</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://beijer.uk/">Author's website</a></li>
+          <li><a href="https://beijer.uk/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="https://github.com/Supervertaler/Supervertaler-for-Trados">Source code</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <p>Looking for <a href="/workbench/">Supervertaler Workbench</a>? The free, open-source standalone
+         CAT tool is still available and still maintained for bugs, but is no longer actively developed.</p>
+      <p>© 2026 Michael Beijer. Source-available licence.</p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -76,7 +76,7 @@ h1 .host { color: var(--accent, var(--ink)); }
 
 /* ---- the two product cards on the landing page ------------------------- */
 .products { display: grid; gap: 3rem; padding: 3rem 0;
-            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); }
+            grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr)); }
 .product { border-top: 2px solid var(--c); padding-top: 1.4rem; }
 .product.trados { --c: var(--trados); }
 .product.memoq  { --c: var(--memoq);  }
@@ -96,7 +96,7 @@ section.band > .wrap > p { max-width: var(--measure); color: var(--ink-soft); ma
 
 /* ---- feature list on a product page ------------------------------------ */
 .features { display: grid; gap: 2.5rem 3rem; margin-top: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); }
+            grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); }
 .feature h3 { font-size: 1.12rem; margin: 0 0 .4rem; letter-spacing: -.01em; }
 .feature p  { margin: 0 0 .6rem; color: var(--ink-soft); font-size: .99rem; }
 .feature ul { margin: 0; padding-left: 1.1rem; }
@@ -105,7 +105,7 @@ section.band > .wrap > p { max-width: var(--measure); color: var(--ink-soft); ma
 
 /* ---- steps ------------------------------------------------------------- */
 .steps { display: grid; gap: 2rem; margin-top: 1.5rem;
-         grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); counter-reset: step; }
+         grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); counter-reset: step; }
 .step h3 { font-size: 1.05rem; margin: 0 0 .3rem; }
 .step h3::before { counter-increment: step; content: counter(step) ". "; color: var(--accent, var(--ink-faint)); }
 .step p { margin: 0; color: var(--ink-soft); font-size: .97rem; }
@@ -118,7 +118,7 @@ section.band > .wrap > p { max-width: var(--measure); color: var(--ink-soft); ma
 /* ---- media ------------------------------------------------------------- */
 .shot { border: 1px solid var(--rule); border-radius: 4px; display: block; }
 .shot-grid { display: grid; gap: 1.75rem; margin-top: 1.5rem;
-             grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr)); }
+             grid-template-columns: repeat(auto-fit, minmax(min(21rem, 100%), 1fr)); }
 .shot-grid figure { margin: 0; }
 .shot-grid figcaption { font-size: .93rem; color: var(--ink-faint); margin-top: .5rem; }
 .video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
@@ -134,8 +134,41 @@ footer a { color: var(--ink-soft); }
 .draft-banner { background: #fef3c7; border-bottom: 1px solid #f2c14e; padding: .55rem 0;
                 font-size: .85rem; color: #7a5b12; text-align: center; }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
     body { font-size: 17.5px; }
-    .hero { padding: 3rem 0 2rem; }
-    nav { gap: 1rem; }
+    .wrap { padding: 0 1.15rem; }
+    .hero { padding: 2.5rem 0 1.5rem; }
+
+    /* The header stacks: brand on its own line, then the links wrapping under
+       it. A row of eight links squeezed beside the wordmark is unreadable on a
+       phone, and a hamburger would be a script and a state for five links. */
+    header .wrap { flex-direction: column; align-items: flex-start; gap: .85rem; }
+    nav { margin-left: 0; gap: .35rem 1.1rem; }
+    nav a { font-size: .95rem; }
+
+    h1 { max-width: none; }
+    .standfirst { font-size: 1.1rem; }
+
+    .products { gap: 2.5rem; padding: 2.25rem 0; }
+    section.band { padding: 2.5rem 0; }
+    .features { gap: 2rem; }
+
+    /* Full-width tap targets: a 44px-high button is the accessibility floor,
+       and side-by-side buttons on a phone are two half-width targets. */
+    .go, .go-quiet { display: block; text-align: center; margin-bottom: .6rem; }
+
+    .foot-grid { gap: 1.75rem; }
 }
+
+/* ---- footer, with the navigation the old dark footer carried ------------ */
+.foot-grid { display: grid; gap: 2rem 2.5rem; padding-bottom: 2rem;
+             grid-template-columns: minmax(min(16rem, 100%), 1.4fr) repeat(auto-fit, minmax(min(9rem, 100%), 1fr)); }
+.foot-brand .brand { margin-bottom: .6rem; }
+.foot-brand p { margin: 0 0 .4rem; color: var(--ink-faint); font-size: .93rem; max-width: 26rem; }
+.foot-col h3 { font-size: .95rem; margin: 0 0 .6rem; color: var(--ink); letter-spacing: -.005em; }
+.foot-col ul { list-style: none; margin: 0; padding: 0; }
+.foot-col li { margin-bottom: .38rem; }
+.foot-col a { color: var(--ink-faint); text-decoration: none; font-size: .93rem; }
+.foot-col a:hover { color: var(--ink); text-decoration: underline; }
+.foot-bottom { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+.foot-bottom p { margin: 0 0 .35rem; }
