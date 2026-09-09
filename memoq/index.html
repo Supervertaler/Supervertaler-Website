@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supervertaler for memoQ — AI translation inside memoQ</title>
+<meta name="description" content="A memoQ plugin: AI translation that learns from the segments you confirm, your glossary in memoQ's terminology pane and in the prompt, and context no CAT tool normally shows the AI — list numbering and what the figures show.">
+<link rel="icon" href="../favicon.ico">
+<link rel="stylesheet" href="../mono.css">
+<style>:root { --accent: var(--memoq); }</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="../sv-icon-memoq.svg" width="30" height="30" alt=""> Supervertaler</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/trados/">for Trados</a>
+      <a href="/memoq/" class="here">for memoQ</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://docs.supervertaler.com/memoq/">Docs</a>
+      <a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Supervertaler <span class="host">for memoQ</span></h1>
+    <p class="standfirst">
+      An AI translation engine that learns from the segments you confirm, a terminology provider that
+      puts your glossary into memoQ's own pane <em>and</em> into the AI's prompt, and a companion
+      window for everything memoQ gives a plugin no room for.
+    </p>
+    <p class="note">
+      <strong>Coming soon.</strong> Supervertaler for memoQ is in testing against memoQ 12.
+      It is covered by the same licence as Supervertaler for Trados — one subscription, both plugins.
+      <a href="https://github.com/orgs/Supervertaler/discussions">Follow along in Discussions</a>
+      to hear when it is released.
+    </p>
+  </div>
+</section>
+
+<section class="band" id="features">
+  <div class="wrap">
+    <h2>What it does</h2>
+
+    <div class="features">
+
+      <div class="feature">
+        <h3>AI translation</h3>
+        <p>Anthropic, OpenAI or Google, with your own API key and your own instructions.</p>
+        <ul>
+          <li>Segment by segment as you move through the grid, or batched through Pre-translate</li>
+          <li>Inline tags survive the round trip through memoQ's own serialiser</li>
+          <li>Identical requests are answered from a cache, without a second call</li>
+          <li>Prompt caching: on a measured 370-segment run it turned roughly €10 into roughly €4</li>
+        </ul>
+      </div>
+
+      <div class="feature">
+        <h3>It learns from what you confirm</h3>
+        <p>Every segment you confirm is captured, and the most relevant ones are shown to the model when it translates later segments of the same document.</p>
+        <ul>
+          <li>Confirm <em>electric module</em> once and the rest of the document follows</li>
+          <li>No configuration, no retraining — your own approved choices, fed forward</li>
+          <li>Persisted to disk, so it survives closing memoQ</li>
+        </ul>
+      </div>
+
+      <div class="feature">
+        <h3>Terminology, in both places</h3>
+        <p>A tab-separated glossary appears as a memoQ terminology provider, and the same terms reach the model.</p>
+        <ul>
+          <li>Matched terms highlighted in the source, entries in Translation results</li>
+          <li>Forbidden terms are enforced rather than merely displayed</li>
+          <li>A glossary facing the wrong language pair is reported, not silently ignored</li>
+        </ul>
+      </div>
+
+      <div class="feature">
+        <h3>FigureLens</h3>
+        <p>The AI reads your text and cannot see your pictures. FigureLens closes that gap.</p>
+        <ul>
+          <li>Images out of the documents, described by the AI, saved where every prompt reads them</li>
+          <li>Vector drawings — what a CAD figure usually is — are rasterised on the way out</li>
+          <li>Reference signs visible in a drawing but absent from the text are listed for you</li>
+        </ul>
+      </div>
+
+      <div class="feature">
+        <h3>List numbering the grid never shows</h3>
+        <p>Word generates the a), b), c) on the steps of a claim, so no CAT grid contains them — and neither did anything the AI received.</p>
+        <ul>
+          <li>Read from the original document, counted exactly as Word renders it</li>
+          <li>Sent as structure the model may use and must never reproduce</li>
+          <li>Any marker echoed back is stripped before it reaches your target</li>
+        </ul>
+      </div>
+
+      <div class="feature">
+        <h3>Translate with Claude Desktop</h3>
+        <p>An MCP server lets Claude — or any local MCP client — read the document you are translating and stage translations into the grid.</p>
+        <ul>
+          <li>Tokens go on your Claude subscription rather than an API key</li>
+          <li>Every write into the document still goes through your own hands</li>
+          <li>Your confirmed segments, glossary and memory banks are readable to it</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="band wash">
+  <div class="wrap">
+    <h2>Context layers</h2>
+    <p>
+      An engine that sees only the current sentence translates that sentence well and the document
+      badly. Every request assembles a fresh snapshot of your work — the segments you confirmed,
+      your glossary, what you have recorded about the client, the numbering, the figures — and hands
+      the whole thing to the AI.
+    </p>
+    <p>
+      <a href="https://docs.supervertaler.com/memoq/context-layers/">The layers, and where each one comes from</a>
+    </p>
+  </div>
+</section>
+
+<section class="band" id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <p class="price">€20 <small>a month, or €200 a year</small></p>
+    <p class="price-note">One licence covers Supervertaler for Trados <em>and</em> Supervertaler for memoQ.</p>
+    <p>
+      Use either, or both — there is no second subscription for working in a second tool. If you
+      already subscribe for Trados, memoQ is included at no extra cost when it is released.
+    </p>
+    <p>
+      <strong>Pricing should never be a barrier.</strong> If these rates are a stretch — whether you
+      are just starting out, based in a lower-income region, or going through a tough time — a
+      reduced rate is available. Just
+      <a href="https://beijer.uk/contact/">get in touch</a> and we will work something out.
+    </p>
+  </div>
+</section>
+
+<section class="band wash">
+  <div class="wrap">
+    <h2>Requirements</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>memoQ 12</h3>
+        <p>Installed as an add-in. Installation needs administrator rights, because memoQ keeps its add-ins under Program Files.</p>
+      </div>
+      <div class="step">
+        <h3>An API key, or Claude Desktop</h3>
+        <p>Anthropic, OpenAI or Google for direct translation; or drive it from Claude Desktop on your existing subscription.</p>
+      </div>
+      <div class="step">
+        <h3>A Supervertaler licence</h3>
+        <p>The same one that covers Trados. Nothing extra to buy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <a href="/">Supervertaler</a> ·
+      <a href="/trados/">for Trados</a> ·
+      <a href="https://docs.supervertaler.com/memoq/">Documentation</a> ·
+      <a href="https://github.com/Supervertaler/Supervertaler-for-memoQ">GitHub</a> ·
+      <a href="https://beijer.uk/contact/">Contact</a>
+    </p>
+    <p>Built by <a href="https://beijer.uk/">Michael Beijer</a>, a Dutch–English technical translator in Hastings.</p>
+  </div>
+</footer>
+
+</body>
+</html>
