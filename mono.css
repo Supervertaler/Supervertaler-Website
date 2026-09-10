@@ -20,6 +20,11 @@
 
     --trados: #2f6fdb;   /* the Sv mark's blue */
     --memoq:  #f05137;   /* memoQ's own vermillion, sampled from its icon */
+    /* Text tints. The brand colours above are for marks and rules, where a
+       filled shape is not held to a text contrast ratio. As words on white,
+       #f05137 is only 3.5:1 and fails AA at body size; this is 5.1:1 and
+       reads as the same colour. Trados blue passes as it is, at 4.6:1. */
+    --memoq-text: #c93a25;
 
     --measure: 46rem;    /* comfortable reading width for body text */
     --page:    62rem;
@@ -51,6 +56,12 @@ nav { margin-left: auto; display: flex; gap: 1.5rem; flex-wrap: wrap; }
 nav a { text-decoration: none; color: var(--ink-soft); font-size: 1rem; }
 nav a:hover { color: var(--ink); text-decoration: underline; }
 nav a.here { color: var(--ink); font-weight: 600; }
+
+/* The two product links carry their product's colour - the only colour above
+   the fold, and the reader's first meeting with the code the cards use. The
+   hover rules repeat it, or hovering would turn the link black. */
+nav a[href="/trados/"], nav a[href="/trados/"]:hover { color: var(--trados); }
+nav a[href="/memoq/"],  nav a[href="/memoq/"]:hover  { color: var(--memoq-text); }
 
 /* ---- hero -------------------------------------------------------------- */
 .hero { padding: 4.5rem 0 3rem; }
