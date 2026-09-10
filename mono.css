@@ -57,11 +57,31 @@ nav a { text-decoration: none; color: var(--ink-soft); font-size: 1rem; }
 nav a:hover { color: var(--ink); text-decoration: underline; }
 nav a.here { color: var(--ink); font-weight: 600; }
 
-/* The two product links carry their product's colour - the only colour above
-   the fold, and the reader's first meeting with the code the cards use. The
-   hover rules repeat it, or hovering would turn the link black. */
-nav a[href="/trados/"], nav a[href="/trados/"]:hover { color: var(--trados); }
-nav a[href="/memoq/"],  nav a[href="/memoq/"]:hover  { color: var(--memoq-text); }
+/* The two product links carry a swatch in their product's colour rather than
+   coloured text. Three reasons, in order of weight:
+
+   Coloured link text reads as STATE first - visited, or current page - and
+   this nav already says "you are here" with colour on text (nav a.here), so
+   colouring two items the same way blunted the only signal that does that job.
+
+   A swatch is not text. Text at this size needs 4.5:1, which the vermillion
+   misses (3.5:1), so the words had to use a darkened tint and the nav red was
+   then NOT the card red - a legend with the wrong key. A filled shape is held
+   to 3:1, so these carry the true brand colours and match the cards exactly.
+
+   And colour alone is no distinction in print or to a colour-blind reader;
+   the dot and the gap group the two products whichever way it is read. */
+nav a[href="/trados/"]::before,
+nav a[href="/memoq/"]::before {
+    content: ""; display: inline-block; width: .5rem; height: .5rem;
+    border-radius: 50%; margin-right: .45rem; vertical-align: .06em;
+}
+nav a[href="/trados/"]::before { background: var(--trados); }
+nav a[href="/memoq/"]::before  { background: var(--memoq);  }
+
+/* The two products are a different kind of item from How it works / Pricing /
+   Docs / Discussions, so the pair is set slightly apart from them. */
+nav a[href="/memoq/"] { margin-right: .6rem; }
 
 /* ---- hero -------------------------------------------------------------- */
 .hero { padding: 4.5rem 0 3rem; }
