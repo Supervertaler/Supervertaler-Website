@@ -226,45 +226,6 @@ footer a { color: var(--ink-soft); }
    hours, so without the query a style change reaches visitors long after the
    markup that depends on it. Bump N in all three pages when this file changes. */
 
-/* ---- grounds to try ----------------------------------------------------
-   Set by theme-preview.js, which only runs when the URL carries ?themes.
-   Delete this block and that script together when the question is settled.
-
-   Cream is #F0EEE6. Its rule and wash are warmed rather than left grey: a
-   neutral #e3e3e3 hairline on a warm ground reads as dirt rather than as a
-   line. Ink is unchanged - it is 17:1 on this ground, against 19:1 on white.
-
-   Dark is not an inversion of the above. The brand colours have to be lifted
-   or they go muddy: #2f6fdb is 3.1:1 on #121212 and fails, #5b93f0 is 6.2:1.
-   The vermillion needs no darkened text tint here - on a dark ground the
-   undarkened colour is the readable one, so both tokens are the same. */
-:root[data-theme="cream"] {
-    --paper:     #f0eee6;
-    --wash:      #e9e6dc;
-    --rule:      #dbd7c9;
-    --ink:       #14130f;
-    --ink-soft:  #33312a;
-    --ink-faint: #6d6a5e;
-}
-
-:root[data-theme="dark"] {
-    --paper:     #121212;
-    --wash:      #1a1a1a;
-    --rule:      #2f2f2f;
-    --ink:       #ededed;
-    --ink-soft:  #c6c6c6;
-    --ink-faint: #999999;
-    --trados:      #5b93f0;
-    --memoq:       #ff7a5e;
-    --memoq-text:  #ff7a5e;
-}
-
-/* The screenshots are pictures of white application windows, so on a dark
-   ground they sit in the page as lit rectangles. Taking the edge off the
-   border stops them looking like holes cut in the page. */
-:root[data-theme="dark"] .shot,
-:root[data-theme="dark"] .hero-shot img { border-color: #3a3a3a; }
-
 /* ---- back to top ------------------------------------------------------- */
 .to-top {
     position: fixed; right: 1.25rem; bottom: 1.25rem;
