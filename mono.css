@@ -98,8 +98,9 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
              gap: 3.5rem; align-items: start; }
 .hero-aside { position: relative; border: 1px solid var(--rule); background: var(--wash);
               border-radius: 6px; padding: 1.2rem 1.2rem 1.1rem; margin-top: .6rem; }
-.hero-aside img { display: block; border-radius: 50%; margin-bottom: .8rem; }
-.hero-aside h2 { font-size: 1.05rem; margin: 0 0 .45rem; letter-spacing: -.01em; }
+/* No mark here: the wordmark sits 150px above, and repeating it only pushed
+   the title down. The Free tag sits on the title line instead. */
+.hero-aside h2 { font-size: 1.05rem; margin: 0 4rem .45rem 0; letter-spacing: -.01em; }
 .hero-aside p { font-size: .95rem; color: var(--ink-soft); margin: 0 0 .7rem; line-height: 1.45; }
 .hero-aside .features { font-size: .85rem; color: var(--ink-faint); }
 .hero-aside a { font-weight: 600; color: var(--ink); text-decoration: none; }
