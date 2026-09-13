@@ -95,7 +95,11 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
    it. The grid's first column is the text at its usual measure; the card
    takes what is left. */
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 15rem;
-             gap: 3.5rem; align-items: start; }
+             gap: 2.5rem 3.5rem; align-items: start; }
+/* The screenshot is a child of this grid rather than a sibling of it, purely so
+   that the phone layout can put it BEFORE the Sidekick card - order only reaches
+   siblings. Across both columns it is the width it always was. */
+.hero-grid .hero-shot { grid-column: 1 / -1; margin-top: 0; }
 .hero-aside { position: relative; border: 1px solid var(--rule); background: var(--wash);
               border-radius: 6px; padding: 1.2rem 1.2rem 1.1rem; margin-top: .6rem; }
 /* No mark here: the wordmark sits 150px above, and repeating it only pushed
@@ -112,6 +116,12 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
     .hero-aside { margin-top: 0; }
+
+    /* Stacked, the card for the free product would otherwise be the first
+       thing under the heading, ahead of either of the paid ones. Words,
+       then what the paid product looks like, then the free companion. */
+    .hero-grid .hero-shot { order: 1; }
+    .hero-aside { order: 2; }
 }
 h1 { font-size: clamp(2.3rem, 5.4vw, 3.5rem); line-height: 1.08;
      letter-spacing: -.025em; margin: 0 0 1.2rem; max-width: 22ch; font-weight: 700; }
