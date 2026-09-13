@@ -84,6 +84,21 @@ nav a[href="/memoq/"]::before  { background: var(--memoq);  }
    Docs / Discussions, so the pair is set slightly apart from them. */
 nav a[href="/memoq/"] { margin-right: .6rem; }
 
+/* Sidekick is the third product and the free one, so it gets a badge rather
+   than a third swatched link: black, the Sv mark's own colourway, set at the
+   end of the nav where the eye lands last. The title attribute carries the
+   feature list; the badge itself stays two words. */
+nav a.sidekick-badge {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: var(--ink); color: var(--paper);
+    padding: .22rem .75rem .22rem .55rem; border-radius: 999px;
+    font-size: .92rem; font-weight: 600; line-height: 1.4;
+    margin-left: .4rem;
+}
+nav a.sidekick-badge img { border-radius: 50%; }
+nav a.sidekick-badge span { font-weight: 400; opacity: .8; }
+nav a.sidekick-badge:hover { color: var(--paper); background: #2b2b2b; text-decoration: none; }
+
 /* ---- hero -------------------------------------------------------------- */
 .hero { padding: 4.5rem 0 3rem; }
 h1 { font-size: clamp(2.3rem, 5.4vw, 3.5rem); line-height: 1.08;
@@ -194,6 +209,7 @@ footer a { color: var(--ink-soft); }
           flex-direction: column; gap: 0; padding-bottom: .4rem; }
     nav.open { display: flex; }
     nav a { font-size: 1rem; padding: .55rem 0; border-top: 1px solid var(--rule); }
+    nav a.sidekick-badge { align-self: flex-start; margin: .6rem 0 .2rem; padding: .22rem .75rem .22rem .55rem; border-top: 0; }
 
     h1 { max-width: none; }
     .standfirst { font-size: 1.1rem; }
