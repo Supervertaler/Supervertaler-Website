@@ -73,37 +73,45 @@ nav a.here { color: var(--ink); font-weight: 600; }
    And colour alone is no distinction in print or to a colour-blind reader;
    the dot and the gap group the two products whichever way it is read. */
 nav a[href="/trados/"]::before,
-nav a[href="/memoq/"]::before {
+nav a[href="/memoq/"]::before,
+nav a[href*="/sidekick/"]::before {
     content: ""; display: inline-block; width: .5rem; height: .5rem;
     border-radius: 50%; margin-right: .45rem; vertical-align: .06em;
 }
 nav a[href="/trados/"]::before { background: var(--trados); }
 nav a[href="/memoq/"]::before  { background: var(--memoq);  }
+nav a[href*="/sidekick/"]::before { background: var(--ink); }
 
-/* The two products are a different kind of item from How it works / Pricing /
-   Docs / Discussions, so the pair is set slightly apart from them. */
-nav a[href="/memoq/"] { margin-right: .6rem; }
-
-/* Sidekick is the third product and the free one, so it gets a badge rather
-   than a third swatched link: black, the Sv mark's own colourway, set at the
-   end of the nav where the eye lands last. The title attribute carries the
-   feature list; the badge itself stays two words. */
-nav a.sidekick-badge {
-    display: inline-flex; align-items: center; gap: .4rem;
-    background: var(--paper); color: var(--ink);
-    border: 1.5px solid var(--ink);
-    padding: .18rem .7rem .18rem .45rem; border-radius: 999px;
-    font-size: .92rem; font-weight: 600; line-height: 1.4;
-    margin-left: .4rem;
-}
-/* Outlined, not filled: the Sv mark is a black disc, and on a black pill it
-   sank without trace. On paper it reads as the same mark as the wordmark. */
-nav a.sidekick-badge img { border-radius: 50%; }
-nav a.sidekick-badge span { font-weight: 400; color: var(--ink-faint); }
-nav a.sidekick-badge:hover { color: var(--ink); background: var(--wash); text-decoration: none; }
+/* The products are a different kind of item from How it works / Pricing /
+   Docs / Discussions, so the group is set slightly apart from them. */
+nav a[href*="/sidekick/"] { margin-right: .6rem; }
 
 /* ---- hero -------------------------------------------------------------- */
 .hero { padding: 4.5rem 0 3rem; }
+
+/* The headline is capped at 22ch and the paragraphs at the measure, which
+   left the right third of the hero empty on a desktop. That third is where
+   the free product goes: a card beside the paid pitch, not a sticker over
+   it. The grid's first column is the text at its usual measure; the card
+   takes what is left. */
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 15rem;
+             gap: 3.5rem; align-items: start; }
+.hero-aside { position: relative; border: 1px solid var(--rule); background: var(--wash);
+              border-radius: 6px; padding: 1.2rem 1.2rem 1.1rem; margin-top: .6rem; }
+.hero-aside img { display: block; border-radius: 50%; margin-bottom: .8rem; }
+.hero-aside h2 { font-size: 1.05rem; margin: 0 0 .45rem; letter-spacing: -.01em; }
+.hero-aside p { font-size: .95rem; color: var(--ink-soft); margin: 0 0 .7rem; line-height: 1.45; }
+.hero-aside .features { font-size: .85rem; color: var(--ink-faint); }
+.hero-aside a { font-weight: 600; color: var(--ink); text-decoration: none; }
+.hero-aside a:hover { text-decoration: underline; }
+.hero-aside .tag { position: absolute; top: 1rem; right: 1rem;
+                   font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+                   text-transform: uppercase; color: var(--paper); background: var(--ink);
+                   padding: .15rem .5rem; border-radius: 999px; }
+@media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-aside { margin-top: 0; }
+}
 h1 { font-size: clamp(2.3rem, 5.4vw, 3.5rem); line-height: 1.08;
      letter-spacing: -.025em; margin: 0 0 1.2rem; max-width: 22ch; font-weight: 700; }
 h1 .host { color: var(--accent, var(--ink)); }
@@ -212,7 +220,6 @@ footer a { color: var(--ink-soft); }
           flex-direction: column; gap: 0; padding-bottom: .4rem; }
     nav.open { display: flex; }
     nav a { font-size: 1rem; padding: .55rem 0; border-top: 1px solid var(--rule); }
-    nav a.sidekick-badge { align-self: flex-start; margin: .6rem 0 .2rem; padding: .22rem .75rem .22rem .55rem; border-top: 0; }
 
     h1 { max-width: none; }
     .standfirst { font-size: 1.1rem; }
