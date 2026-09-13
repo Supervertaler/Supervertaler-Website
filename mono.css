@@ -90,14 +90,17 @@ nav a[href="/memoq/"] { margin-right: .6rem; }
    feature list; the badge itself stays two words. */
 nav a.sidekick-badge {
     display: inline-flex; align-items: center; gap: .4rem;
-    background: var(--ink); color: var(--paper);
-    padding: .22rem .75rem .22rem .55rem; border-radius: 999px;
+    background: var(--paper); color: var(--ink);
+    border: 1.5px solid var(--ink);
+    padding: .18rem .7rem .18rem .45rem; border-radius: 999px;
     font-size: .92rem; font-weight: 600; line-height: 1.4;
     margin-left: .4rem;
 }
+/* Outlined, not filled: the Sv mark is a black disc, and on a black pill it
+   sank without trace. On paper it reads as the same mark as the wordmark. */
 nav a.sidekick-badge img { border-radius: 50%; }
-nav a.sidekick-badge span { font-weight: 400; opacity: .8; }
-nav a.sidekick-badge:hover { color: var(--paper); background: #2b2b2b; text-decoration: none; }
+nav a.sidekick-badge span { font-weight: 400; color: var(--ink-faint); }
+nav a.sidekick-badge:hover { color: var(--ink); background: var(--wash); text-decoration: none; }
 
 /* ---- hero -------------------------------------------------------------- */
 .hero { padding: 4.5rem 0 3rem; }
