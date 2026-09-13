@@ -100,12 +100,12 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
               border-radius: 6px; padding: 1.2rem 1.2rem 1.1rem; margin-top: .6rem; }
 /* No mark here: the wordmark sits 150px above, and repeating it only pushed
    the title down. The Free tag sits on the title line instead. */
-.hero-aside h2 { font-size: 1.05rem; margin: 0 4rem .45rem 0; letter-spacing: -.01em; }
+.hero-aside h2 { font-size: 1.05rem; margin: 0 0 .45rem; letter-spacing: -.01em; }
 .hero-aside p { font-size: .95rem; color: var(--ink-soft); margin: 0 0 .7rem; line-height: 1.45; }
 .hero-aside .features { font-size: .85rem; color: var(--ink-faint); }
 .hero-aside a { font-weight: 600; color: var(--ink); text-decoration: none; }
 .hero-aside a:hover { text-decoration: underline; }
-.hero-aside .tag { position: absolute; top: 1rem; right: 1rem;
+.hero-aside .tag { display: inline-block; margin-bottom: .7rem;
                    font-size: .72rem; font-weight: 700; letter-spacing: .06em;
                    text-transform: uppercase; color: var(--paper); background: var(--ink);
                    padding: .15rem .5rem; border-radius: 999px; }
