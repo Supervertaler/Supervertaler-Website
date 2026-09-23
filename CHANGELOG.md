@@ -36,6 +36,13 @@ this heading on the day it is merged.
 - **The home page's memoQ card** offers the trial instead of "Coming soon".
 - `llms.txt` describes the memoQ plugin as available, and links the pricing page and
   the download.
+- **The privacy policy covers the memoQ plugin**, in a section of its own: what an AI
+  translation request carries, the two editor actions that send more and only on a
+  click, AI assistants reading over a connection only the user's own computer can
+  reach, the licence check, what it never sends (no update checks, no usage
+  statistics) and what it keeps locally.
+- **Link underlines are unbroken.** Browsers skip the underline under a descender,
+  so "Pricing" was underlined everywhere except under the g.
 
 ## 2026-09-13
 

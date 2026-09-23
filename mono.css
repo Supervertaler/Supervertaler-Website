@@ -44,7 +44,10 @@ body {
 }
 
 .wrap { max-width: var(--page); margin: 0 auto; padding: 0 1.5rem; }
-a { color: var(--ink); text-underline-offset: 3px; }
+/* Unbroken underlines. Browsers skip the underline where a letter's tail
+   crosses it (skip-ink), which left "Pricing" underlined everywhere but under
+   the g - read as a rendering fault rather than as typography. */
+a { color: var(--ink); text-underline-offset: 3px; text-decoration-skip-ink: none; }
 img { max-width: 100%; height: auto; }
 
 /* ---- header ------------------------------------------------------------ */

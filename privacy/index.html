@@ -75,7 +75,7 @@
 
     <div class="privacy-content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: 19 March 2026</p>
+        <p class="last-updated">Last updated: 23 September 2026</p>
 
         <div class="highlight-box">
             <p><strong>The short version:</strong> Supervertaler does not collect, store, or transmit your data to
@@ -84,8 +84,10 @@
                 using your own API key. We never see it.</p>
         </div>
 
-        <p>This policy covers both <strong>Supervertaler Workbench</strong> (the desktop application) and
-            <strong>Supervertaler for Trados</strong> (the Trados Studio plugin). We know that as a professional
+        <p>This policy covers <strong>Supervertaler Workbench</strong> (the desktop application),
+            <strong>Supervertaler for Trados</strong> (the Trados Studio plugin) and
+            <strong>Supervertaler for memoQ</strong> (the memoQ plugin, covered in
+            <a href="#memoq">section 7</a>). We know that as a professional
             translator you often work with confidential client material, and we have designed our software with that
             in mind.</p>
 
@@ -194,7 +196,7 @@
             (<code>Supervertaler-Trados-UpdateCheck/1.0</code>) &mdash; no personal information, usage data, or
             system details are sent. You can skip suggested updates or dismiss them.</p>
 
-        <h2>5. License validation</h2>
+        <h2 id="licence">5. License validation</h2>
 
         <p>If you have a paid subscription, your license is validated through Lemon Squeezy
             (<code>api.lemonsqueezy.com</code>). The only data sent is:</p>
@@ -250,7 +252,76 @@
         <p>You can change your choice at any time in Settings. If the ping fails (no internet, firewall, etc.),
             nothing happens &mdash; no retries, no queuing, no error messages.</p>
 
-        <h2>7. What we do NOT do</h2>
+        <h2 id="memoq">7. Supervertaler for memoQ</h2>
+
+        <p>The memoQ plugin follows the same principles: no Supervertaler servers, your own API key, and
+            nothing sent anywhere except the connections listed here.</p>
+
+        <h3>AI translation</h3>
+
+        <p>memoQ asks Supervertaler for a translation when you move to a segment, and when you run
+            Pre-translate with Supervertaler as the machine translation engine. Each request goes to the
+            AI provider you configured (Anthropic, OpenAI or Google, or the endpoint you entered) using
+            your own API key, and may include:</p>
+
+        <ul>
+            <li>The segments being translated</li>
+            <li>Segments you have already confirmed in the same document, as examples to follow</li>
+            <li>The best fuzzy match from your translation memory, if you have set memoQ to forward it to
+                Supervertaler</li>
+            <li>Terms from your glossary and termbases that occur in the segment</li>
+            <li>The prompt you selected, the memory bank for the client, and memoQ's project details
+                (client, domain and subject)</li>
+            <li>List numbering read from the original document, and the figure descriptions saved for the
+                project</li>
+        </ul>
+
+        <p>Two actions in the companion editor send more, and only when you click them:
+            <strong>AutoPrompt</strong> sends the source text Supervertaler has seen, with your confirmed
+            segments and glossary, so the AI can draft a prompt; and <strong>Describe images with
+            AI</strong> sends the document's images so the AI can describe them. The settings also ask your
+            provider, with your API key, for the list of models it offers.</p>
+
+        <h3>AI assistants (Claude Desktop, ChatGPT desktop)</h3>
+
+        <p>The plugin runs a small server that only programs on your own computer can reach. If you
+            connect an AI assistant to it, the assistant can read the open document, your confirmed
+            segments, glossary, prompts and memory banks, and what it reads is sent to that assistant's
+            provider under your own account with them &ndash; Anthropic for Claude, OpenAI for ChatGPT.
+            Nothing is shared this way unless you connect an assistant and ask it to do something. The live
+            document link, which tells the assistant where you are in memoQ, also talks only to memoQ on
+            your own computer.</p>
+
+        <p>Setting up ChatGPT desktop from the editor downloads the connector program from Supervertaler's
+            releases on GitHub (<code>api.github.com</code> and <code>github.com</code>). That request
+            carries only a generic user-agent (<code>Supervertaler-for-memoQ</code>).</p>
+
+        <h3>Licence</h3>
+
+        <p>The memoQ plugin uses the same Supervertaler licence as the Trados plugin, validated through
+            Lemon Squeezy as described in <a href="#licence">section 5</a>: your licence key and the same
+            anonymous machine identifier, nothing else.</p>
+
+        <h3>What the memoQ plugin does not send</h3>
+
+        <ul>
+            <li>No update checks</li>
+            <li>No usage statistics, opt-in or otherwise</li>
+            <li>No translation content to anyone except the AI provider or assistant you chose</li>
+        </ul>
+
+        <h3>What it keeps on your computer</h3>
+
+        <p>To learn from your work, the plugin keeps the source segments it has seen, the segments you
+            confirmed and the translations it has already produced, together with its settings and a log.
+            They are stored in your Supervertaler data folder and in
+            <code>C:\Users\&lt;you&gt;\AppData\Local\Supervertaler.memoQ\</code>, and are never
+            transmitted. The log names the projects and files you open, so check it before sending it to
+            anyone. <strong>Forget stored context</strong> in the plugin's options removes what it has
+            learned. API keys are stored locally; if you also use Supervertaler for Trados, the memoQ plugin
+            can use the keys you saved there, so you only have to change a key once.</p>
+
+        <h2>8. What we do NOT do</h2>
 
         <ul>
             <li>We do <strong>not</strong> collect data without your explicit consent</li>
@@ -260,9 +331,9 @@
             <li>We do <strong>not</strong> have access to your translations, termbases, or documents</li>
         </ul>
 
-        <h2>8. Open source transparency</h2>
+        <h2>9. Open source transparency</h2>
 
-        <p>Both Supervertaler products have their source code publicly available on GitHub. You can verify every
+        <p>All Supervertaler products have their source code publicly available on GitHub. You can verify every
             network call the software makes by inspecting the code yourself:</p>
 
         <ul>
@@ -270,9 +341,11 @@
                     rel="noopener">Supervertaler Workbench source code</a></li>
             <li><a href="https://github.com/Supervertaler/Supervertaler-for-Trados" target="_blank"
                     rel="noopener">Supervertaler for Trados source code</a></li>
+            <li><a href="https://github.com/Supervertaler/Supervertaler-for-memoQ" target="_blank"
+                    rel="noopener">Supervertaler for memoQ source code</a></li>
         </ul>
 
-        <h2>9. Your responsibilities</h2>
+        <h2>10. Your responsibilities</h2>
 
         <p>When you use AI features with cloud-based providers (OpenAI, Anthropic, Google), the text you send is
             processed by those providers under their own privacy policies. If you are bound by NDAs or
@@ -286,12 +359,12 @@
             <li>Consult with your client if in doubt about whether AI-assisted translation is permitted</li>
         </ul>
 
-        <h2>10. Contact</h2>
+        <h2>11. Contact</h2>
 
         <p>If you have questions about this privacy policy or how Supervertaler handles your data, please contact
             us at <a href="mailto:support@supervertaler.com">support@supervertaler.com</a>.</p>
 
-        <h2>11. Changes to this policy</h2>
+        <h2>12. Changes to this policy</h2>
 
         <p>We will update this page if our data practices change. The date at the top of this page indicates when
             the policy was last revised.</p>
