@@ -96,13 +96,13 @@
         <p>The following data is created and stored locally on your computer only. It is never transmitted anywhere:</p>
 
         <ul>
-            <li><strong>Translation files</strong> &mdash; your SDLXLIFF, DOCX, and other documents remain entirely
+            <li><strong>Translation files</strong> &ndash; your SDLXLIFF, DOCX, and other documents remain entirely
                 on your local file system</li>
-            <li><strong>Termbases</strong> &mdash; your Supervertaler glossary databases (<code>.db</code> files) and
+            <li><strong>Termbases</strong> &ndash; your Supervertaler glossary databases (<code>.db</code> files) and
                 MultiTerm termbases (<code>.sdltb</code> files)</li>
-            <li><strong>Translation memories</strong> &mdash; all TM data stays local</li>
-            <li><strong>Settings and preferences</strong> &mdash; stored in your local AppData folder</li>
-            <li><strong>Chat history</strong> &mdash; AI Assistant conversations are held in memory only during your
+            <li><strong>Translation memories</strong> &ndash; all TM data stays local</li>
+            <li><strong>Settings and preferences</strong> &ndash; stored in your local AppData folder</li>
+            <li><strong>Chat history</strong> &ndash; AI Assistant conversations are held in memory only during your
                 session and are never written to disk</li>
         </ul>
 
@@ -110,7 +110,7 @@
 
         <p>When you use the AI Assistant, Batch Translate, or single-segment AI translation, data is sent to the AI
             provider <strong>you have chosen and configured</strong>. This only happens when you explicitly trigger
-            an AI action &mdash; never in the background.</p>
+            an AI action &ndash; never in the background.</p>
 
         <h3>What is sent</h3>
 
@@ -176,7 +176,7 @@
         <h3>What is NOT sent to AI providers</h3>
 
         <ul>
-            <li>Your full documents &mdash; only the segments relevant to your current request</li>
+            <li>Your full documents &ndash; only the segments relevant to your current request</li>
             <li>Your API keys for other providers</li>
             <li>Your license key or account information</li>
             <li>Any data from other projects or files not currently open</li>
@@ -193,7 +193,7 @@
 
         <p>Supervertaler for Trados checks for new versions via the GitHub API
             (<code>api.github.com</code>) on startup. This request contains only a generic user-agent string
-            (<code>Supervertaler-Trados-UpdateCheck/1.0</code>) &mdash; no personal information, usage data, or
+            (<code>Supervertaler-Trados-UpdateCheck/1.0</code>) &ndash; no personal information, usage data, or
             system details are sent. You can skip suggested updates or dismiss them.</p>
 
         <h2 id="licence">5. License validation</h2>
@@ -203,7 +203,7 @@
 
         <ul>
             <li>Your license key</li>
-            <li>An anonymous machine identifier (a one-way hash &mdash; it cannot be reversed to identify your
+            <li>An anonymous machine identifier (a one-way hash &ndash; it cannot be reversed to identify your
                 computer)</li>
         </ul>
 
@@ -216,7 +216,7 @@
             Supervertaler). The only data sent is:</p>
 
         <ul>
-            <li>The same anonymous machine identifier used for licence activation (a one-way hash &mdash;
+            <li>The same anonymous machine identifier used for licence activation (a one-way hash &ndash;
                 it cannot be reversed to identify your computer)</li>
             <li>Plugin version, Trados Studio version, and system locale</li>
             <li>The trial's locally recorded start date and status</li>
@@ -224,7 +224,7 @@
 
         <p>This gives the trial's start date one reliable, authoritative record, so the trial behaves
             consistently across reinstalls, data-folder moves, and clock changes. It is part of how the
-            trial functions &mdash; not analytics &mdash; so it is separate from the opt-in usage
+            trial functions &ndash; not analytics &ndash; so it is separate from the opt-in usage
             statistics described below. The country code is derived from the network connection by
             Cloudflare; no IP addresses are stored. Trial records are kept only while relevant to
             licensing and are purged after a period of inactivity. If the endpoint cannot be reached
@@ -244,13 +244,13 @@
             <li>System locale</li>
         </ul>
 
-        <p>The country code is derived from the network connection by Cloudflare (the hosting provider) &mdash;
+        <p>The country code is derived from the network connection by Cloudflare (the hosting provider) &ndash;
             no IP addresses are stored. No personal data, translation content, termbase information, or
             feature usage is ever collected. The data is sent to a first-party Cloudflare Worker endpoint
-            &mdash; no third-party trackers are involved.</p>
+            &ndash; no third-party trackers are involved.</p>
 
         <p>You can change your choice at any time in Settings. If the ping fails (no internet, firewall, etc.),
-            nothing happens &mdash; no retries, no queuing, no error messages.</p>
+            nothing happens &ndash; no retries, no queuing, no error messages.</p>
 
         <h2 id="memoq">7. Supervertaler for memoQ</h2>
 
