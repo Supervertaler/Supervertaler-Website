@@ -8,10 +8,11 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
-## Unreleased – memoQ launch
+## 2026-09-23
 
-Held on the `memoq-launch` branch until Supervertaler for memoQ is released. Date
-this heading on the day it is merged.
+Everything that makes the one licence clear went live now; everything that
+offers memoQ for download waits for its first release, in one commit ("Hold
+memoQ downloads until its first release") that is reverted on launch day.
 
 ### Added
 
@@ -29,13 +30,11 @@ this heading on the day it is merged.
 
 ### Changed
 
-- **The memoQ page sells it.** "Coming soon" is replaced by a Download free trial
-  button, the pricing section has Subscribe and trial buttons of its own, and a new
-  Installation section covers the installer and the two ticks inside memoQ.
+- **The memoQ page says Trados subscribers already have it**, and links to how the
+  licence works across both. The download button, trial buttons and an Installation
+  section are written and held back until the release.
 - **The Trados page's pricing says memoQ is included**, with a link to how.
-- **The home page's memoQ card** offers the trial instead of "Coming soon".
-- `llms.txt` describes the memoQ plugin as available, and links the pricing page and
-  the download.
+- `llms.txt` describes the memoQ plugin and links the pricing page.
 - **The privacy policy covers the memoQ plugin**, in a section of its own: what an AI
   translation request carries, the two editor actions that send more and only on a
   click, AI assistants reading over a connection only the user's own computer can
