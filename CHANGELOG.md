@@ -8,6 +8,35 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## Unreleased – memoQ launch
+
+Held on the `memoq-launch` branch until Supervertaler for memoQ is released. Date
+this heading on the day it is merged.
+
+### Added
+
+- **A pricing page, `/pricing/`, and the one place to buy.** Both product pages
+  said "one licence covers both" in a line under the price, but the only
+  Subscribe button was on the Trados page and nothing said what a Trados
+  subscriber had to do to use memoQ. The page answers that first: a Trados
+  subscriber already has memoQ, it picks up the licence by itself on a computer
+  where Trados is activated, and both plugins on one computer are one of the two
+  computers. Then where the key goes in each, and the questions that come up.
+  The home page's Pricing link and every footer's now go here.
+- **`/download/memoq/`**, a short, stable link to the memoQ installer, for the
+  same reason `/buy` and `/appstore` exist: everything links here, so the file
+  can move without breaking a link already sent.
+
+### Changed
+
+- **The memoQ page sells it.** "Coming soon" is replaced by a Download free trial
+  button, the pricing section has Subscribe and trial buttons of its own, and a new
+  Installation section covers the installer and the two ticks inside memoQ.
+- **The Trados page's pricing says memoQ is included**, with a link to how.
+- **The home page's memoQ card** offers the trial instead of "Coming soon".
+- `llms.txt` describes the memoQ plugin as available, and links the pricing page and
+  the download.
+
 ## 2026-09-13
 
 ### Added
