@@ -97,8 +97,8 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
    the free product goes: a card beside the paid pitch, not a sticker over
    it. The grid's first column is the text at its usual measure; the card
    takes what is left. */
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 15rem;
-             gap: 2.5rem 3.5rem; align-items: start; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 16rem;
+             gap: 2.5rem 2.5rem; align-items: start; }
 /* The screenshot is a child of this grid rather than a sibling of it, purely so
    that the phone layout can put it BEFORE the Sidekick card - order only reaches
    siblings. Across both columns it is the width it always was. */
@@ -116,9 +116,31 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
                    font-size: .72rem; font-weight: 700; letter-spacing: .06em;
                    text-transform: uppercase; color: var(--paper); background: var(--ink);
                    padding: .15rem .5rem; border-radius: 999px; }
+/* The right column: the two paid products in their own colours, then the free
+   one. Without them the home page, the only page wearing the black brand mark,
+   had no colour above the fold at all - the product colours carry it instead,
+   and they are doing a job: sending a visitor to one of the two plugins. */
+.hero-side { display: flex; flex-direction: column; gap: .9rem; margin-top: .6rem; }
+.hero-side .hero-aside { margin-top: .3rem; }
+.hero-product { display: block; text-decoration: none; color: var(--ink);
+                border: 1px solid var(--rule); border-top: 3px solid var(--c);
+                border-radius: 6px; padding: .95rem 1rem .9rem; background: var(--tint);
+                transition: border-color .15s, box-shadow .15s; }
+.hero-product:hover { border-color: var(--c); box-shadow: 0 2px 10px rgba(0, 0, 0, .06); }
+.hero-product.trados { --c: var(--trados); --t: var(--trados);     --tint: #f4f8fe; }
+.hero-product.memoq  { --c: var(--memoq);  --t: var(--memoq-text); --tint: #fef6f4; }
+.hero-product h2 { font-size: 1.02rem; margin: 0 0 .3rem; letter-spacing: -.01em; white-space: nowrap; }
+.hero-product h2 .mark { width: 26px; height: 26px; margin-right: .4rem; }
+.hero-product h2 .host { color: var(--t); }
+.hero-product p { font-size: .92rem; color: var(--ink-faint); margin: 0 0 .55rem; }
+.hero-product .go-on { font-size: .95rem; font-weight: 600; color: var(--t); }
+.hero-product:hover .go-on { text-decoration: underline; }
+.in-trados { color: var(--trados); font-weight: 600; }
+.in-memoq  { color: var(--memoq-text); font-weight: 600; }
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
     .hero-aside { margin-top: 0; }
+    .hero-side { order: 2; margin-top: 0; }
 
     /* Stacked, the card for the free product would otherwise be the first
        thing under the heading, ahead of either of the paid ones. Words,

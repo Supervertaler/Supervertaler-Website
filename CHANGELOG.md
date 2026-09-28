@@ -12,6 +12,13 @@ because reconstructing it after the fact would be guesswork.
 
 ### Changed
 
+- **The home page has the two products in their colours at the top.** Beside
+  the headline, above the Sidekick card, a blue card for Supervertaler for Trados
+  and a vermillion one for Supervertaler for memoQ, each linking to its page.
+  The licence line names both products in their colours too. The home page is
+  the one page that wears the black brand mark, and without these it had no
+  colour above the fold at all. The headline is unchanged.
+
 - **Each product page carries its own product's mark.** `/trados/` shows the
   blue Sv and `/memoq/` the vermillion one, in the header, the footer and the
   browser tab; every other page keeps the black brand mark. The tab icons come
