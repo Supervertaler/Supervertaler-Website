@@ -121,7 +121,12 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
    had no colour above the fold at all - the product colours carry it instead,
    and they are doing a job: sending a visitor to one of the two plugins. */
 .hero-side { display: flex; flex-direction: column; gap: .9rem; margin-top: .6rem; }
-.hero-side .hero-aside { margin-top: .3rem; }
+.hero-side .hero-aside { margin-top: 0; }
+/* Sidekick opens like the two product cards - mark and name on one line - so
+   the column reads blue, vermillion, black: the icon system in order. "Free"
+   is said by its link, and its grey card already sets it apart. */
+.hero-side .hero-aside h2 { white-space: nowrap; }
+.hero-side .hero-aside h2 .mark { width: 26px; height: 26px; margin-right: .4rem; }
 .hero-product { display: block; text-decoration: none; color: var(--ink);
                 border: 1px solid var(--rule); border-top: 3px solid var(--c);
                 border-radius: 6px; padding: .95rem 1rem .9rem; background: var(--tint);

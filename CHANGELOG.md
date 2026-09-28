@@ -20,7 +20,9 @@ because reconstructing it after the fact would be guesswork.
   colour above the fold at all. The headline is unchanged. Both cards say
   "Try free for 14 days", since it is one trial and one licence, and the
   Sidekick card beside them lost its feature list, which made the free tool the
-  tallest thing in the column.
+  tallest thing in the column. It now opens like the other two, with its black
+  mark beside its name instead of a "Free" pill ("Get it free" still says so),
+  so the column reads blue, vermillion, black: the icon system in order.
 
 - **Each product page carries its own product's mark.** `/trados/` shows the
   blue Sv and `/memoq/` the vermillion one, in the header, the footer and the
