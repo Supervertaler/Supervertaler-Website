@@ -12,6 +12,13 @@ because reconstructing it after the fact would be guesswork.
 
 ### Changed
 
+- **Each product page carries its own product's mark.** `/trados/` shows the
+  blue Sv and `/memoq/` the vermillion one, in the header, the footer and the
+  browser tab; every other page keeps the black brand mark. The tab icons come
+  from `tools/make-icons.py`, which now also writes `favicon-trados.*`,
+  `favicon-memoq.*` and `apple-touch-icon-{trados,memoq}.png` from the same
+  geometry, and still reproduces the black set byte for byte.
+
 - **"Where the licence key goes" on the pricing page says where to install
   from.** Each product's step now starts with its download: the RWS App Store
   for Trados, the installer for memoQ. Lemon Squeezy's post-purchase popup and
