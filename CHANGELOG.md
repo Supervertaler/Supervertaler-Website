@@ -17,7 +17,10 @@ because reconstructing it after the fact would be guesswork.
   and a vermillion one for Supervertaler for memoQ, each linking to its page.
   The licence line names both products in their colours too. The home page is
   the one page that wears the black brand mark, and without these it had no
-  colour above the fold at all. The headline is unchanged.
+  colour above the fold at all. The headline is unchanged. Both cards say
+  "Try free for 14 days", since it is one trial and one licence, and the
+  Sidekick card beside them lost its feature list, which made the free tool the
+  tallest thing in the column.
 
 - **Each product page carries its own product's mark.** `/trados/` shows the
   blue Sv and `/memoq/` the vermillion one, in the header, the footer and the
