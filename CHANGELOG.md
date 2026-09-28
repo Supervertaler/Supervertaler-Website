@@ -23,6 +23,9 @@ because reconstructing it after the fact would be guesswork.
   tallest thing in the column. It now opens like the other two, with its black
   mark beside its name instead of a "Free" pill ("Get it free" still says so),
   so the column reads blue, vermillion, black: the icon system in order.
+  Polish: "Get it free" is the same size as the cards' "Try free for 14 days",
+  and the Trados card says "2024 or 2026" on one line, with the card titles a
+  fraction smaller so they no longer run to the card's edge.
 
 - **Each product page carries its own product's mark.** `/trados/` shows the
   blue Sv and `/memoq/` the vermillion one, in the header, the footer and the
