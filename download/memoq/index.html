@@ -14,12 +14,14 @@
   click downloads the file directly - only this file changes, and every link
   already sent keeps working.
 
-  Points at the latest release page for now: it works whatever the installer
-  file is called, and it only ever offers the current version.
+  Points straight at the installer: every release uploads it under the fixed
+  name Supervertaler-for-memoQ-Setup.exe (tools/release.py in the memoQ repo),
+  and GitHub's releases/latest/download/<name> always serves the newest one,
+  so the click starts the download and no version number appears here.
 -->
 
-<link rel="canonical" href="https://github.com/Supervertaler/Supervertaler-for-memoQ/releases/latest">
-<meta http-equiv="refresh" content="0; url=https://github.com/Supervertaler/Supervertaler-for-memoQ/releases/latest">
+<link rel="canonical" href="https://github.com/Supervertaler/Supervertaler-for-memoQ/releases/latest/download/Supervertaler-for-memoQ-Setup.exe">
+<meta http-equiv="refresh" content="0; url=https://github.com/Supervertaler/Supervertaler-for-memoQ/releases/latest/download/Supervertaler-for-memoQ-Setup.exe">
 <meta name="robots" content="noindex, follow">
 
 <style>
@@ -47,14 +49,16 @@
 </head>
 <body>
   <div class="card">
-    <h1>Taking you to the download…</h1>
-    <p>You are being taken to the latest release of Supervertaler for memoQ.
-       Download the <strong>.exe</strong> file listed there and run it.</p>
-    <p>If nothing happens:</p>
-    <a class="go" href="https://github.com/Supervertaler/Supervertaler-for-memoQ/releases/latest">Continue to the download →</a>
+    <h1>Your download is starting…</h1>
+    <p>The installer for the latest Supervertaler for memoQ is on its way.
+       Close memoQ, then run <strong>Supervertaler-for-memoQ-Setup.exe</strong>.</p>
+    <p>If the download does not start:</p>
+    <a class="go" href="https://github.com/Supervertaler/Supervertaler-for-memoQ/releases/latest/download/Supervertaler-for-memoQ-Setup.exe">Download the installer</a>
+    <p><a href="https://docs.supervertaler.com/memoq/installation/">Installation guide</a> ·
+       <a href="https://github.com/Supervertaler/Supervertaler-for-memoQ/releases/latest">Release notes</a></p>
   </div>
   <script>
-    location.replace("https://github.com/Supervertaler/Supervertaler-for-memoQ/releases/latest");
+    location.replace("https://github.com/Supervertaler/Supervertaler-for-memoQ/releases/latest/download/Supervertaler-for-memoQ-Setup.exe");
   </script>
 </body>
 </html>

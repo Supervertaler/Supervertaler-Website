@@ -8,6 +8,25 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-09-28
+
+Supervertaler for memoQ 0.1.0 is released, so the commit that held its
+downloads back ("Hold memoQ downloads until its first release") is reverted.
+
+### Added
+
+- **Supervertaler for memoQ can be downloaded.** The memoQ page, the home page
+  and the pricing page offer the free trial again, the memoQ page has its
+  Installation section back, and "coming soon" is gone everywhere, `llms.txt`
+  included.
+
+### Changed
+
+- **`/download/memoq/` starts the download.** It used to open the release page
+  on GitHub and ask you to find the `.exe` there. Every release now uploads the
+  installer under one fixed name, so the link fetches the newest installer
+  directly, with the installation guide and release notes a click away.
+
 ## 2026-09-23
 
 Everything that makes the one licence clear went live now; everything that
