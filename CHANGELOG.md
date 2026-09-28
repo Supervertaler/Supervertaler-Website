@@ -8,6 +8,17 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-09-29
+
+### Changed
+
+- **"Where the licence key goes" on the pricing page says where to install
+  from.** Each product's step now starts with its download: the RWS App Store
+  for Trados, the installer for memoQ. Lemon Squeezy's post-purchase popup and
+  receipt now send new subscribers to this section, since one licence covers
+  both products and a single "Install from RWS App Store" button no longer
+  fitted.
+
 ## 2026-09-28
 
 Supervertaler for memoQ 0.1.0 is released, so the commit that held its
