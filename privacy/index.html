@@ -75,7 +75,7 @@
 
     <div class="privacy-content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: 23 September 2026</p>
+        <p class="last-updated">Last updated: 29 September 2026</p>
 
         <div class="highlight-box">
             <p><strong>The short version:</strong> Supervertaler does not collect, store, or transmit your data to
@@ -209,7 +209,7 @@
 
         <p>No translation content, file names, or personal information is included in license checks.</p>
 
-        <h3>Trial registration (Trados plugin v18/19.20.118 and later)</h3>
+        <h3>Trial registration (Trados plugin v18/19.20.118 and later; memoQ plugin 0.1.1 and later)</h3>
 
         <p>If you are using the free 14-day trial (no licence key), the plugin registers the trial once
             per session on startup with a first-party licence endpoint (a Cloudflare Worker operated by
@@ -218,7 +218,7 @@
         <ul>
             <li>The same anonymous machine identifier used for licence activation (a one-way hash &ndash;
                 it cannot be reversed to identify your computer)</li>
-            <li>Plugin version, Trados Studio version, and system locale</li>
+            <li>Plugin version, Trados Studio or memoQ version, and system locale</li>
             <li>The trial's locally recorded start date and status</li>
         </ul>
 
@@ -226,11 +226,13 @@
             consistently across reinstalls, data-folder moves, and clock changes. It is part of how the
             trial functions &ndash; not analytics &ndash; so it is separate from the opt-in usage
             statistics described below. The country code is derived from the network connection by
-            Cloudflare; no IP addresses are stored. Trial records are kept only while relevant to
+            Cloudflare; no IP addresses are stored. The trial is one per computer, shared by both
+            plugins, so the record also notes which of the two plugins that computer has used. Trial
+            records are kept only while relevant to
             licensing and are purged after a period of inactivity. If the endpoint cannot be reached
             (no internet, firewall, air-gapped machine), the trial keeps working normally.</p>
 
-        <h2>6. Optional anonymous usage statistics (Trados plugin only)</h2>
+        <h2>6. Optional anonymous usage statistics</h2>
 
         <p><strong>Supervertaler for Trados</strong> offers an optional, strictly opt-in usage statistics feature.
             On first launch, a dialog asks whether you would like to participate. If you consent, a single
@@ -252,10 +254,13 @@
         <p>You can change your choice at any time in Settings. If the ping fails (no internet, firewall, etc.),
             nothing happens &ndash; no retries, no queuing, no error messages.</p>
 
+        <p><strong>Supervertaler for memoQ</strong> offers the same from version 0.1.1, with the memoQ version in
+            place of the Trados Studio version; see <a href="#memoq">section 7</a>.</p>
+
         <h2 id="memoq">7. Supervertaler for memoQ</h2>
 
-        <p>The memoQ plugin follows the same principles: no Supervertaler servers, your own API key, and
-            nothing sent anywhere except the connections listed here.</p>
+        <p>The memoQ plugin follows the same principles: your own API key, your documents never passing
+            through a Supervertaler server, and nothing sent anywhere except the connections listed here.</p>
 
         <h3>AI translation</h3>
 
@@ -300,13 +305,35 @@
 
         <p>The memoQ plugin uses the same Supervertaler licence as the Trados plugin, validated through
             Lemon Squeezy as described in <a href="#licence">section 5</a>: your licence key and the same
-            anonymous machine identifier, nothing else.</p>
+            anonymous machine identifier, nothing else. From version 0.1.1, while there is no licence key,
+            the free trial is registered as described in <a href="#licence">section 5</a>: the same anonymous
+            machine identifier, the plugin and memoQ versions, your system locale and the trial's start date
+            and status.</p>
+
+        <h3>Optional anonymous usage statistics (0.1.1 and later)</h3>
+
+        <p>The first time you open the Supervertaler editor, it asks whether the memoQ plugin may send
+            anonymous usage statistics. Nothing is sent unless you answer yes, and you can change your answer
+            at any time under <strong>Settings, Translation settings</strong>. If you agree, one small message
+            is sent each time memoQ starts, to the same first-party endpoint as the Trados plugin's
+            statistics. The only data sent is:</p>
+
+        <ul>
+            <li>A random anonymous ID (generated locally, not tied to any account or identity)</li>
+            <li>Plugin version</li>
+            <li>Windows version</li>
+            <li>memoQ version</li>
+            <li>System locale</li>
+        </ul>
+
+        <p>The country code is derived from the network connection by Cloudflare; no IP addresses are stored.
+            No documents, translations, terminology, file names or feature usage are ever included.</p>
 
         <h3>What the memoQ plugin does not send</h3>
 
         <ul>
             <li>No update checks</li>
-            <li>No usage statistics, opt-in or otherwise</li>
+            <li>No usage statistics unless you agree to them, as above</li>
             <li>No translation content to anyone except the AI provider or assistant you chose</li>
         </ul>
 
