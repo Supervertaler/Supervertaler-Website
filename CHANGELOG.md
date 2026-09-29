@@ -8,15 +8,6 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
-## memoQ 0.1.3 (date on release)
-
-### Changed
-
-- **memoQ 11 is supported as well as memoQ 12.** The home page, the memoQ page
-  (the note under Download and its Requirements), the pricing page and `llms.txt`
-  say "memoQ 11 and 12" where they said "memoQ 12". The memoQ page adds that
-  Supervertaler goes into both when both are installed.
-
 ## 2026-09-29
 
 ### Fixed
@@ -38,6 +29,11 @@ because reconstructing it after the fact would be guesswork.
   pass through one. Section 6 points memoQ users to section 7.
 
 ### Changed
+
+- **memoQ 11 is supported as well as memoQ 12.** The home page, the memoQ page
+  (the note under Download and its Requirements), the pricing page and `llms.txt`
+  say "memoQ 11 and 12" where they said "memoQ 12". The memoQ page adds that
+  Supervertaler goes into both when both are installed.
 
 - **The home page has the two products in their colours at the top.** Beside
   the headline, above the Sidekick card, a blue card for Supervertaler for Trados
