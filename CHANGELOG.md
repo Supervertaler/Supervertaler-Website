@@ -17,6 +17,12 @@ because reconstructing it after the fact would be guesswork.
   first-start dialog leaves them on unless you choose *Turn it off*, and the ping
   also carries virtual-machine detection, processor architecture and three
   scaling percentages. Section 6 now says both.
+- **The privacy policy covers Supervertaler for memoQ 0.1.1**, released today.
+  Section 7 describes its usage statistics, which unlike Trados's are sent only
+  if you agree and carry five fields, and the trial registration it shares with
+  Trados. It no longer says the memoQ plugin sends no usage statistics, and its
+  opening no longer claims "no Supervertaler servers": the documents still never
+  pass through one. Section 6 points memoQ users to section 7.
 
 ### Changed
 
