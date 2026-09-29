@@ -17,6 +17,10 @@ because reconstructing it after the fact would be guesswork.
   first-start dialog leaves them on unless you choose *Turn it off*, and the ping
   also carries virtual-machine detection, processor architecture and three
   scaling percentages. Section 6 now says both.
+- **The privacy policy covers memoQ 0.1.2's update check.** Section 7 no longer
+  says the memoQ plugin makes no update checks. It describes the daily request to
+  GitHub for the latest version, which sends nothing about you, and the check an
+  installer passes before Download and install runs it.
 - **The privacy policy covers Supervertaler for memoQ 0.1.1**, released today.
   Section 7 describes its usage statistics, which unlike Trados's are sent only
   if you agree and carry five fields, and the trial registration it shares with
