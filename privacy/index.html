@@ -234,9 +234,11 @@
 
         <h2>6. Optional anonymous usage statistics</h2>
 
-        <p><strong>Supervertaler for Trados</strong> offers an optional, strictly opt-in usage statistics feature.
-            On first launch, a dialog asks whether you would like to participate. If you consent, a single
-            lightweight ping is sent once per session on plugin startup. The only data sent is:</p>
+        <p><strong>Supervertaler for Trados</strong> sends anonymous usage statistics unless you switch them off.
+            On first launch, a dialog explains what is sent and offers <strong>Keep it on</strong> or
+            <strong>Turn it off</strong>; closing the dialog keeps them on. You can switch them off at any time
+            in Settings. While they are on, a single lightweight ping is sent once per session on plugin
+            startup. The only data sent is:</p>
 
         <ul>
             <li>A random anonymous ID (generated locally, not tied to any account or identity)</li>
@@ -244,6 +246,10 @@
             <li>OS version</li>
             <li>Trados Studio version</li>
             <li>System locale</li>
+            <li>Whether Windows is running in a virtual machine, and which kind (for example Parallels, which
+                usually means a Mac)</li>
+            <li>Processor architecture (for example x64)</li>
+            <li>Display scaling, Windows text size and the plugin's own interface scale, as percentages</li>
         </ul>
 
         <p>The country code is derived from the network connection by Cloudflare (the hosting provider) &ndash;
