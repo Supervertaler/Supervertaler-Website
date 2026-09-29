@@ -10,6 +10,14 @@ because reconstructing it after the fact would be guesswork.
 
 ## 2026-09-29
 
+### Fixed
+
+- **The privacy policy now describes the Trados plugin's usage statistics as they
+  are.** It called them "strictly opt-in" and listed five fields. In fact the
+  first-start dialog leaves them on unless you choose *Turn it off*, and the ping
+  also carries virtual-machine detection, processor architecture and three
+  scaling percentages. Section 6 now says both.
+
 ### Changed
 
 - **The home page has the two products in their colours at the top.** Beside
