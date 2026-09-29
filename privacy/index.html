@@ -335,10 +335,19 @@
         <p>The country code is derived from the network connection by Cloudflare; no IP addresses are stored.
             No documents, translations, terminology, file names or feature usage are ever included.</p>
 
+        <h3>Update check (0.1.2 and later)</h3>
+
+        <p>Once a day, the plugin or the Supervertaler editor asks GitHub (<code>api.github.com</code>) which
+            version of Supervertaler for memoQ is the latest, so it can tell you when a new one is available. The
+            request carries only a generic user-agent (<code>Supervertaler-for-memoQ</code>) &ndash; nothing about
+            you, your computer or your work. If you choose <strong>Download and install</strong>, the installer is
+            downloaded from GitHub, and it is checked against the size and checksum GitHub lists before it runs.
+            You can skip a version, and nothing is ever installed without you choosing to.</p>
+
         <h3>What the memoQ plugin does not send</h3>
 
         <ul>
-            <li>No update checks</li>
+            <li>Nothing about you or your work with the update check</li>
             <li>No usage statistics unless you agree to them, as above</li>
             <li>No translation content to anyone except the AI provider or assistant you chose</li>
         </ul>
