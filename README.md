@@ -9,9 +9,9 @@ Astro + Starlight, in `Supervertaler-Help`, published at docs.supervertaler.com.
 
 ## Why this repo exists
 
-The site used to live in `docs/` inside `Supervertaler-Workbench` – the repo of
-a retired product – which made it hard to find and tied the public face of the
-project to something no longer developed. It now stands on its own.
+The site used to live in `docs/` inside `Supervertaler-Workbench`, which made it
+hard to find and tied the public face of the whole project to one product's
+repository. It now stands on its own.
 
 Two things were left behind in that move, deliberately: several folders of
 internal notes (`dev-notes/`, `archive/`, `agent-archive/`, idea sketches) that
@@ -24,7 +24,7 @@ without being linked from anywhere.
 |---|---|
 | `index.html` | the home page |
 | `trados/` | Supervertaler for Trados |
-| `workbench/` | Supervertaler Workbench (retired, kept for existing users) |
+| `workbench/` | Supervertaler Workbench |
 | `buy/`, `privacy/`, `releases/`, `guides/` | supporting pages |
 | `assets/`, `screenshots/` | images |
 | `CNAME` | the custom domain |

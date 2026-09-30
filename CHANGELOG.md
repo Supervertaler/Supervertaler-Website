@@ -8,6 +8,18 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-09-30
+
+### Changed
+
+- **Workbench is in active development again, and the site says so.** The
+  Workbench page opened with "This project is no longer actively developed" and
+  explained why the time went elsewhere. It now says development has resumed,
+  with v1.10.372 closing 22 issues, and describes what Workbench is and who it
+  is for next to the Trados and memoQ plugins. The footer of the home, Trados,
+  memoQ and pricing pages, the page's description and `llms.txt` follow. The
+  README no longer calls Workbench a retired product.
+
 ## 2026-09-29
 
 ### Fixed
