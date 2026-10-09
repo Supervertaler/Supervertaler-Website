@@ -8,6 +8,16 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-10-09
+
+### Fixed
+
+- **The Sidekick card on the home page has a top edge, like the two product
+  cards beside it.** Supervertaler for Trados and Supervertaler for memoQ each
+  open with a 3px rule in their colour; the Sidekick card below them had none,
+  and looked unfinished rather than black. It now has the same rule in black,
+  Sidekick's colour, so the column reads blue, vermillion, black.
+
 ## 2026-09-30
 
 ### Changed
