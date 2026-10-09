@@ -22,6 +22,12 @@ because reconstructing it after the fact would be guesswork.
 
 ### Changed
 
+- **Trados Studio 2022 is supported as well as 2024 and 2026,** ahead of the
+  Supervertaler for Trados 199 release that ships it. The home page (its card
+  and the product section), the Trados page's opening, the pricing page and
+  `llms.txt` say "Trados Studio 2022, 2024 and 2026" where they said "2024 and
+  2026". The screenshot's caption still says Trados Studio 2024, because that
+  is what it shows.
 - **The three cards beside the home page's heading are one design.** White,
   one hairline border, the same padding and type, and the whole card a link,
   Sidekick's included, which until now was a link on its last line only. Each
