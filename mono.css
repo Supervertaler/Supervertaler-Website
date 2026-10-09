@@ -61,31 +61,15 @@ nav a { text-decoration: none; color: var(--ink-soft); font-size: 1rem; }
 nav a:hover { color: var(--ink); text-decoration: underline; }
 nav a.here { color: var(--ink); font-weight: 600; }
 
-/* The two product links carry a swatch in their product's colour rather than
-   coloured text. Three reasons, in order of weight:
+/* No colour in the nav, deliberately. Until 2026-10-09 the three product links
+   each carried a dot in their product's colour (blue, vermillion, black), as a
+   swatch rather than coloured text - coloured link text reads as state, and the
+   vermillion fails as text. But beside plain words the dots read as list
+   bullets, and they were the only colour in the header. The colours are now
+   carried only where they do a job: the cards under the home page's heading,
+   and each product's own page.
 
-   Coloured link text reads as STATE first - visited, or current page - and
-   this nav already says "you are here" with colour on text (nav a.here), so
-   colouring two items the same way blunted the only signal that does that job.
-
-   A swatch is not text. Text at this size needs 4.5:1, which the vermillion
-   misses (3.5:1), so the words had to use a darkened tint and the nav red was
-   then NOT the card red - a legend with the wrong key. A filled shape is held
-   to 3:1, so these carry the true brand colours and match the cards exactly.
-
-   And colour alone is no distinction in print or to a colour-blind reader;
-   the dot and the gap group the two products whichever way it is read. */
-nav a[href="/trados/"]::before,
-nav a[href="/memoq/"]::before,
-nav a[href*="/sidekick/"]::before {
-    content: ""; display: inline-block; width: .5rem; height: .5rem;
-    border-radius: 50%; margin-right: .45rem; vertical-align: .06em;
-}
-nav a[href="/trados/"]::before { background: var(--trados); }
-nav a[href="/memoq/"]::before  { background: var(--memoq);  }
-nav a[href*="/sidekick/"]::before { background: var(--ink); }
-
-/* The products are a different kind of item from How it works / Pricing /
+   The products are still a different kind of item from How it works / Pricing /
    Docs / Discussions, so the group is set slightly apart from them. */
 nav a[href*="/sidekick/"] { margin-right: .6rem; }
 
@@ -94,69 +78,54 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
 
 /* The headline is capped at 22ch and the paragraphs at the measure, which
    left the right third of the hero empty on a desktop. That third is where
-   the free product goes: a card beside the paid pitch, not a sticker over
-   it. The grid's first column is the text at its usual measure; the card
-   takes what is left. */
+   the product cards go: beside the pitch, not stickers over it. The grid's
+   first column is the text at its usual measure; the cards take what is
+   left. */
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 16rem;
              gap: 2.5rem 2.5rem; align-items: start; }
 /* The screenshot is a child of this grid rather than a sibling of it, purely so
-   that the phone layout can put it BEFORE the Sidekick card - order only reaches
+   that the phone layout can put it BEFORE the cards - order only reaches
    siblings. Across both columns it is the width it always was. */
 .hero-grid .hero-shot { grid-column: 1 / -1; margin-top: 0; }
-.hero-aside { position: relative; border: 1px solid var(--rule); background: var(--wash);
-              border-radius: 6px; padding: 1.2rem 1.2rem 1.1rem; margin-top: .6rem; }
-/* No mark here: the wordmark sits 150px above, and repeating it only pushed
-   the title down. The Free tag sits on the title line instead. */
-.hero-aside h2 { font-size: 1.05rem; margin: 0 0 .45rem; letter-spacing: -.01em; }
-.hero-aside p { font-size: .95rem; color: var(--ink-soft); margin: 0 0 .7rem; line-height: 1.45; }
-.hero-aside .features { font-size: .85rem; color: var(--ink-faint); }
-.hero-aside a { font-weight: 600; color: var(--ink); text-decoration: none; }
-.hero-aside a:hover { text-decoration: underline; }
-.hero-aside .tag { display: inline-block; margin-bottom: .7rem;
-                   font-size: .72rem; font-weight: 700; letter-spacing: .06em;
-                   text-transform: uppercase; color: var(--paper); background: var(--ink);
-                   padding: .15rem .5rem; border-radius: 999px; }
-/* The right column: the two paid products in their own colours, then the free
-   one. Without them the home page, the only page wearing the black brand mark,
-   had no colour above the fold at all - the product colours carry it instead,
-   and they are doing a job: sending a visitor to one of the two plugins. */
-.hero-side { display: flex; flex-direction: column; gap: .9rem; margin-top: .6rem; }
-.hero-side .hero-aside { margin-top: 0; }
-/* Sidekick opens like the two product cards - mark and name on one line - so
-   the column reads blue, vermillion, black: the icon system in order. "Free"
-   is said by its link, and its grey card already sets it apart. */
-.hero-side .hero-aside h2 { white-space: nowrap; }
-.hero-side .hero-aside a { font-size: .95rem; }   /* the same size as the product cards' links */
-.hero-side .hero-aside h2 .mark { width: 26px; height: 26px; margin-right: .4rem; }
-/* The same 3px top edge as the two product cards, in Sidekick's colour.
-   Without it the column read blue, vermillion, and then a card that looked
-   unfinished rather than black - the icon system in order stopped one short. */
-.hero-side .hero-aside { border-top: 3px solid var(--ink); }
+/* The right column: the two paid products, then the free one, as three cards
+   of one design - white, one hairline, the same padding and type, and the
+   whole card a link. Each carries its product's colour in exactly three
+   places, each doing a job: the mark says which product, the name labels it,
+   the link invites the click. The home page wears the black brand mark, so
+   these are the colour above the fold.
+
+   Until 2026-10-09 they also had a 3px top edge in the product colour and a
+   tinted ground, and the Sidekick card was built separately. The thick top
+   border curled into the thin sides at the rounded corners, each paid card
+   said its colour four times over, and Sidekick's card had its own padding,
+   type and a link on one line only: three small differences that read as
+   unfinished rather than as design. Sidekick is told apart by its black mark
+   and its "Get it free" link, not by a card of its own. */
+.hero-side { display: flex; flex-direction: column; gap: .75rem; margin-top: .6rem; }
 .hero-product { display: block; text-decoration: none; color: var(--ink);
-                border: 1px solid var(--rule); border-top: 3px solid var(--c);
-                border-radius: 6px; padding: .95rem .9rem .9rem; background: var(--tint);
+                background: var(--paper); border: 1px solid var(--rule); border-radius: 8px;
+                padding: 1rem 1.1rem; box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
                 transition: border-color .15s, box-shadow .15s; }
-.hero-product:hover { border-color: var(--c); box-shadow: 0 2px 10px rgba(0, 0, 0, .06); }
-.hero-product.trados { --c: var(--trados); --t: var(--trados);     --tint: #f4f8fe; }
-.hero-product.memoq  { --c: var(--memoq);  --t: var(--memoq-text); --tint: #fef6f4; }
+.hero-product:hover { border-color: var(--c); box-shadow: 0 4px 14px rgba(0, 0, 0, .06); }
+.hero-product.trados   { --c: var(--trados); --t: var(--trados); }
+.hero-product.memoq    { --c: var(--memoq);  --t: var(--memoq-text); }
+.hero-product.sidekick { --c: var(--ink);    --t: var(--ink); }
 .hero-product h2 { font-size: .98rem; margin: 0 0 .3rem; letter-spacing: -.01em; white-space: nowrap; }
 .hero-product h2 .mark { width: 26px; height: 26px; margin-right: .4rem; }
 .hero-product h2 .host { color: var(--t); }
-.hero-product p { font-size: .9rem; color: var(--ink-faint); margin: 0 0 .55rem; }
-.hero-product .go-on { font-size: .95rem; font-weight: 600; color: var(--t); }
+.hero-product p { font-size: .9rem; line-height: 1.45; color: var(--ink-faint); margin: 0 0 .6rem; }
+.hero-product .go-on { font-size: .93rem; font-weight: 600; color: var(--t); }
 .hero-product:hover .go-on { text-decoration: underline; }
 .in-trados { color: var(--trados); font-weight: 600; }
 .in-memoq  { color: var(--memoq-text); font-weight: 600; }
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-aside { margin-top: 0; }
     .hero-side { order: 2; margin-top: 0; }
 
-    /* Stacked, the card for the free product would otherwise be the first
-       thing under the heading, ahead of either of the paid ones. Words,
-       then what the paid product looks like, then the free companion. */
+    /* Stacked, the cards would otherwise be the first thing under the
+       heading, ahead of any picture of the product. Words, then what the
+       paid product looks like, then where to get it. */
     .hero-grid .hero-shot { order: 1; }
-    .hero-aside { order: 2; }
 }
 h1 { font-size: clamp(2.3rem, 5.4vw, 3.5rem); line-height: 1.08;
      letter-spacing: -.025em; margin: 0 0 1.2rem; max-width: 22ch; font-weight: 700; }

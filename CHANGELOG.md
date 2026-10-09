@@ -16,7 +16,23 @@ because reconstructing it after the fact would be guesswork.
   cards beside it.** Supervertaler for Trados and Supervertaler for memoQ each
   open with a 3px rule in their colour; the Sidekick card below them had none,
   and looked unfinished rather than black. It now has the same rule in black,
-  Sidekick's colour, so the column reads blue, vermillion, black.
+  Sidekick's colour, so the column reads blue, vermillion, black. (Later the
+  same day the three cards were redesigned without top edges at all; see
+  Changed.)
+
+### Changed
+
+- **The three cards beside the home page's heading are one design.** White,
+  one hairline border, the same padding and type, and the whole card a link,
+  Sidekick's included, which until now was a link on its last line only. Each
+  card shows its product's colour in the mark, the name and the link, and
+  nowhere else: the coloured top edges, which curled into the sides at the
+  rounded corners, and the tinted backgrounds are gone.
+- **No coloured dots in the menu.** The three product links had a dot in their
+  product's colour. Beside plain words the dots read as list bullets, and they
+  were the only colour in the header; the cards and each product's own page
+  carry the colours instead. The extra space after Sidekick still sets the
+  products apart from the other links. On every page.
 
 ## 2026-09-30
 
