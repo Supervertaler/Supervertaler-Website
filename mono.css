@@ -246,8 +246,6 @@ footer a { color: var(--ink-soft); }
     /* Full-width tap targets: a 44px-high button is the accessibility floor,
        and side-by-side buttons on a phone are two half-width targets. */
     .go, .go-quiet { display: block; text-align: center; margin-bottom: .6rem; }
-
-    .foot-grid { gap: 1.75rem; }
 }
 
 /* ---- footer, with the navigation the old dark footer carried ------------ */
@@ -260,6 +258,17 @@ footer a { color: var(--ink-soft); }
 .foot-col li { margin-bottom: .38rem; }
 .foot-col a { color: var(--ink-faint); text-decoration: none; font-size: .93rem; }
 .foot-col a:hover { color: var(--ink); text-decoration: underline; }
+
+/* Phones: the brand takes the whole row and the four link columns go two by
+   two. The columns' minimums above - 16rem for the brand, 9rem per column -
+   plus the gap come to about 460px, wider than most phones, so every page
+   scrolled sideways below that. This must come AFTER the rules above, not in
+   the 760px block earlier in the file: equal specificity, so source order
+   decides, and the gap that block set for the footer never applied. */
+@media (max-width: 760px) {
+    .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1.5rem; }
+    .foot-brand { grid-column: 1 / -1; }
+}
 .foot-bottom { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
 .foot-bottom p { margin: 0 0 .35rem; }
 

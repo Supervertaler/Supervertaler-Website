@@ -8,6 +8,20 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-10-11
+
+### Fixed
+
+- **The site no longer scrolls sideways on a phone.** On every page the footer
+  was wider than most phone screens: its columns' minimum widths and the gap
+  between them came to about 460px, so the whole page could be dragged
+  sideways and the right-hand footer columns were cut off. On a phone the
+  footer now puts the Supervertaler line across the top and the four link
+  columns two by two underneath. The phone rule that was meant to narrow the
+  footer had never taken effect, because a later rule in the stylesheet
+  overrode it. Checked at 320, 360, 390 and 430px wide on the home, Trados,
+  memoQ and pricing pages; the desktop footer is unchanged.
+
 ## 2026-10-09
 
 ### Fixed
