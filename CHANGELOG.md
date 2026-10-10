@@ -20,7 +20,17 @@ because reconstructing it after the fact would be guesswork.
   columns two by two underneath. The phone rule that was meant to narrow the
   footer had never taken effect, because a later rule in the stylesheet
   overrode it. Checked at 320, 360, 390 and 430px wide on the home, Trados,
-  memoQ and pricing pages; the desktop footer is unchanged.
+  memoQ and pricing pages.
+
+### Changed
+
+- **The footer's five blocks sit on one row on a desktop.** The Supervertaler
+  line and the four link columns had room for only four across, so About sat
+  alone on a second row. They now fit on one row from 992px wide. In a
+  narrower window, down to a tablet, the Supervertaler line takes the top row
+  and the four link columns share the row beneath it, instead of leaving one
+  column on its own. "Dutch–English" in the footer no longer breaks across
+  two lines at the dash.
 
 ## 2026-10-09
 

@@ -249,8 +249,13 @@ footer a { color: var(--ink-soft); }
 }
 
 /* ---- footer, with the navigation the old dark footer carried ------------ */
-.foot-grid { display: grid; gap: 2rem 2.5rem; padding-bottom: 2rem;
-             grid-template-columns: minmax(min(16rem, 100%), 1.4fr) repeat(auto-fit, minmax(min(9rem, 100%), 1fr)); }
+/* The brand and four link columns on ONE row at full page width. The page
+   leaves 944px (62rem less the padding); the minimums - 15rem for the brand,
+   8.5rem per column, 2rem gaps - come to 912px. With 16rem, 9rem and 2.5rem
+   they came to 992px, so auto-fit fitted only three link columns and About
+   sat alone on a second row. Narrower windows still wrap the columns. */
+.foot-grid { display: grid; gap: 2rem; padding-bottom: 2rem;
+             grid-template-columns: minmax(min(15rem, 100%), 1.4fr) repeat(auto-fit, minmax(min(8.5rem, 100%), 1fr)); }
 .foot-brand .brand { margin-bottom: .6rem; }
 .foot-brand p { margin: 0 0 .4rem; color: var(--ink-faint); font-size: .93rem; max-width: 26rem; }
 .foot-col h3 { font-size: .95rem; margin: 0 0 .6rem; color: var(--ink); letter-spacing: -.005em; }
@@ -258,6 +263,16 @@ footer a { color: var(--ink-soft); }
 .foot-col li { margin-bottom: .38rem; }
 .foot-col a { color: var(--ink-faint); text-decoration: none; font-size: .93rem; }
 .foot-col a:hover { color: var(--ink); text-decoration: underline; }
+
+/* Between phone and desktop (761-991px) five columns do not fit, and auto-fit
+   left a lone column on a second row - About alone at 900px, three and two at
+   800px. Instead the brand takes the whole row and the four link columns sit
+   on one row beneath it (154px each at 761px). Before the phone rule below,
+   which overrides the columns again under 761px. */
+@media (max-width: 991px) {
+    .foot-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .foot-brand { grid-column: 1 / -1; }
+}
 
 /* Phones: the brand takes the whole row and the four link columns go two by
    two. The columns' minimums above - 16rem for the brand, 9rem per column -
