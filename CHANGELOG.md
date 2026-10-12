@@ -8,6 +8,17 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-10-12
+
+### Added
+
+- **The memoQ page shows the product.** Under the download buttons, a
+  screenshot of memoQ with the Supervertaler editor open beside the grid:
+  termbase terms highlighted in the source, and the AI's suggestion and the
+  term hits in Translation results. Until now the page had no picture at all.
+  It is 2000px wide, sharp at the page's width on a high-density screen, and
+  carries its width and height so the page does not jump as it loads.
+
 ## 2026-10-11
 
 ### Fixed
