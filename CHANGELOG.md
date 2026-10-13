@@ -8,6 +8,16 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-10-13
+
+### Fixed
+
+- **The memoQ changelog is in the footer.** The footer's one "Changelog" link
+  went to Supervertaler for Trados's changelog on every page, the memoQ page
+  included, so a memoQ user following it read about the other product. The
+  Help column now has a "Trados changelog" and a "memoQ changelog", beside the
+  docs links for each.
+
 ## 2026-10-12
 
 ### Added
