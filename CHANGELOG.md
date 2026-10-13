@@ -34,6 +34,10 @@ because reconstructing it after the fact would be guesswork.
   says the page opens from Supervertaler's "new version available" window. The
   Trados page promised the same, but the Trados plugin does not link there with
   its version yet, so its intro now says only what the page is.
+- **The footer's "Source code" link goes to the Supervertaler organisation on
+  GitHub**, where every product's repository is listed, instead of to the
+  Trados plugin's repository alone. The site covers memoQ and Workbench too.
+  Community's "GitHub" link, which went to the same page, is gone.
 
 ### Fixed
 
