@@ -27,6 +27,14 @@ because reconstructing it after the fact would be guesswork.
   for anything but the changelog itself. The footer links and the old
   `/changelog.html` now lead here instead of to GitHub.
 
+### Changed
+
+- **Plainer intros on the changelog pages.** The memoQ page said "when
+  Supervertaler offers you an update", which read like a sales offer; it now
+  says the page opens from Supervertaler's "new version available" window. The
+  Trados page promised the same, but the Trados plugin does not link there with
+  its version yet, so its intro now says only what the page is.
+
 ### Fixed
 
 - **The memoQ changelog is in the footer.** The footer's one "Changelog" link
