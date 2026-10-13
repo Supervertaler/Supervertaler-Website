@@ -10,13 +10,30 @@ because reconstructing it after the fact would be guesswork.
 
 ## 2026-10-13
 
+### Added
+
+- **Changelog pages for both plugins**, at `/changelog/trados/` and
+  `/changelog/memoq/`, with `/changelog/` to choose between them. Each reads
+  the plugin's own CHANGELOG.md from GitHub as the page opens, so a release
+  never needs a commit here and the page cannot fall behind the file. Releases
+  are listed down the side (folded into a menu on a phone), dates are written
+  out, and the entries a release would be announced for (★) stand out.
+  `?since=0.1.12` shows only the releases after that version, with a line
+  saying how many: the plugins' update offers can link here with the
+  translator's own version. Trados's numbering (one number per Studio
+  version, and the older single 4.20.x) is compared on the number for the
+  same Studio version. The page needs marked and DOMPurify, kept in
+  `changelog/vendor/` rather than loaded from a CDN, so it asks no third party
+  for anything but the changelog itself. The footer links and the old
+  `/changelog.html` now lead here instead of to GitHub.
+
 ### Fixed
 
 - **The memoQ changelog is in the footer.** The footer's one "Changelog" link
   went to Supervertaler for Trados's changelog on every page, the memoQ page
   included, so a memoQ user following it read about the other product. The
   Help column now has a "Trados changelog" and a "memoQ changelog", beside the
-  docs links for each.
+  docs links for each (on GitHub at first; now the pages above).
 
 ## 2026-10-12
 

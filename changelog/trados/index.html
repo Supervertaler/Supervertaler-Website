@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>What's new in Supervertaler for Trados – changelog</title>
+<meta name="description" content="Every release of Supervertaler for Trados, newest first: what was added, changed and fixed.">
+<link rel="icon" href="/favicon-trados.svg?v=1" type="image/svg+xml">
+<link rel="icon" href="/favicon-trados.ico?v=1" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon-trados.png?v=1">
+<link rel="stylesheet" href="/mono.css?v=30">
+<link rel="stylesheet" href="/changelog/changelog.css?v=1">
+<style>:root { --accent: var(--trados); }</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/sv-icon.svg" width="30" height="30" alt=""> Supervertaler</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
+      <a href="/trados/" title="A plugin inside Trados Studio: AI translation, live terminology and an assistant that sees the whole document. Paid.">for Trados</a>
+      <a href="/memoq/" title="A plugin inside memoQ: an AI translation engine that learns from what you confirm, with your glossary enforced. Same licence as Trados.">for memoQ</a>
+      <a href="https://docs.supervertaler.com/sidekick/" target="_blank" rel="noopener" title="A free toolbox that works over any Windows app: clipboard history, quick translations, AI actions and terminology lookups. Not tied to a CAT tool.">Sidekick</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="https://docs.supervertaler.com/">Docs</a>
+      <a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a>
+    </nav>
+  </div>
+</header>
+
+<!--
+  The changelog is not in this file. changelog.js reads CHANGELOG.md from the
+  plugin's own repository as the page opens, so a release never needs a
+  website commit and this page cannot fall behind the file.
+-->
+<main data-changelog data-repo="Supervertaler-for-Trados">
+
+<section class="hero cl-hero">
+  <div class="wrap">
+    <h1>What's new in Supervertaler <span class="host">for Trados</span></h1>
+    <p class="standfirst">
+      Every release, newest first. When Supervertaler offers you an update, its link brings you
+      here with your own version, and the page shows only what has changed since.
+    </p>
+    <p class="cl-since" id="cl-since" hidden></p>
+  </div>
+</section>
+
+<div class="wrap cl-layout">
+  <aside class="cl-versions" aria-label="Releases">
+    <details open>
+      <summary>Releases</summary>
+      <ol id="cl-index"></ol>
+    </details>
+  </aside>
+  <div class="cl-entries" id="cl-entries">
+    <p class="cl-loading">Loading the changelog…</p>
+    <noscript><p class="cl-problem">This page needs JavaScript to show the changelog.
+      <a href="https://github.com/Supervertaler/Supervertaler-for-Trados/blob/main/CHANGELOG.md">Read it on GitHub</a> instead.</p></noscript>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/sv-icon-black.svg" width="30" height="30" alt=""> Supervertaler</a>
+        <p>AI translation inside the CAT tool you already use.</p>
+        <p>Built by <a href="https://beijer.uk/">Michael Beijer</a>, a Dutch–&#8288;English technical translator in Hastings.</p>
+      </div>
+
+      <div class="foot-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="/trados/">for Trados</a></li>
+          <li><a href="/memoq/">for memoQ</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="https://appstore.rws.com/plugin/432">RWS AppStore</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://docs.supervertaler.com/trados/">Trados docs</a></li>
+          <li><a href="https://docs.supervertaler.com/memoq/">memoQ docs</a></li>
+          <li><a href="/changelog/trados/">Trados changelog</a></li>
+          <li><a href="/changelog/memoq/">memoQ changelog</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Community</h3>
+        <ul>
+          <li><a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a></li>
+          <li><a href="https://github.com/Supervertaler">GitHub</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://beijer.uk/">Author's website</a></li>
+          <li><a href="https://beijer.uk/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="https://github.com/Supervertaler/Supervertaler-for-Trados">Source code</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <p>Looking for <a href="/workbench/">Supervertaler Workbench</a>? The free, open-source standalone
+         CAT tool is in active development again.</p>
+      <p>© 2026 Michael Beijer. Source-available licence.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="to-top" aria-label="Back to top" title="Back to top">↑</a>
+<script src="/site.js?v=1"></script>
+<script src="/changelog/vendor/marked.min.js?v=12.0.2"></script>
+<script src="/changelog/vendor/purify.min.js?v=3.1.6"></script>
+<script src="/changelog/changelog.js?v=1"></script>
+</body>
+</html>
