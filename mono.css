@@ -47,7 +47,13 @@ body {
 /* Unbroken underlines. Browsers skip the underline where a letter's tail
    crosses it (skip-ink), which left "Pricing" underlined everywhere but under
    the g - read as a rendering fault rather than as typography. */
-a { color: var(--ink); text-underline-offset: 3px; text-decoration-skip-ink: none; }
+/* A hairline in grey, black on hover. The link text is the same black as the
+   body, so the underline is the only thing that marks a link and has to stay;
+   but at the font's own thickness and in full black, a list where every line is
+   a link (the Docs page) read as heavy rules rather than as words. 2026-10-14. */
+a { color: var(--ink); text-underline-offset: 3px; text-decoration-skip-ink: none;
+    text-decoration-thickness: 1px; text-decoration-color: #9a9a9a; }
+a:hover { text-decoration-color: currentColor; }
 img { max-width: 100%; height: auto; }
 
 /* ---- header ------------------------------------------------------------ */

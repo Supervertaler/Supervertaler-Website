@@ -32,6 +32,9 @@ because reconstructing it after the fact would be guesswork.
 
 ### Changed
 
+- **Lighter link underlines.** A 1px grey line, turning black on hover, instead
+  of the font's own thickness in full black. Still unbroken under descenders.
+  The stylesheet version is now 31 on every page.
 - **The memoQ page mentions local models.** Its "AI translation" card said
   "Anthropic, OpenAI or Google" only; Supervertaler for memoQ has also
   supported Ollama and OpenAI-compatible servers since 0.1.12. It now says so,
