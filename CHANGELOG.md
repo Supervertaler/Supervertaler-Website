@@ -30,8 +30,8 @@ because reconstructing it after the fact would be guesswork.
   and links the case study.
 - **The Trados page links the case study** from the providers line of its
   "AI translation" card.
-- **The case study links to a confidentiality page** on beijer.uk, where the
-  author sets out for his own clients how their documents are handled.
+- **The case study links to a confidentiality page** on beijer.uk, which sets
+  out how the author handles client documents.
 
 ## 2026-10-13
 
