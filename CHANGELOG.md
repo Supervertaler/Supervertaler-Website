@@ -12,6 +12,8 @@ because reconstructing it after the fact would be guesswork.
 
 ### Added
 
+- **The case study shows the comparison spreadsheet**, claims 1 to 6, as a
+  screenshot beside the download, with a caption giving the colour key.
 - **A Docs and resources page** at `/docs/`, which the header's Docs link now
   opens on the home, pricing, changelog and case-study pages (the product pages
   still go straight to their own docs). It lists the most useful docs pages for
