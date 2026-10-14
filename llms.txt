@@ -18,7 +18,9 @@ AI-readable (see Optional below); prefer the docs for feature-level questions.
 - [Supervertaler for Trados](https://supervertaler.com/): Trados Studio plugin – TermLens live terminology, AI Assistant, Batch Translate and AI Proofreader, SuperSearch cross-file search and replace, SuperMemory knowledge base, and the Supervertaler MCP Server (connects Claude Desktop and other AI assistants to the live Studio session; first of its kind). €20/month or €200/year, 14-day free trial, no credit card
 - [Supervertaler for memoQ](https://supervertaler.com/memoq/): memoQ 11 and 12 plugin – an AI translation engine that learns from the segments you confirm, a terminology provider, a companion editor with prompts and memory banks, and the same MCP server for Claude Desktop and ChatGPT desktop. Covered by the same licence; 14-day free trial, no credit card
 - [Pricing](https://supervertaler.com/pricing/): one licence, both plugins – €20/month or €200/year, up to two computers
-- [Changelog](https://supervertaler.com/changelog.html): release history
+- [Docs and resources](https://supervertaler.com/docs/): the starting point for the documentation of each product, plus the case study, screencasts, changelogs and source code
+- [Case study: Can a local AI model translate a patent?](https://supervertaler.com/articles/local-ai-patent-test/): a published Dutch patent translated in memoQ by Gemma 4 31B and by Claude Opus 5.5, compared paragraph by paragraph with its official English
+- [Changelogs](https://supervertaler.com/changelog/): release history of each plugin
 - [Privacy](https://supervertaler.com/privacy/): privacy policy
 
 ## Get it

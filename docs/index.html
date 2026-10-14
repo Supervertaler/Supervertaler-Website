@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Docs and resources – Supervertaler</title>
+<meta name="description" content="Documentation for Supervertaler for Trados, Supervertaler for memoQ and Sidekick, plus a case study, screencasts, changelogs and the source code.">
+<link rel="icon" href="/favicon.svg?v=1" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="/mono.css?v=30">
+<style>
+.product.sidekick { --c: var(--ink); }
+.products.three { gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); }
+.res-list { max-width: var(--measure); margin: 0 0 1.2rem; padding-left: 1.1rem; color: var(--ink-soft); }
+.res-list li { margin-bottom: .45rem; }
+.res-cols { display: grid; gap: 2rem 3rem; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); }
+.res-cols h3 { font-size: 1.15rem; margin: 0 0 .7rem; }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/sv-icon-black.svg" width="30" height="30" alt=""> Supervertaler</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
+      <a href="/trados/" title="A plugin inside Trados Studio: AI translation, live terminology and an assistant that sees the whole document. Paid.">for Trados</a>
+      <a href="/memoq/" title="A plugin inside memoQ: an AI translation engine that learns from what you confirm, with your glossary enforced. Same licence as Trados.">for memoQ</a>
+      <a href="https://docs.supervertaler.com/sidekick/" target="_blank" rel="noopener" title="A free toolbox that works over any Windows app: clipboard history, quick translations, AI actions and terminology lookups. Not tied to a CAT tool.">Sidekick</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/docs/" class="here">Docs</a>
+      <a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Docs and resources</h1>
+    <p class="standfirst">
+      The documentation for each product, and everything else that shows how Supervertaler works:
+      a case study on a real patent, screencasts, release notes and the source code.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap products three">
+
+    <div class="product trados">
+      <h2><img class="mark" src="/sv-icon.svg" width="30" height="30" alt="">Supervertaler <span class="host">for Trados</span></h2>
+      <p class="where">Trados Studio 2022, 2024 and 2026.</p>
+      <ul>
+        <li><a href="https://docs.supervertaler.com/trados/installation/">Installation</a></li>
+        <li><a href="https://docs.supervertaler.com/trados/getting-started/">Getting started</a></li>
+        <li><a href="https://docs.supervertaler.com/trados/ai-assistant/providers/">Providers and models</a>, local models included</li>
+        <li><a href="https://docs.supervertaler.com/trados/ai-assistant/super-memory/">SuperMemory</a>, what you know about each client</li>
+        <li><a href="https://docs.supervertaler.com/trados/superbench/">SuperBench</a>, compare models on your own document</li>
+        <li><a href="https://docs.supervertaler.com/trados/mcp-server/">MCP Server</a>, Claude and other AI assistants in Studio</li>
+        <li><a href="https://docs.supervertaler.com/trados/troubleshooting/">Troubleshooting</a></li>
+      </ul>
+      <a class="go-quiet" href="https://docs.supervertaler.com/trados/">All Trados docs</a>
+    </div>
+
+    <div class="product memoq">
+      <h2><img class="mark" src="/sv-icon-memoq.svg" width="30" height="30" alt="">Supervertaler <span class="host">for memoQ</span></h2>
+      <p class="where">memoQ 11 and 12.</p>
+      <ul>
+        <li><a href="https://docs.supervertaler.com/memoq/installation/">Installation</a></li>
+        <li><a href="https://docs.supervertaler.com/memoq/getting-started/">Getting started</a></li>
+        <li><a href="https://docs.supervertaler.com/memoq/context-layers/">Context layers</a>, what the AI is told</li>
+        <li><a href="https://docs.supervertaler.com/memoq/local-models/">Local and cloud models</a>, and what leaves your computer</li>
+        <li><a href="https://docs.supervertaler.com/memoq/mcp-server/">AI assistants</a>, Claude Desktop and ChatGPT</li>
+        <li><a href="https://docs.supervertaler.com/memoq/troubleshooting/">Troubleshooting</a></li>
+      </ul>
+      <a class="go-quiet" href="https://docs.supervertaler.com/memoq/">All memoQ docs</a>
+    </div>
+
+    <div class="product sidekick">
+      <h2><img class="mark" src="/sv-icon-black.svg" width="30" height="30" alt="">Supervertaler <span class="host">Sidekick</span></h2>
+      <p class="where">Free, and works over any Windows app.</p>
+      <ul>
+        <li><a href="https://docs.supervertaler.com/sidekick/installation/">Installation</a></li>
+        <li><a href="https://docs.supervertaler.com/sidekick/clipboard/">Clipboard history</a></li>
+        <li><a href="https://docs.supervertaler.com/sidekick/ai-actions/">AI actions</a></li>
+      </ul>
+      <a class="go-quiet" href="https://docs.supervertaler.com/sidekick/">All Sidekick docs</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="band wash" id="case-study">
+  <div class="wrap">
+    <h2>Case study</h2>
+    <p>
+      <a href="/articles/local-ai-patent-test/"><strong>Can a local AI model translate a patent?</strong></a>
+      A published Dutch patent, translated in memoQ by a model you can run on your own computer and by
+      Claude Opus 5.5, and compared paragraph by paragraph with its official English. With the whole
+      comparison as a spreadsheet. October 2026.
+    </p>
+  </div>
+</section>
+
+<section class="band" id="screencasts">
+  <div class="wrap">
+    <h2>Screencasts</h2>
+    <ul class="res-list">
+      <li><a href="https://www.youtube.com/watch?v=bOIwMAoP7xc">Getting started</a> (16 min) – TermLens, AI translation, prompt generation, the Chat window, help and purchasing.</li>
+      <li><a href="https://www.youtube.com/watch?v=hKQ62_IU0fk">MCP Server</a> (9 min) – controlling Trados Studio 2026 from Claude's chat window.</li>
+      <li><a href="https://www.youtube.com/watch?v=549Ulc92FiU">SuperSearch</a> (3 min) – cross-file search across every SDLXLIFF file in a Trados project.</li>
+    </ul>
+    <p><a href="https://www.youtube.com/playlist?list=PLKzCjqTaOj20o4zyXAWmOR-e3ZHG4_NLU">All screencasts on YouTube →</a></p>
+  </div>
+</section>
+
+<section class="band wash" id="more">
+  <div class="wrap res-cols">
+
+    <div>
+      <h3>What's new</h3>
+      <ul class="res-list">
+        <li><a href="/changelog/trados/">Trados changelog</a></li>
+        <li><a href="/changelog/memoq/">memoQ changelog</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Licence and privacy</h3>
+      <ul class="res-list">
+        <li><a href="/pricing/">Pricing</a>: one licence covers both plugins</li>
+        <li><a href="/privacy/">Privacy policy</a>: what each plugin sends, and where</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Source code and community</h3>
+      <ul class="res-list">
+        <li><a href="https://github.com/Supervertaler/Supervertaler-for-Trados">Supervertaler for Trados</a> on GitHub</li>
+        <li><a href="https://github.com/Supervertaler/Supervertaler-for-memoQ">Supervertaler for memoQ</a> on GitHub</li>
+        <li><a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a>: questions, ideas and announcements</li>
+        <li><a href="https://docs.supervertaler.com/llms.txt">The docs for AI assistants</a> (llms.txt)</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/sv-icon-black.svg" width="30" height="30" alt=""> Supervertaler</a>
+        <p>AI translation inside the CAT tool you already use.</p>
+        <p>Built by <a href="https://beijer.uk/">Michael Beijer</a>, a Dutch–&#8288;English technical translator in Hastings.</p>
+      </div>
+
+      <div class="foot-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="/trados/">for Trados</a></li>
+          <li><a href="/memoq/">for memoQ</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="https://appstore.rws.com/plugin/432">RWS AppStore</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="/docs/">Docs and resources</a></li>
+          <li><a href="https://docs.supervertaler.com/trados/">Trados docs</a></li>
+          <li><a href="https://docs.supervertaler.com/memoq/">memoQ docs</a></li>
+          <li><a href="/changelog/trados/">Trados changelog</a></li>
+          <li><a href="/changelog/memoq/">memoQ changelog</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Community</h3>
+        <ul>
+          <li><a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://beijer.uk/">Author's website</a></li>
+          <li><a href="https://beijer.uk/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="https://github.com/Supervertaler">Source code</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <p>Looking for <a href="/workbench/">Supervertaler Workbench</a>? The free, open-source standalone
+         CAT tool is in active development again.</p>
+      <p>© 2026 Michael Beijer. Source-available licence.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="to-top" aria-label="Back to top" title="Back to top">↑</a>
+<script src="/site.js?v=1"></script>
+</body>
+</html>

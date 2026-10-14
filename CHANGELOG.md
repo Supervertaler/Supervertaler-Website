@@ -12,6 +12,14 @@ because reconstructing it after the fact would be guesswork.
 
 ### Added
 
+- **A Docs and resources page** at `/docs/`, which the header's Docs link now
+  opens on the home, pricing, changelog and case-study pages (the product pages
+  still go straight to their own docs). It lists the most useful docs pages for
+  Trados, memoQ and Sidekick, the case study, the screencasts, both changelogs,
+  pricing and privacy, and the source code. The footer's Help column links it on
+  every page.
+- **A "Tested on a real patent" section on the home page**, after Context
+  layers, linking the case study and the new page.
 - **A case study: "Can a local AI model translate a patent?"** at
   `/articles/local-ai-patent-test/`. A published Dutch patent (BE1029761B1)
   translated in memoQ with Gemma 4 31B and with Claude Opus 5.5, compared
@@ -28,6 +36,8 @@ because reconstructing it after the fact would be guesswork.
   "Anthropic, OpenAI or Google" only; Supervertaler for memoQ has also
   supported Ollama and OpenAI-compatible servers since 0.1.12. It now says so,
   and links the case study.
+- **llms.txt lists the new page and the case study**, and its changelog link
+  points at `/changelog/` rather than the old address that only redirects.
 - **The Trados page links the case study** from the providers line of its
   "AI translation" card.
 - **The case study links to a confidentiality page** on beijer.uk, which sets
