@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Can a local AI model translate a patent?</title>
+<meta name="description" content="A published Dutch patent translated with Gemma 4 31B, a model you can run on your own computer, and with Claude Opus 5.5, compared paragraph by paragraph with the official English publication.">
+<link rel="icon" href="/favicon.svg?v=1" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="stylesheet" href="/mono.css?v=30">
+<style>
+/* The case study. A reading page: one measure, the site's black on white,
+   and colour only where it carries meaning - the two outcome colours mark
+   what went wrong and what held, and nothing else is coloured. */
+:root {
+    --bad:      #b3261e;   /* a defect in a translation */
+    --bad-wash: #fbeceb;
+    --good:     #1e6b3a;   /* held, or right */
+    --good-wash:#e9f4ec;
+    --quote:    #f4f5f7;
+}
+.article { max-width: var(--measure); margin: 0 auto; padding-block: 3.5rem 4rem; }
+.article h1 { max-width: 20ch; }
+.byline { color: var(--ink-faint); font-size: .95rem; margin: -.4rem 0 1.8rem; }
+.article h2 { font-size: 1.5rem; letter-spacing: -.015em; margin: 3rem 0 .8rem; text-wrap: balance; }
+.article h3 { font-size: 1.1rem; margin: 2rem 0 .5rem; }
+.article p, .article li { color: var(--ink-soft); }
+.article strong { color: var(--ink); }
+.answer { border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule);
+          padding: 1.1rem 0 .4rem; margin: 2rem 0; }
+.answer ul { margin: .4rem 0 .8rem; padding-left: 1.15rem; }
+.answer li { margin-bottom: .55rem; }
+
+.table-wrap { overflow-x: auto; margin: 1.2rem 0 1.6rem; }
+table.results { border-collapse: collapse; width: 100%; font-size: .95rem; min-width: 34rem; }
+table.results th, table.results td { text-align: left; vertical-align: top; padding: .55rem .7rem;
+                                     border-bottom: 1px solid var(--rule); }
+table.results thead th { font-size: .82rem; text-transform: uppercase; letter-spacing: .06em;
+                         color: var(--ink-faint); border-bottom: 2px solid var(--ink); }
+table.results td.n { font-variant-numeric: tabular-nums; }
+.bad  { color: var(--bad); font-weight: 600; }
+.good { color: var(--good); font-weight: 600; }
+
+/* One finding: the Dutch, then each model's rendering, side by side on a desktop. */
+.finding { margin: 1.4rem 0 2rem; }
+.finding .nl { font-size: .95rem; color: var(--ink-faint); margin: 0 0 .6rem; }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr)); gap: .8rem; }
+.pair > div { min-width: 0; background: var(--quote); border-radius: 4px; padding: .8rem 1rem; font-size: .95rem; }
+.pair .who { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .07em;
+             color: var(--ink-faint); margin-bottom: .3rem; }
+.pair p { margin: 0 0 .4rem; color: var(--ink); }
+mark.x { background: var(--bad-wash); color: var(--bad); padding: 0 .15em; border-radius: 2px; }
+mark.ok { background: var(--good-wash); color: var(--good); padding: 0 .15em; border-radius: 2px; }
+
+.rules { width: 100%; border-collapse: collapse; font-size: .95rem; min-width: 30rem; }
+.rules th, .rules td { text-align: left; padding: .45rem .6rem; border-bottom: 1px solid var(--rule); }
+.rules thead th { font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint);
+                  border-bottom: 2px solid var(--ink); }
+
+.download { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; margin: 1.4rem 0; }
+.small { font-size: .9rem; color: var(--ink-faint); }
+.caveats li { margin-bottom: .45rem; }
+.bank-row { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--quote); border-radius: 4px; padding: .7rem .9rem; margin: .4rem 0 1.2rem;
+            font-family: Consolas, "SF Mono", Menlo, monospace; font-size: .85rem; line-height: 1.5; color: var(--ink); }
+.shot-fig { margin: 1.4rem 0 1.8rem; }
+.shot-fig img { display: block; width: 100%; }
+.shot-fig figcaption { font-size: .9rem; color: var(--ink-faint); margin-top: .55rem; }
+@media (max-width: 760px) { .article { padding-block: 2.2rem 3rem; } }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/sv-icon-black.svg" width="30" height="30" alt=""> Supervertaler</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
+      <a href="/trados/" title="A plugin inside Trados Studio: AI translation, live terminology and an assistant that sees the whole document. Paid.">for Trados</a>
+      <a href="/memoq/" title="A plugin inside memoQ: an AI translation engine that learns from what you confirm, with your glossary enforced. Same licence as Trados.">for memoQ</a>
+      <a href="https://docs.supervertaler.com/sidekick/" target="_blank" rel="noopener" title="A free toolbox that works over any Windows app: clipboard history, quick translations, AI actions and terminology lookups. Not tied to a CAT tool.">Sidekick</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="https://docs.supervertaler.com/">Docs</a>
+      <a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a>
+    </nav>
+  </div>
+</header>
+
+<!--
+  Case study, published 2026-10-14. The spreadsheet beside this page is the
+  public version of the comparison the numbers and quotations come from.
+-->
+<main class="wrap">
+<article class="article">
+
+<h1>Can a local AI model translate a patent?</h1>
+<p class="byline">Michael Beijer · 14 October 2026 · Dutch → English · Supervertaler for memoQ 0.1.19</p>
+
+<p class="standfirst">
+  Translators keep asking whether they can run AI translation on their own computer, so that a client's document
+  never leaves it. I tested that on a published Dutch patent: a model you can run at home, Gemma 4 31B, against
+  Claude Opus 5.5, with the official English publication as the yardstick.
+</p>
+
+<section class="answer">
+  <p><strong>The short answer</strong></p>
+  <ul>
+    <li><strong>Gemma 4 31B writes fluent, mostly accurate patent English</strong>, but its terminology drifts. The
+        claimed device was an "apparatus" in claims 1 to 4 and a "device" in claims 5 to 9, and two different parts
+        ended up with the same name. A local model of this size gives you a first draft that needs a thorough
+        post-edit.</li>
+    <li><strong>Claude Opus 5.5 stayed consistent from the first paragraph to the last claim</strong>, and it pointed
+        out several problems in the Dutch original, including a missing antecedent in claim 4.</li>
+    <li><strong>House rules make a real difference.</strong> I wrote six Dutch patent conventions the local model had
+        been getting wrong into Supervertaler's <strong>SuperMemory</strong>, the notes it sends to the model with every
+        request, and the model applied all six on the next run.</li>
+  </ul>
+</section>
+
+<h2>The test</h2>
+<p>
+  The document is Belgian patent <strong>BE1029761B1</strong>, <em>Inrichting voor het testen van een remsysteem</em>:
+  a roller brake tester that also lines a car up so its driver assistance systems can be tested. About 4,300 words
+  of description and 12 claims, mechanical and electrical engineering.
+</p>
+<p>
+  The applicant also filed it as an international (PCT) application, in Dutch. Dutch is not a PCT publication
+  language, so WIPO published it in English translation as <strong>WO2023042137A1</strong>. That makes it an ideal
+  test: a real filing translation of exactly this text, and both versions public. Because everything was already
+  published, it was safe to send it to cloud services as well as local ones.
+</p>
+<p>I translated it twice in memoQ, with the same settings both times:</p>
+<ul>
+  <li>Supervertaler for memoQ 0.1.19, Pre-translate, an empty translation memory and no termbase;</li>
+  <li>the default translation prompt, plus my house rules in SuperMemory (more on that below);</li>
+  <li><strong>Gemma 4 31B</strong> through Ollama's cloud service (<code>gemma4:31b-cloud</code>), the same model
+      you can download and run locally;</li>
+  <li><strong>Claude Opus 5.5</strong> through Anthropic's API.</li>
+</ul>
+<p>
+  Then I compared both, paragraph by paragraph and claim by claim, with the published English: meaning, terminology,
+  claim language and fluency.
+</p>
+
+<h2>Results</h2>
+<div class="table-wrap">
+<table class="results">
+  <thead><tr><th></th><th>Gemma 4 31B</th><th>Claude Opus 5.5</th></tr></thead>
+  <tbody>
+    <tr><td>Rows with a claim-critical problem</td><td class="n bad">7</td><td class="n good">0</td></tr>
+    <tr><td>Rows with a meaning or consistency problem</td><td class="n bad">15</td><td class="n">1</td></tr>
+    <tr><td>Name of the claimed subject</td><td class="bad">"apparatus" in claims 1–4, "device" in claims 5–9</td><td class="good">"device" throughout</td></tr>
+    <tr><td><em>stuurinrichting</em> in claim 9</td><td class="bad">"control device", the name claim 7 already uses for another part</td><td class="good">"steering device"</td></tr>
+    <tr><td>Spelling</td><td>British and American mixed</td><td>British throughout</td></tr>
+    <tr><td>Problems in the Dutch source pointed out</td><td>none of substance</td><td class="good">several, including a missing antecedent in claim 4</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="small">A row is one paragraph or one claim; 53 in all. The published English, a careful and quite literal
+  filing translation, is the yardstick and is not scored.</p>
+
+<h2>Where the local model went wrong</h2>
+<p>
+  Almost never in meaning, and almost always in consistency. During Pre-translate, memoQ hands Supervertaler about
+  ten segments at a time (the <em>Segments per batch</em> setting can make that smaller, but memoQ never sends more),
+  and each batch is a separate request. The model gets the same instructions every time, but it does not see what
+  it wrote in the batches before. In ordinary prose, a change of wording between batches is a style problem. In a
+  patent it breaks the claims, which depend on every element keeping one name.
+</p>
+
+<div class="finding">
+  <p class="nl">The same <em>inrichting</em>, in claim 1 and claim 5</p>
+  <div class="pair">
+    <div><span class="who">Gemma 4 31B</span>
+      <p>1. <mark class="x">An apparatus</mark> for testing a braking system…</p>
+      <p>5. <mark class="x">The device</mark> according to the preceding claims…</p></div>
+    <div><span class="who">Claude Opus 5.5</span>
+      <p>1. <mark class="ok">A device</mark> for testing a braking system…</p>
+      <p>5. <mark class="ok">The device</mark> according to the preceding claims…</p></div>
+  </div>
+</div>
+
+<div class="finding">
+  <p class="nl">Claim 9: <em>…een afstandsmeetinrichting en een stuurinrichting…</em> (claim 7 has already introduced a <em>regelinrichting</em>, a control device)</p>
+  <div class="pair">
+    <div><span class="who">Gemma 4 31B</span>
+      <p>…a distance measuring device and <mark class="x">a control device</mark>…</p></div>
+    <div><span class="who">Claude Opus 5.5</span>
+      <p>…a distance-measuring device and <mark class="ok">a steering device</mark>…</p></div>
+  </div>
+</div>
+
+<div class="finding">
+  <p class="nl"><em>…heeft geen of nagenoeg geen invloed op het testen van het remsysteem.</em></p>
+  <div class="pair">
+    <div><span class="who">Gemma 4 31B</span>
+      <p>…has <mark class="x">little</mark> or virtually no influence on the testing of the braking system.</p></div>
+    <div><span class="who">Claude Opus 5.5</span>
+      <p>…has <mark class="ok">no</mark> or virtually no influence on the testing of the braking system.</p></div>
+  </div>
+</div>
+
+<p>
+  The other drift was smaller but constant: "rolls" and "rollers", "status" in the description and "state" in the
+  claims, "tyre" and "tire" in one paragraph. It also called a <em>voorbeelduitvoeringsvorm</em> (an exemplary
+  embodiment) a "preferred embodiment", which says something different.
+</p>
+
+<h3>So why did Claude stay consistent?</h3>
+<p>
+  It worked under exactly the same conditions: the same batches of ten, the same instructions, and no memory of
+  earlier batches either. It stayed consistent because it made the same choice every time. Given <em>inrichting</em>
+  in a patent, it chose "device" in all 22 batches. Gemma's preference between "apparatus" and "device" was weak
+  enough to tip one way in one batch and the other way in the next. A stronger model is a more predictable one, and
+  in a patent, predictability is most of what consistency is.
+</p>
+<p>
+  You do not have to rely on that, though. A termbase entry for each key term tells every batch which word to use,
+  whichever model is translating.
+</p>
+
+<h2>What the cloud model added</h2>
+<p>
+  Opus kept its terminology where it matters most, in the claims. Its slips were small: one "brake system" among
+  the "braking systems", "movable" and "displaceable" for the same Dutch word, and one paragraph of the description
+  that called the steering device a control device. More interesting are its translator comments, which Supervertaler lets the model leave in square brackets for you to deal with in review. Several
+  pointed at real problems in the Dutch original: a figure "3B" that should be 2B, an alignment roller numbered 130
+  that is 150 everywhere else, and this, on claim 4:
+</p>
+<figure class="shot-fig">
+  <a href="memoq-claude-opus-claim-4.jpg" title="Open the screenshot at full size"><img class="shot" src="memoq-claude-opus-claim-4.jpg" width="1395" height="619"
+       alt="memoQ's translation grid showing claims 3 to 6, Dutch on the left and Claude Opus 5.5's English on the right. Claim 4 ends with the translator comment: [[TC: &quot;de aligneringsrol&quot; lacks antecedent basis when dependent on claim 1. Please check.]] Claim 6 ends with another: [[TC: &quot;waarbij&quot; missing after &quot;conclusies 2-5&quot;; &quot;45° graden&quot; duplicates the unit. Rendered as evidently intended.]]"></a>
+  <figcaption>Claims 3 to 6 in memoQ, pre-translated by Claude Opus 5.5 through Supervertaler. The comments at the end of
+    claims 4 and 6 are the model's, for the translator to deal with in review. Click to enlarge.</figcaption>
+</figure>
+<p>
+  That is right: claim 4 may depend on claim 1, which never introduces an alignment roller. It is the kind of
+  remark a patent attorney is glad to receive from a translator.
+</p>
+
+<h2>House rules make the difference</h2>
+<p>
+  Before this test I ran a smaller one, on a short demonstration patent translated from English into Dutch. In two
+  runs, Gemma got six standard Dutch patent conventions wrong.
+</p>
+<p>
+  Supervertaler has a feature for exactly this: <strong>SuperMemory</strong>. You keep <em>memory banks</em>, folders
+  of plain-text notes with your terminology decisions and style rules, one per client, plus a shared bank for house
+  rules that apply to every job. Supervertaler sends the relevant notes to the model with every request, so the model
+  starts each segment knowing what you have already decided. I added the six conventions to my shared bank, one line
+  each in its terminology table, for example:
+</p>
+<pre class="bank-row">| characterised in that (claims) | met het kenmerk, dat | Never the calque "gekenmerkt in dat", and never "dadurch", which is German. |</pre>
+<p>On the next run, the model applied all six:</p>
+<div class="table-wrap">
+<table class="rules">
+  <thead><tr><th>English</th><th>Before</th><th>After the house rules</th></tr></thead>
+  <tbody>
+    <tr><td>characterised in that</td><td class="bad">gekenmerkt dadurch dat</td><td class="good">met het kenmerk, dat</td></tr>
+    <tr><td>to provide (a device)</td><td class="bad">te voorzien</td><td class="good">te verschaffen</td></tr>
+    <tr><td>preferred embodiment</td><td class="bad">voorkeursvorm</td><td class="good">voorkeursuitvoeringsvorm</td></tr>
+    <tr><td>to this end</td><td class="bad">hiervoor</td><td class="good">daartoe</td></tr>
+    <tr><td>flicker</td><td class="bad">knipperen</td><td class="good">flikkeren</td></tr>
+    <tr><td>light-dependent resistor</td><td class="bad">lichtgevoelige weerstand</td><td class="good">lichtafhankelijke weerstand</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="small">"Gekenmerkt dadurch dat" is worth a second look: <em>dadurch</em> is German, from the German claim
+  formula. The model knew Dutch; it did not know Dutch patent drafting.</p>
+<p>
+  So the gap between a local model and a top cloud model is partly knowledge you can supply yourself: a termbase
+  for each job's key terms, and SuperMemory for your conventions. That is also exactly what would have prevented
+  most of the inconsistencies above. The help explains how memory banks work in
+  <a href="https://docs.supervertaler.com/memoq/context-layers/#7-supermemory-memory-banks">Supervertaler for memoQ</a>
+  and in <a href="https://docs.supervertaler.com/trados/ai-assistant/super-memory/">Supervertaler for Trados</a>.
+</p>
+
+<h2>What this means if you want to work locally</h2>
+<ul>
+  <li><strong>Size matters more than anything.</strong> I also tried 7 and 8 billion parameter models: they produced
+      invented words and grammar errors, and are not usable for patent work.</li>
+  <li><strong>You need a graphics card.</strong> A model of about 30 billion parameters needs around 24 GB of graphics
+      memory to run at a usable speed. On a fast desktop PC without one, a smaller Gemma model took 15 minutes to read
+      Supervertaler's instructions before the first segment, and several minutes for each one after.</li>
+  <li><strong>Give it your terminology.</strong> A termbase for the job's key terms and SuperMemory for your
+      conventions fix most of what goes wrong.</li>
+  <li><strong>Plan on a full post-edit</strong>, with particular care for the claims.</li>
+</ul>
+<h3>Cloud, but confidential</h3>
+<p>
+  If your concern is confidentiality rather than strictly never leaving your computer, look at which terms your AI
+  use falls under. With Claude, that depends on how you use it:
+</p>
+<ul>
+  <li><strong>Anthropic's API</strong>, which is what Supervertaler uses when you give it an API key, and the
+      <strong>Team and Enterprise plans</strong> fall under Anthropic's
+      <a href="https://www.anthropic.com/legal/commercial-terms">Commercial Terms</a>. Your documents are not used to
+      train models, and API data is
+      <a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">deleted
+      within 30 days</a>.</li>
+  <li><strong>The personal Free, Pro and Max plans</strong> fall under the
+      <a href="https://www.anthropic.com/legal/consumer-terms">Consumer Terms</a>. Whether your chats are used to train
+      future models is a setting, and with it switched on they can be kept for up to five years.</li>
+</ul>
+<p>
+  The difference matters if you translate through Claude Desktop with Supervertaler's MCP connector: then the plan
+  you are signed in with decides which terms apply. Translating through the API with your own key is always under
+  the Commercial Terms.
+</p>
+<p>
+  For my own translation work I use Anthropic's API and a Claude Team plan, both under the Commercial Terms, so client
+  documents are not used to train anyone's models.
+  <!-- LATER: link to a confidentiality page on beijer.uk, e.g. "How I handle confidential documents". -->
+  Whatever you use, check what your clients' agreements actually require.
+</p>
+<p>
+  Whichever you choose, test a model on a <strong>published</strong> patent before trusting it with client work, as
+  I did here. Supervertaler's help explains how to set up a local model:
+  <a href="https://docs.supervertaler.com/memoq/local-models/">Local and cloud models</a>.
+</p>
+
+<h2>Check it yourself</h2>
+<p>
+  If you use Supervertaler for Trados, <a href="https://docs.supervertaler.com/trados/superbench/">SuperBench</a>
+  runs this kind of test for you, on your own document: three models of your choice translate the same segments
+  with your prompt, termbases and SuperMemory, a fourth model judges them blind, and you get the translations side
+  by side with a report and the cost of each. Nothing is written to the document.
+</p>
+<p>For this test, the full comparison is here:</p>
+<div class="download">
+  <a class="go" href="patent-test-comparison.xlsx">Download the comparison (Excel)</a>
+  <span class="small">The Dutch source, the published English and both models' translations side by side, one row per
+    paragraph and claim, with my notes.</span>
+</div>
+<p>
+  Sources: <a href="https://patents.google.com/patent/BE1029761B1/nl">BE1029761B1</a> (Dutch) and
+  <a href="https://patents.google.com/patent/WO2023042137A1/en">WO2023042137A1</a> (English).
+</p>
+
+<h3>Caveats</h3>
+<ul class="caveats">
+  <li>One document and one run per model: a case study, not a benchmark.</li>
+  <li>Gemma ran on Ollama's cloud service. The version you download to run at home is compressed to fit, and is
+      likely to do slightly worse.</li>
+  <li>Both models will have moved on by the time you read this. The method will not have: use a published document,
+      compare against the published translation, and read the claims first.</li>
+</ul>
+
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/sv-icon-black.svg" width="30" height="30" alt=""> Supervertaler</a>
+        <p>AI translation inside the CAT tool you already use.</p>
+        <p>Built by <a href="https://beijer.uk/">Michael Beijer</a>, a Dutch–&#8288;English technical translator in Hastings.</p>
+      </div>
+
+      <div class="foot-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="/trados/">for Trados</a></li>
+          <li><a href="/memoq/">for memoQ</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="https://appstore.rws.com/plugin/432">RWS AppStore</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://docs.supervertaler.com/trados/">Trados docs</a></li>
+          <li><a href="https://docs.supervertaler.com/memoq/">memoQ docs</a></li>
+          <li><a href="/changelog/trados/">Trados changelog</a></li>
+          <li><a href="/changelog/memoq/">memoQ changelog</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Community</h3>
+        <ul>
+          <li><a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://beijer.uk/">Author's website</a></li>
+          <li><a href="https://beijer.uk/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="https://github.com/Supervertaler">Source code</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <p>Looking for <a href="/workbench/">Supervertaler Workbench</a>? The free, open-source standalone
+         CAT tool is in active development again.</p>
+      <p>© 2026 Michael Beijer. Source-available licence.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="to-top" aria-label="Back to top" title="Back to top">↑</a>
+<script src="/site.js?v=1"></script>
+</body>
+</html>

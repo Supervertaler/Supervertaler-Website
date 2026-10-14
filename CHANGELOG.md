@@ -8,6 +8,27 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-10-14
+
+### Added
+
+- **A case study: "Can a local AI model translate a patent?"** at
+  `/articles/local-ai-patent-test/`. A published Dutch patent (BE1029761B1)
+  translated in memoQ with Gemma 4 31B and with Claude Opus 5.5, compared
+  paragraph by paragraph with its official English publication
+  (WO2023042137A1): the results, examples side by side, a screenshot of
+  Opus's translator comments in memoQ, the effect of house rules in
+  SuperMemory, what working locally takes, and which Claude plans fall under
+  Anthropic's Commercial Terms. The comparison spreadsheet is downloadable
+  beside it. Linked from the memoQ page.
+
+### Changed
+
+- **The memoQ page mentions local models.** Its "AI translation" card said
+  "Anthropic, OpenAI or Google" only; Supervertaler for memoQ has also
+  supported Ollama and OpenAI-compatible servers since 0.1.12. It now says so,
+  and links the case study.
+
 ## 2026-10-13
 
 ### Added
