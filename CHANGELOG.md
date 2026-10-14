@@ -20,7 +20,7 @@ because reconstructing it after the fact would be guesswork.
   Opus's translator comments in memoQ, the effect of house rules in
   SuperMemory, what working locally takes, and which Claude plans fall under
   Anthropic's Commercial Terms. The comparison spreadsheet is downloadable
-  beside it. Linked from the memoQ page.
+  beside it. Linked from the memoQ and Trados pages.
 
 ### Changed
 
@@ -28,6 +28,10 @@ because reconstructing it after the fact would be guesswork.
   "Anthropic, OpenAI or Google" only; Supervertaler for memoQ has also
   supported Ollama and OpenAI-compatible servers since 0.1.12. It now says so,
   and links the case study.
+- **The Trados page links the case study** from the providers line of its
+  "AI translation" card.
+- **The case study links to a confidentiality page** on beijer.uk, where the
+  author sets out for his own clients how their documents are handled.
 
 ## 2026-10-13
 
