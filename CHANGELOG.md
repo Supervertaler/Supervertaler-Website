@@ -16,6 +16,11 @@ because reconstructing it after the fact would be guesswork.
   and you get good sentences and a poor translation", then four kinds of
   context instead of six, with the list numbering and figures the grid never
   shows kept for last. The line below it is unchanged.
+- **The Trados and memoQ pages' Context layers sections open the same way.**
+  Their "An engine that sees only the sentence…" opening is replaced by the
+  home page's new first sentence, and the next sentence now starts "In
+  Supervertaler," so the contrast still lands. The rest of each paragraph is
+  unchanged.
 
 ### Fixed
 
