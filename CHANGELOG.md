@@ -8,6 +8,17 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-10-15
+
+### Fixed
+
+- **The home page's opening paragraphs are one size on a phone.** The
+  standfirst shrank on narrow screens but the "It reads like a translation…"
+  line below it did not, so on a phone that line came out larger than the
+  paragraphs either side of it. It now shrinks with the standfirst, as it
+  already matched it on a desktop. The stylesheet version is now 32 on every
+  page.
+
 ## 2026-10-14
 
 ### Added

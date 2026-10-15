@@ -342,10 +342,18 @@ footer a { color: var(--ink-soft); }
 .hero-shot img { display: block; width: 100%; border: 1px solid var(--rule); border-radius: 4px; }
 .hero-shot figcaption { font-size: .9rem; color: var(--ink-faint); margin-top: .55rem; }
 
-/* The line the standfirst lands on. Bigger than body text and set in the ink
-   colour, so it reads as a conclusion rather than another paragraph. Not
-   bold: the licence note directly below it is, and two bold blocks in a row
-   read as a pair of subheadings rather than as a sentence - on a phone
-   especially, where both wrap to three lines. */
+/* The line the standfirst lands on. The same size as the standfirst but set
+   in the ink colour, so it reads as a conclusion rather than another
+   paragraph. Not bold: the licence note directly below it is, and two bold
+   blocks in a row read as a pair of subheadings rather than as a sentence - on
+   a phone especially, where both wrap to three lines. */
 .punch { font-size: 1.2rem; color: var(--ink); max-width: var(--measure);
          margin: 0 0 2rem; }
+
+/* Shrinks with the standfirst on a phone. Without this the standfirst dropped
+   to 1.1rem and this line stayed at 1.2rem, so the hero ran small, large,
+   small. Must come after the base rule above, for the same source-order reason
+   as the .nav-toggle block. */
+@media (max-width: 760px) {
+    .punch { font-size: 1.1rem; }
+}
