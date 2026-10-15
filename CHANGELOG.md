@@ -10,6 +10,13 @@ because reconstructing it after the fact would be guesswork.
 
 ## 2026-10-15
 
+### Changed
+
+- **A plainer standfirst on the home page.** "Feed an AI one sentence at a time
+  and you get good sentences and a poor translation", then four kinds of
+  context instead of six, with the list numbering and figures the grid never
+  shows kept for last. The line below it is unchanged.
+
 ### Fixed
 
 - **The home page's opening paragraphs are one size on a phone.** The
