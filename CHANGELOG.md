@@ -10,6 +10,12 @@ because reconstructing it after the fact would be guesswork.
 
 ## 2026-10-15
 
+### Added
+
+- **The footer explains the name.** After "Built by Michael Beijer…" it now
+  says *Supervertaler* is Dutch for "super translator", on every page. The
+  word is marked `lang="nl"` so screen readers pronounce it as Dutch.
+
 ### Changed
 
 - **A plainer standfirst on the home page.** "Feed an AI one sentence at a time
