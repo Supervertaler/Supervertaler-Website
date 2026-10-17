@@ -27,10 +27,12 @@ AI-readable (see Optional below); prefer the docs for feature-level questions.
 
 - [RWS AppStore – Supervertaler for Trados](https://appstore.rws.com/plugin/432): the only place the Trados plugin is distributed
 - [Download Supervertaler for memoQ](https://supervertaler.com/download/memoq/): the installer
+- [Download Supervertaler Sidekick](https://supervertaler.com/download/sidekick/): the installer – free; needs no administrator rights and no AutoHotkey
 - [Subscribe](https://supervertaler.com/buy)
 
 ## Also by the same author
 
+- [Supervertaler Sidekick](https://docs.supervertaler.com/sidekick/): a free system-wide toolbox for translators on Windows – clipboard history, QuickTrans (several translation engines at once), AI actions, text expansion and terminology searches, over any app. Not tied to a CAT tool and not covered by the licence: it is free
 - [Otto](https://otto.supervertaler.com/): automatic document translation – upload a file, get a translated file back. Currently in PRIVATE BETA, not yet publicly available
 - [Supervertaler Workbench](https://supervertaler.com/workbench/): a free, open-source standalone CAT tool with AI translation, translation memory, terminology and QA. In active development
 

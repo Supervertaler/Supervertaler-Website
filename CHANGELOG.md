@@ -8,6 +8,20 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-10-18
+
+### Added
+
+- **A Sidekick download.** `/download/sidekick/` starts the download of
+  Sidekick's installer, the way `/download/memoq/` does for memoQ: it points at
+  GitHub's latest release under the installer's fixed name, so no link changes
+  when a new version comes out. The page says what to do when Windows calls the
+  installer unrecognised, and that it needs no administrator rights or anything
+  installed first. The Sidekick card on the home page leads there ("Download
+  free", where it said "Get it free" and opened the docs; the header's Sidekick
+  link still does), the Docs and resources page lists it under Sidekick, and
+  `llms.txt` now mentions Sidekick and its download.
+
 ## 2026-10-15
 
 ### Added
