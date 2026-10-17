@@ -12,15 +12,28 @@ because reconstructing it after the fact would be guesswork.
 
 ### Added
 
+- **A Sidekick page** at `/sidekick/`, beside the Trados and memoQ pages: what
+  Sidekick is, what it does (QuickTrans, clipboard history, terminology
+  searches, AI actions, snippets and text expansion, the window and its keys),
+  a screenshot of QuickTrans, the three steps of installing it, and links to
+  the Sidekick docs, release notes and source code. Its **Download free**
+  button is the way to `/download/sidekick/`.
 - **A Sidekick download.** `/download/sidekick/` starts the download of
   Sidekick's installer, the way `/download/memoq/` does for memoQ: it points at
   GitHub's latest release under the installer's fixed name, so no link changes
   when a new version comes out. The page says what to do when Windows calls the
   installer unrecognised, and that it needs no administrator rights or anything
-  installed first. The Sidekick card on the home page leads there ("Download
-  free", where it said "Get it free" and opened the docs; the header's Sidekick
-  link still does), the Docs and resources page lists it under Sidekick, and
+  installed first. The Docs and resources page lists it under Sidekick, and
   `llms.txt` now mentions Sidekick and its download.
+
+### Changed
+
+- **The home page's Sidekick card opens the Sidekick page.** It said "Get it
+  free" and opened the docs, and for part of 2026-10-18 it went straight to the
+  download, which started a download before saying what it was. It now opens
+  the Sidekick page, where the download is one click further.
+- **The header's Sidekick link opens the Sidekick page** on every page, as "for
+  Trados" and "for memoQ" open theirs, instead of the docs in a new tab.
 
 ## 2026-10-15
 
