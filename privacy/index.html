@@ -75,7 +75,7 @@
 
     <div class="privacy-content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: 29 September 2026</p>
+        <p class="last-updated">Last updated: 23 October 2026</p>
 
         <div class="highlight-box">
             <p><strong>The short version:</strong> Supervertaler does not collect, store, or transmit your data to
@@ -90,6 +90,10 @@
             <a href="#memoq">section 7</a>). We know that as a professional
             translator you often work with confidential client material, and we have designed our software with that
             in mind.</p>
+
+        <p>What you agree to when you use the software &ndash; your licence, subscriptions and refunds, and
+            what you are responsible for when you use AI &ndash; is in the
+            <a href="../terms/">terms of use</a>.</p>
 
         <h2>1. Data that stays on your machine</h2>
 
@@ -191,10 +195,25 @@
 
         <h2>4. Update checks</h2>
 
-        <p>Supervertaler for Trados checks for new versions via the GitHub API
-            (<code>api.github.com</code>) on startup. This request contains only a generic user-agent string
-            (<code>Supervertaler-Trados-UpdateCheck/1.0</code>) &ndash; no personal information, usage data, or
-            system details are sent. You can skip suggested updates or dismiss them.</p>
+        <p><strong>Supervertaler for Trados</strong> is installed and updated through the RWS AppStore. To tell
+            you when a new version is out, it downloads the AppStore's public list of plugins from RWS
+            (<code>api-appstore.rws.com</code>) when you open the Trados Studio editor, at most once a day, and compares
+            the versions on your computer. The request carries only a generic user-agent
+            (<code>Supervertaler-Trados-UpdateCheck/2.0</code>) &ndash; nothing about you, your computer or
+            your work. If you choose <strong>Install Update</strong>, the update is downloaded from the same
+            RWS AppStore. You can skip a version or postpone the reminder, and nothing is ever installed
+            unless you choose to.</p>
+
+        <p>Setting up ChatGPT desktop from <strong>Connect AI assistant</strong> in the plugin's AI settings
+            downloads the connector program from Supervertaler's releases on GitHub
+            (<code>api.github.com</code> and <code>github.com</code>). Those requests also carry only a
+            generic user-agent, and are made only when you click the button.</p>
+
+        <p><strong>Supervertaler Workbench</strong> looks for a new version only when you choose
+            <strong>Check for Updates</strong>. It asks GitHub (<code>api.github.com</code>) for the latest
+            release, and the request carries only the program's name and version.</p>
+
+        <p>The memoQ plugin's update check is described in <a href="#memoq">section 7</a>.</p>
 
         <h2 id="licence">5. License validation</h2>
 
@@ -447,6 +466,7 @@
                             <li><a href="https://beijer.uk" target="_blank">Author's Website</a></li>
                             <li><a href="https://beijer.uk/contact/" target="_blank">Contact</a></li>
                             <li><a href="../privacy/">Privacy Policy</a></li>
+                            <li><a href="../terms/">Terms of Use</a></li>
                         </ul>
                     </div>
                 </div>

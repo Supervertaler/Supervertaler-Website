@@ -8,6 +8,31 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-10-23
+
+### Added
+
+- **Terms of use** at `/terms/`, for Supervertaler for Trados, Supervertaler for
+  memoQ, Supervertaler Workbench and Supervertaler Sidekick. Until now nothing a
+  user saw said what they were agreeing to: the source licences live in the
+  repositories, and Lemon Squeezy's buyer terms leave the use of the software to
+  the supplier's own terms. The page covers the 14-day trial, the licence (one
+  person, up to two computers, both plugins), subscriptions, cancelling and
+  refunds (in full, within 14 days of any payment), what users are responsible
+  for when they use AI (checking the output, confidentiality, API costs, AI
+  assistants), their data, liability, and the law of England and Wales. A short
+  version opens the page. Every footer links to it, as do the pricing page,
+  the privacy policy and `llms.txt`.
+
+### Changed
+
+- **Privacy policy, section 4 (update checks) describes what happens now.** It
+  said Supervertaler for Trados asks GitHub for new versions; it has asked the
+  RWS App Store for some time, at most once a day, and installs updates from
+  there. The section now also says that setting up ChatGPT desktop downloads the
+  connector from GitHub, and that Workbench checks GitHub only when asked to.
+  The policy links to the terms, and is dated 23 October 2026.
+
 ## 2026-10-18
 
 ### Added

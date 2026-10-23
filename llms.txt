@@ -22,6 +22,7 @@ AI-readable (see Optional below); prefer the docs for feature-level questions.
 - [Case study: Can a local AI model translate a patent?](https://supervertaler.com/articles/local-ai-patent-test/): a published Dutch patent translated in memoQ by Gemma 4 31B and by Claude Opus 5.5, compared paragraph by paragraph with its official English
 - [Changelogs](https://supervertaler.com/changelog/): release history of each plugin
 - [Privacy](https://supervertaler.com/privacy/): privacy policy
+- [Terms](https://supervertaler.com/terms/): terms of use for all four products – the trial, the licence, subscriptions and refunds, and what users are responsible for with AI
 
 ## Get it
 
