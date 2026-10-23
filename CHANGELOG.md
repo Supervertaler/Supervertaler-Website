@@ -13,13 +13,16 @@ because reconstructing it after the fact would be guesswork.
 ### Added
 
 - **Link previews.** A link to any page pasted into WhatsApp, LinkedIn, Slack
-  or X now shows a sharp picture: the Sv mark above the name, in the brand
-  colourway or the page's product colourway ("for Trados", "for memoQ").
+  or X now shows a sharp picture: the Sv mark, large, in the brand colourway,
+  or blue on the Trados pages and vermillion on the memoQ pages.
   Until now no page had Open Graph tags, so those apps fell back to the
   180-pixel touch icon and stretched it into a blur. All 18 pages carry them,
   the short links included (`/buy`, `/appstore`, `/download/memoq`,
   `/download/sidekick`). `tools/make-icons.py` makes the three pictures,
-  1200 × 630 and 35 to 45 KB each. The docs site uses them too.
+  1200 × 630 and 37 to 41 KB each. The docs site uses them too. The first
+  version had the name under the mark, which blurred in WhatsApp's small
+  preview: that is the middle of the picture shrunk to about 115 pixels. The
+  mark alone fills that square, and the apps print the page title beside it.
 - **Terms of use** at `/terms/`, for Supervertaler for Trados, Supervertaler for
   memoQ, Supervertaler Workbench and Supervertaler Sidekick. Until now nothing a
   user saw said what they were agreeing to: the source licences live in the
