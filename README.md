@@ -28,3 +28,17 @@ without being linked from anywhere.
 | `buy/`, `privacy/`, `releases/`, `guides/` | supporting pages |
 | `assets/`, `screenshots/` | images |
 | `CNAME` | the custom domain |
+
+## Link previews
+
+Every page's `<head>` carries Open Graph tags (`og:title`, `og:description`,
+`og:url`, `og:image` and friends) plus `twitter:card`. They are what WhatsApp,
+LinkedIn, Slack and X show when a link is pasted. Without them those apps fall
+back to the 180-pixel touch icon and stretch it, which looks blurry. A new page
+needs its own copy of the block, with its own title, description and URL. The
+easiest way is to copy it from a page in the same colourway.
+
+The three images, `og-image.png`, `og-image-trados.png` and `og-image-memoq.png`,
+are made by `tools/make-icons.py` together with the icons. The docs site uses
+them too, by URL. If you change one, raise the `?v=` on its URL everywhere it is
+used, because the apps keep a preview they have already made.

@@ -10,6 +10,10 @@ and favicon-memoq.* (apple-touch-icon-trados.png and -memoq.png), so
 #1976D2 -> #2196F3 and vermillion #D8402A -> #F05137, as in sv-icon.svg and
 sv-icon-memoq.svg.
 
+Also og-image.png, og-image-trados.png and og-image-memoq.png: the 1200 x 630
+picture a chat app or social site shows when a link to a page is pasted, the
+mark above the name, in the same three colourways.
+
 The geometry is sv-icon-black.svg's: a 112-radius disc in a 256 box, filled
 with a diagonal #151515 -> #333333 gradient, and "Sv" in Arial Bold at 135 and
 112 on baselines of 178 and 180, the pair centred as a whole - which is what
@@ -94,10 +98,57 @@ def rasters(suffix, top, bottom):
     apple.paste(big, (0, 0), big)
     apple.save(os.path.join(ROOT, "apple-touch-icon%s.png" % suffix))
     print("apple-touch-icon%s.png  180" % suffix)
+    return src
+
+
+# ------------------------------------------------------- the link preview
+# What WhatsApp, LinkedIn, Slack and the rest show when a link to a page is
+# pasted. Without one they fall back to the 180-pixel touch icon and stretch
+# it. 1200 x 630 is the size they all take. Everything sits inside the middle
+# 630-pixel square, because a small preview crops that square out.
+OG_W, OG_H = 1200, 630
+OG_FONT = r"C:\Windows\Fonts\segoeuib.ttf"   # the site's headings, on Windows
+
+# The line under the name on a product's card, in mono.css's text shade of
+# that product's colour (--trados, --memoq-text). The brand card has none.
+OG_PRODUCT = {
+    "": None,
+    "-trados": ("for Trados", "#2f6fdb"),
+    "-memoq": ("for memoQ", "#c93a25"),
+}
+
+
+def card(suffix, src):
+    S = 2                                 # drawn at 2x and downsampled
+    im = Image.new("RGB", (OG_W * S, OG_H * S), (255, 255, 255))
+    d = ImageDraw.Draw(im)
+    product = OG_PRODUCT[suffix]
+
+    disc = 250 * S
+    name = ImageFont.truetype(OG_FONT, 80 * S)
+    nb = name.getbbox("Supervertaler", anchor="ls")
+    rows = [disc, 52 * S, nb[3] - nb[1]]
+    if product:
+        line = ImageFont.truetype(OG_FONT, 50 * S)
+        lb = line.getbbox(product[0], anchor="ls")
+        rows += [22 * S, lb[3] - lb[1]]
+
+    y = (OG_H * S - sum(rows)) // 2
+    mark = src.resize((disc, disc), Image.LANCZOS)
+    im.paste(mark, ((OG_W * S - disc) // 2, y), mark)
+    y += disc + rows[1] - nb[1]
+    d.text((OG_W * S // 2, y), "Supervertaler", font=name, fill=rgb("#0a0a0a"), anchor="ms")
+    if product:
+        y += nb[3] + rows[3] - lb[1]
+        d.text((OG_W * S // 2, y), product[0], font=line, fill=rgb(product[1]), anchor="ms")
+
+    out = os.path.join(ROOT, "og-image%s.png" % suffix)
+    im.resize((OG_W, OG_H), Image.LANCZOS).save(out, optimize=True)
+    print("og-image%s.png      %dx%d, name %d wide" % (suffix, OG_W, OG_H, (nb[2] - nb[0]) // S))
 
 
 for suffix, top, bottom in COLOURWAYS:
-    rasters(suffix, top, bottom)
+    card(suffix, rasters(suffix, top, bottom))
 
 
 # ------------------------------------------------------------------ the SVG
