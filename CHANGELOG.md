@@ -8,6 +8,33 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-11-03
+
+### Changed
+
+- **The brand mark is purple.** The Sv mark on every page that is not a
+  product page, its favicon and its link-preview picture go from black to a
+  purple gradient, `#5B21B6` to `#7C3AED`. Sidekick wears it too, so the
+  Sidekick page's accent is now that purple rather than black. A coloured
+  disc shows on a dark tab strip as well as a light one, so `favicon.svg` no
+  longer carries a dark-mode rule that inverted the black disc.
+  `sv-icon-black.svg` is renamed `sv-icon-brand.svg`; nothing outside the site
+  linked it.
+- **Workbench has its own colour: green**, `#2E7D32` to `#43A047`, the same
+  green its docs already used. Until now it wore the Trados blue, so a Trados
+  user who saw a blue Sv in the taskbar could take Workbench for the Trados
+  plugin. `/workbench/` now carries the green mark in its header, favicon and
+  link preview (`favicon-workbench.*`, `apple-touch-icon-workbench.png`,
+  `og-image-workbench.png`, `sv-icon-workbench.svg`, all from
+  `tools/make-icons.py`). The privacy page, which showed the blue mark, now
+  shows the brand mark.
+- **Workbench is back on the home page.** The cards beside the heading are now
+  two groups: "Inside your CAT tool", the two paid plugins as before, and
+  "Free and standalone", one card with Sidekick and Workbench as a row each.
+  Workbench is in the navigation and the footer's Products list on every page,
+  and the "Looking for Supervertaler Workbench?" line at the foot of each page
+  is gone.
+
 ## 2026-10-23
 
 ### Added

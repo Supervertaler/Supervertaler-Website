@@ -6,9 +6,12 @@
    product and no other colour anywhere.
 
    That last rule is the point rather than a preference: the site has to make
-   blue mean "for Trados" and vermillion mean "for memoQ". On a page with no
-   other colour those two marks carry information. On a page of gradients and
-   coloured badges they are decoration competing with decoration.
+   blue mean "for Trados", vermillion "for memoQ", green "Workbench" and
+   purple "Supervertaler itself" - the brand mark, which Sidekick wears too.
+   On a page with no other colour those marks carry information. On a page of
+   gradients and coloured badges they are decoration competing with
+   decoration. (The brand mark was black until 2026-11-03, and Workbench wore
+   the Trados blue, so a blue Sv in the taskbar was not the Trados plugin.)
    =========================================================================== */
 
 :root {
@@ -26,6 +29,10 @@
        #f05137 is only 3.5:1 and fails AA at body size; this is 5.1:1 and
        reads as the same colour. Trados blue passes as it is, at 4.6:1. */
     --memoq-text: #c93a25;
+    /* The middle of each mark's gradient, and dark enough to pass as text as
+       it is: purple 7.1:1, green 5.1:1. */
+    --brand:     #6d28d9;
+    --workbench: #2e7d32;
 
     --measure: 46rem;    /* comfortable reading width for body text */
     --page:    62rem;
@@ -77,7 +84,7 @@ nav a.here { color: var(--ink); font-weight: 600; }
 
    The products are still a different kind of item from How it works / Pricing /
    Docs / Discussions, so the group is set slightly apart from them. */
-nav a[href*="/sidekick/"] { margin-right: .6rem; }
+nav a[href*="/workbench/"] { margin-right: .6rem; }
 
 /* ---- hero -------------------------------------------------------------- */
 .hero { padding: 4.5rem 0 3rem; }
@@ -93,20 +100,24 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
    that the phone layout can put it BEFORE the cards - order only reaches
    siblings. Across both columns it is the width it always was. */
 .hero-grid .hero-shot { grid-column: 1 / -1; margin-top: 0; }
-/* The right column: the two paid products, then the free one, as three cards
-   of one design - white, one hairline, the same padding and type, and the
-   whole card a link. Each carries its product's colour in exactly three
-   places, each doing a job: the mark says which product, the name labels it,
-   the link invites the click. The home page wears the black brand mark, so
-   these are the colour above the fold.
+/* The right column: the two paid plugins as two cards of one design - white,
+   one hairline, the same padding and type, and the whole card a link. Each
+   carries its product's colour in exactly three places, each doing a job: the
+   mark says which product, the name labels it, the link invites the click.
+
+   Under them, the two free apps, Sidekick and Workbench, share ONE card as two
+   rows (2026-11-03, when Workbench came back to the home page). A fourth full
+   card made the column longer than the pitch beside it, and gave the free
+   apps the same weight as the products that pay for them. The two small
+   labels say what each group is: inside a CAT tool, or on its own.
 
    Until 2026-10-09 they also had a 3px top edge in the product colour and a
    tinted ground, and the Sidekick card was built separately. The thick top
    border curled into the thin sides at the rounded corners, each paid card
    said its colour four times over, and Sidekick's card had its own padding,
    type and a link on one line only: three small differences that read as
-   unfinished rather than as design. Sidekick is told apart by its black mark
-   and its "Get it free" link, not by a card of its own. */
+   unfinished rather than as design. The shared card below keeps the paid
+   cards' white, hairline, radius and side padding for the same reason. */
 .hero-side { display: flex; flex-direction: column; gap: .75rem; margin-top: .6rem; }
 .hero-product { display: block; text-decoration: none; color: var(--ink);
                 background: var(--paper); border: 1px solid var(--rule); border-radius: 8px;
@@ -115,13 +126,27 @@ nav a[href*="/sidekick/"] { margin-right: .6rem; }
 .hero-product:hover { border-color: var(--c); box-shadow: 0 4px 14px rgba(0, 0, 0, .06); }
 .hero-product.trados   { --c: var(--trados); --t: var(--trados); }
 .hero-product.memoq    { --c: var(--memoq);  --t: var(--memoq-text); }
-.hero-product.sidekick { --c: var(--ink);    --t: var(--ink); }
 .hero-product h2 { font-size: .98rem; margin: 0 0 .3rem; letter-spacing: -.01em; white-space: nowrap; }
 .hero-product h2 .mark { width: 26px; height: 26px; margin-right: .4rem; }
 .hero-product h2 .host { color: var(--t); }
 .hero-product p { font-size: .9rem; line-height: 1.45; color: var(--ink-faint); margin: 0 0 .6rem; }
 .hero-product .go-on { font-size: .93rem; font-weight: 600; color: var(--t); }
 .hero-product:hover .go-on { text-decoration: underline; }
+/* The label's bottom margin is negative to take back part of the column's
+   gap, so each label sits with the card it names rather than midway. */
+.hero-group { font-size: .82rem; color: var(--ink-faint); margin: .3rem 0 -.35rem; }
+.hero-group:first-child { margin-top: 0; }
+.hero-free { background: var(--paper); border: 1px solid var(--rule); border-radius: 8px;
+             box-shadow: 0 1px 2px rgba(0, 0, 0, .04); }
+.hero-free a { display: flex; align-items: flex-start; gap: .6rem; padding: .8rem 1.1rem;
+               text-decoration: none; color: var(--ink-faint); font-size: .88rem; line-height: 1.4; }
+.hero-free a + a { border-top: 1px solid var(--rule); }
+.hero-free .mark { width: 22px; height: 22px; margin: .05rem 0 0; flex: none; }
+.hero-free strong { display: block; color: var(--ink); font-size: .95rem;
+                    letter-spacing: -.01em; margin-bottom: .15rem; }
+.hero-free .sidekick  { --c: var(--brand); }
+.hero-free .workbench { --c: var(--workbench); }
+.hero-free a:hover strong { color: var(--c); text-decoration: underline; }
 .in-trados { color: var(--trados); font-weight: 600; }
 .in-memoq  { color: var(--memoq-text); font-weight: 600; }
 @media (max-width: 900px) {
