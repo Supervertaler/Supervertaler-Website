@@ -21,8 +21,11 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
 <link rel="stylesheet" href="/mono.css?v=34">
 <style>
-.product.sidekick { --c: var(--ink); }
-.products.three { gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); }
+.product.sidekick  { --c: var(--brand); }
+.product.workbench { --c: var(--workbench); }
+/* Two by two: four products in a row left about 210px a column, and three
+   put Workbench alone on a second row. */
+.products.four { gap: 2.5rem 3rem; grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr)); }
 .res-list { max-width: var(--measure); margin: 0 0 1.2rem; padding-left: 1.1rem; color: var(--ink-soft); }
 .res-list li { margin-bottom: .45rem; }
 .res-cols { display: grid; gap: 2rem 3rem; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); }
@@ -60,7 +63,7 @@
 </section>
 
 <section>
-  <div class="wrap products three">
+  <div class="wrap products four">
 
     <div class="product trados">
       <h2><img class="mark" src="/sv-icon.svg" width="30" height="30" alt="">Supervertaler <span class="host">for Trados</span></h2>
@@ -103,6 +106,19 @@
       <a class="go-quiet" href="https://docs.supervertaler.com/sidekick/">All Sidekick docs</a>
     </div>
 
+    <div class="product workbench">
+      <h2><img class="mark" src="/sv-icon-workbench.svg" width="30" height="30" alt="">Supervertaler <span class="host">Workbench</span></h2>
+      <p class="where">Free and open source, a CAT tool of its own.</p>
+      <ul>
+        <li><a href="https://docs.supervertaler.com/workbench/get-started/installation/">Installation</a>, Windows, macOS and Linux</li>
+        <li><a href="https://docs.supervertaler.com/workbench/get-started/first-project/">Your first project</a></li>
+        <li><a href="https://docs.supervertaler.com/workbench/import-export/formats/">File formats</a> it imports and exports</li>
+        <li><a href="https://docs.supervertaler.com/workbench/ai-translation/providers/">AI providers</a>, and <a href="https://docs.supervertaler.com/workbench/ai-translation/ollama/">local models</a></li>
+        <li><a href="https://docs.supervertaler.com/workbench/troubleshooting/common-issues/">Troubleshooting</a></li>
+      </ul>
+      <a class="go-quiet" href="https://docs.supervertaler.com/workbench/">All Workbench docs</a>
+    </div>
+
   </div>
 </section>
 
@@ -138,6 +154,8 @@
       <ul class="res-list">
         <li><a href="/changelog/trados/">Trados changelog</a></li>
         <li><a href="/changelog/memoq/">memoQ changelog</a></li>
+        <li><a href="https://github.com/Supervertaler/Supervertaler-Sidekick/blob/main/CHANGELOG.md">Sidekick changelog</a></li>
+        <li><a href="https://github.com/Supervertaler/Supervertaler-Workbench/blob/main/CHANGELOG.md">Workbench changelog</a></li>
       </ul>
     </div>
 
@@ -154,6 +172,8 @@
       <ul class="res-list">
         <li><a href="https://github.com/Supervertaler/Supervertaler-for-Trados">Supervertaler for Trados</a> on GitHub</li>
         <li><a href="https://github.com/Supervertaler/Supervertaler-for-memoQ">Supervertaler for memoQ</a> on GitHub</li>
+        <li><a href="https://github.com/Supervertaler/Supervertaler-Sidekick">Supervertaler Sidekick</a> on GitHub</li>
+        <li><a href="https://github.com/Supervertaler/Supervertaler-Workbench">Supervertaler Workbench</a> on GitHub</li>
         <li><a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a>: questions, ideas and announcements</li>
         <li><a href="https://docs.supervertaler.com/llms.txt">The docs for AI assistants</a> (llms.txt)</li>
       </ul>

@@ -1,496 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description"
-        content="Supervertaler Privacy Policy - How we handle your data, what stays on your machine, and what is sent to third-party AI providers.">
-    <meta name="author" content="Michael Beijer">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Privacy Policy – Supervertaler</title>
+<meta name="description" content="Supervertaler Privacy Policy - How we handle your data, what stays on your machine, and what is sent to third-party AI providers.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Supervertaler">
+<meta property="og:title" content="Privacy Policy – Supervertaler">
+<meta property="og:description" content="Supervertaler Privacy Policy - How we handle your data, what stays on your machine, and what is sent to third-party AI providers.">
+<meta property="og:url" content="https://supervertaler.com/privacy/">
+<meta property="og:image" content="https://supervertaler.com/og-image.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Supervertaler">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico?v=3" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="stylesheet" href="/mono.css?v=34">
+<style>
+/* A reading page, laid out like the articles: one measure, black on white. */
+.article { max-width: var(--measure); margin: 0 auto; padding-block: 3.5rem 4rem; }
+.byline { color: var(--ink-faint); font-size: .95rem; margin: -.4rem 0 1.8rem; }
+.article h2 { font-size: 1.4rem; letter-spacing: -.015em; margin: 2.6rem 0 .7rem; text-wrap: balance; }
+.article h3 { font-size: 1.05rem; margin: 1.6rem 0 .4rem; }
+.article p, .article li { color: var(--ink-soft); }
+.article strong { color: var(--ink); }
+.article ul { padding-left: 1.15rem; }
+.article li { margin-bottom: .5rem; }
+.short { border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule);
+         padding: 1.1rem 0 .4rem; margin: 2rem 0; }
+.short ul { margin: .4rem 0 .8rem; }
+.short p:only-child { margin-bottom: .7rem; }
+.article table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.4rem; font-size: .93rem; }
+.article th, .article td { text-align: left; vertical-align: top; padding: .55rem .8rem .55rem 0;
+                           border-bottom: 1px solid var(--rule); overflow-wrap: anywhere; }
+.article th { color: var(--ink); }
+.article td { color: var(--ink-soft); }
+/* The provider addresses (generativelanguage.googleapis.com and so on) and the
+   settings paths in code are one long word each; without overflow-wrap they
+   pushed a phone's page 100px wider than the screen. */
+.article code { font-size: .9em; overflow-wrap: anywhere; }
 
-    <title>Privacy Policy - Supervertaler</title>
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Supervertaler">
-    <meta property="og:title" content="Privacy Policy - Supervertaler">
-    <meta property="og:description" content="Supervertaler Privacy Policy - How we handle your data, what stays on your machine, and what is sent to third-party AI providers.">
-    <meta property="og:url" content="https://supervertaler.com/privacy/">
-    <meta property="og:image" content="https://supervertaler.com/og-image.png?v=3">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Supervertaler">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Favicons -->
-    <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=3" sizes="32x32">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
-    <link rel="manifest" href="../site.webmanifest">
-
-    <link rel="stylesheet" href="../styles.css?v=2.3.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <style>
-        .privacy-content { max-width: 780px; margin: 0 auto; padding: 140px 20px 80px; }
-        .privacy-content h1 { font-size: 2.2rem; margin-bottom: 8px; }
-        .privacy-content .last-updated { color: var(--text-secondary, #6b7280); margin-bottom: 40px; font-size: 0.95rem; }
-        .privacy-content h2 { font-size: 1.4rem; margin-top: 40px; margin-bottom: 12px; color: var(--text-primary); }
-        .privacy-content h3 { font-size: 1.1rem; margin-top: 24px; margin-bottom: 8px; }
-        .privacy-content p, .privacy-content li { font-size: 1rem; line-height: 1.7; color: var(--text-secondary, #4b5563); }
-        .privacy-content ul { padding-left: 24px; margin: 12px 0; }
-        .privacy-content li { margin-bottom: 6px; }
-        .privacy-content strong { color: var(--text-primary, #111); }
-        .privacy-content .highlight-box { background: var(--surface, #f0f7ff); border-left: 4px solid var(--primary, #3b82f6); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
-        .privacy-content .highlight-box p { margin: 0; }
-        .privacy-content table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem; }
-        .privacy-content th, .privacy-content td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border, #e5e7eb); }
-        .privacy-content th { color: var(--text-primary); font-weight: 600; }
-        .privacy-content td { color: var(--text-secondary); }
-    </style>
+@media (max-width: 760px) { .article { padding-block: 2.2rem 3rem; } }
+</style>
 </head>
-
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="top">
-        <div class="container">
-            <a href="../" class="nav-brand">
-                <img src="../sv-icon-brand.svg" alt="Supervertaler" class="logo-img" width="40" height="40">
-                <span class="brand-name">Supervertaler</span>
-            </a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu">
-                <li><a href="/#features">Features</a></li>
-                <li><a href="/pricing/">Pricing</a></li>
-                <li><a href="https://docs.supervertaler.com/trados/" target="_blank">Docs</a></li>
-                <li><a href="https://github.com/orgs/Supervertaler/discussions" target="_blank">Discussions</a></li>
-                <li class="nav-action">
-                    <a href="https://github.com/Supervertaler/Supervertaler-for-Trados" target="_blank"
-                        class="nav-icon-link" aria-label="GitHub Repository">
-                        <svg class="nav-icon" width="18" height="18" viewBox="0 0 16 16" fill="currentColor"
-                            aria-hidden="true" focusable="false">
-                            <path
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-                        </svg> GitHub
-                    </a>
-                </li>
-            </ul>
-        </div>
+
+<header id="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/sv-icon-brand.svg" width="30" height="30" alt=""> Supervertaler</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
+      <a href="/trados/" title="A plugin inside Trados Studio: AI translation, live terminology and an assistant that sees the whole document. Paid.">for Trados</a>
+      <a href="/memoq/" title="A plugin inside memoQ: an AI translation engine that learns from what you confirm, with your glossary enforced. Same licence as Trados.">for memoQ</a>
+      <a href="/sidekick/" title="A free toolbox that works over any Windows app: clipboard history, quick translations, AI actions and terminology lookups. Not tied to a CAT tool.">Sidekick</a>
+      <a href="/workbench/" title="A free, open-source CAT tool of its own, for Windows, macOS and Linux: AI translation, translation memory, terminology and QA, with no Trados or memoQ needed.">Workbench</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a>
     </nav>
+  </div>
+</header>
 
-    <div class="privacy-content">
-        <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: 28 October 2026</p>
+<main class="wrap">
+<article class="article">
 
-        <div class="highlight-box">
-            <p><strong>The short version:</strong> Supervertaler does not collect, store, or transmit your data to
-                Supervertaler servers. Your translations, termbases, and documents stay on your machine. When you
-                choose to use AI features, data is sent directly from your computer to the AI provider you selected,
-                using your own API key. We never see it.</p>
-        </div>
+<h1>Privacy Policy</h1>
+<p class="byline">Last updated: 28 October 2026</p>
 
-        <p>This policy covers <strong>Supervertaler Workbench</strong> (the desktop application),
-            <strong>Supervertaler for Trados</strong> (the Trados Studio plugin) and
-            <strong>Supervertaler for memoQ</strong> (the memoQ plugin, covered in
-            <a href="#memoq">section 7</a>). We know that as a professional
-            translator you often work with confidential client material, and we have designed our software with that
-            in mind.</p>
+<div class="short">
+    <p><strong>The short version:</strong> Supervertaler does not collect, store, or transmit your data to
+        Supervertaler servers. Your translations, termbases, and documents stay on your machine. When you
+        choose to use AI features, data is sent directly from your computer to the AI provider you selected,
+        using your own API key. We never see it.</p>
+</div>
 
-        <p>What you agree to when you use the software &ndash; your licence, subscriptions and refunds, and
-            what you are responsible for when you use AI &ndash; is in the
-            <a href="../terms/">terms of use</a>.</p>
+<p>This policy covers <strong>Supervertaler Workbench</strong> (the desktop application),
+    <strong>Supervertaler for Trados</strong> (the Trados Studio plugin) and
+    <strong>Supervertaler for memoQ</strong> (the memoQ plugin, covered in
+    <a href="#memoq">section 7</a>). We know that as a professional
+    translator you often work with confidential client material, and we have designed our software with that
+    in mind.</p>
 
-        <h2>1. Data that stays on your machine</h2>
+<p>What you agree to when you use the software &ndash; your licence, subscriptions and refunds, and
+    what you are responsible for when you use AI &ndash; is in the
+    <a href="/terms/">terms of use</a>.</p>
 
-        <p>The following data is created and stored locally on your computer only. It is never transmitted anywhere:</p>
+<h2>1. Data that stays on your machine</h2>
 
+<p>The following data is created and stored locally on your computer only. It is never transmitted anywhere:</p>
+
+<ul>
+    <li><strong>Translation files</strong> &ndash; your SDLXLIFF, DOCX, and other documents remain entirely
+        on your local file system</li>
+    <li><strong>Termbases</strong> &ndash; your Supervertaler glossary databases (<code>.db</code> files) and
+        MultiTerm termbases (<code>.sdltb</code> files)</li>
+    <li><strong>Translation memories</strong> &ndash; all TM data stays local</li>
+    <li><strong>Settings and preferences</strong> &ndash; stored in your local AppData folder</li>
+    <li><strong>Chat history</strong> &ndash; AI Assistant conversations are held in memory only during your
+        session and are never written to disk</li>
+</ul>
+
+<h2>2. Data sent to AI providers (only when you use AI features)</h2>
+
+<p>When you use the AI Assistant, Batch Translate, or single-segment AI translation, data is sent to the AI
+    provider <strong>you have chosen and configured</strong>. This only happens when you explicitly trigger
+    an AI action &ndash; never in the background.</p>
+
+<h3>What is sent</h3>
+
+<p>Depending on the feature and your settings, the following may be included in AI requests:</p>
+
+<ul>
+    <li>Source text segments (the content you are translating)</li>
+    <li>Target text segments (your existing translations, for context)</li>
+    <li>Terminology from your termbases (source/target term pairs)</li>
+    <li>Translation memory matches (if enabled in AI Context settings)</li>
+    <li>Surrounding segments for document context (configurable)</li>
+    <li>Project and file name, source/target language pair</li>
+    <li>Images you attach in the AI Assistant chat</li>
+    <li>Your chat messages and conversation history (current session only)</li>
+</ul>
+
+<h3>Where it is sent</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Provider</th>
+            <th>Destination</th>
+            <th>Your data is governed by</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>OpenAI</td>
+            <td>api.openai.com</td>
+            <td><a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener">OpenAI API Data Usage Policy</a></td>
+        </tr>
+        <tr>
+            <td>Anthropic (Claude)</td>
+            <td>api.anthropic.com</td>
+            <td><a href="https://www.anthropic.com/policies/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a></td>
+        </tr>
+        <tr>
+            <td>Google (Gemini)</td>
+            <td>generativelanguage.googleapis.com</td>
+            <td><a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google Gemini API Terms</a></td>
+        </tr>
+        <tr>
+            <td>Ollama (local)</td>
+            <td>localhost (your own machine)</td>
+            <td>No data leaves your computer</td>
+        </tr>
+        <tr>
+            <td>Custom endpoint</td>
+            <td>Server URL you configure</td>
+            <td>That provider's terms</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="short">
+    <p><strong>For maximum confidentiality:</strong> If you work with sensitive or NDA-protected content and
+        want AI features without any data leaving your machine, use
+        <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> as your provider. All
+        processing happens locally on your own hardware.</p>
+</div>
+
+<h3>What is NOT sent to AI providers</h3>
+
+<ul>
+    <li>Your full documents &ndash; only the segments relevant to your current request</li>
+    <li>Your API keys for other providers</li>
+    <li>Your license key or account information</li>
+    <li>Any data from other projects or files not currently open</li>
+</ul>
+
+<h2>3. API keys</h2>
+
+<p>Your AI provider API keys are stored locally in your settings file
+    (<code>%LocalAppData%\Supervertaler.Trados\settings.json</code>). They are sent only to
+    the respective AI provider when making API calls. Supervertaler never transmits your API keys to
+    any other destination.</p>
+
+<h2>4. Update checks</h2>
+
+<p><strong>Supervertaler for Trados</strong> is installed and updated through the RWS AppStore. To tell
+    you when a new version is out, it downloads the AppStore's public list of plugins from RWS
+    (<code>api-appstore.rws.com</code>) when you open the Trados Studio editor, at most once a day, and compares
+    the versions on your computer. The request carries only a generic user-agent
+    (<code>Supervertaler-Trados-UpdateCheck/2.0</code>) &ndash; nothing about you, your computer or
+    your work. If you choose <strong>Install Update</strong>, the update is downloaded from the same
+    RWS AppStore. You can skip a version or postpone the reminder, and nothing is ever installed
+    unless you choose to.</p>
+
+<p>Setting up ChatGPT desktop from <strong>Connect AI assistant</strong> in the plugin's AI settings
+    downloads the connector program from Supervertaler's releases on GitHub
+    (<code>api.github.com</code> and <code>github.com</code>). Those requests also carry only a
+    generic user-agent, and are made only when you click the button.</p>
+
+<p><strong>Supervertaler Workbench</strong> looks for a new version only when you choose
+    <strong>Check for Updates</strong>. It asks GitHub (<code>api.github.com</code>) for the latest
+    release, and the request carries only the program's name and version.</p>
+
+<p>The memoQ plugin's update check is described in <a href="#memoq">section 7</a>.</p>
+
+<h2 id="licence">5. License validation</h2>
+
+<p>If you have a paid subscription, your license is validated through Lemon Squeezy
+    (<code>api.lemonsqueezy.com</code>). The only data sent is:</p>
+
+<ul>
+    <li>Your license key</li>
+    <li>An anonymous machine identifier (a one-way hash &ndash; it cannot be reversed to identify your
+        computer)</li>
+</ul>
+
+<p>No translation content, file names, or personal information is included in license checks.</p>
+
+<h3>Trial registration (Trados plugin v18/19.20.118 and later; memoQ plugin 0.1.1 and later)</h3>
+
+<p>If you are using the free 14-day trial (no licence key), the plugin registers the trial once
+    per session on startup with a first-party licence endpoint (a Cloudflare Worker operated by
+    Supervertaler). The only data sent is:</p>
+
+<ul>
+    <li>The same anonymous machine identifier used for licence activation (a one-way hash &ndash;
+        it cannot be reversed to identify your computer)</li>
+    <li>Plugin version, Trados Studio or memoQ version, and system locale</li>
+    <li>The trial's locally recorded start date and status</li>
+</ul>
+
+<p>This gives the trial's start date one reliable, authoritative record, so the trial behaves
+    consistently across reinstalls, data-folder moves, and clock changes. It is part of how the
+    trial functions &ndash; not analytics &ndash; so it is separate from the opt-in usage
+    statistics described below. The country code is derived from the network connection by
+    Cloudflare; no IP addresses are stored. The trial is one per computer, shared by both
+    plugins, so the record also notes which of the two plugins that computer has used. Trial
+    records are kept only while relevant to
+    licensing and are purged after a period of inactivity. If the endpoint cannot be reached
+    (no internet, firewall, air-gapped machine), the trial keeps working normally.</p>
+
+<h2>6. Optional anonymous usage statistics</h2>
+
+<p><strong>Supervertaler for Trados</strong> sends anonymous usage statistics unless you switch them off.
+    On first launch, a dialog explains what is sent and offers <strong>Keep it on</strong> or
+    <strong>Turn it off</strong>; closing the dialog keeps them on. You can switch them off at any time
+    in Settings. While they are on, a single lightweight ping is sent once per session on plugin
+    startup. The only data sent is:</p>
+
+<ul>
+    <li>A random anonymous ID (generated locally, not tied to any account or identity)</li>
+    <li>Plugin version</li>
+    <li>OS version</li>
+    <li>Trados Studio version</li>
+    <li>System locale</li>
+    <li>Whether Windows is running in a virtual machine, and which kind (for example Parallels, which
+        usually means a Mac)</li>
+    <li>Processor architecture (for example x64)</li>
+    <li>Display scaling, Windows text size and the plugin's own interface scale, as percentages</li>
+</ul>
+
+<p>The country code is derived from the network connection by Cloudflare (the hosting provider) &ndash;
+    no IP addresses are stored. No personal data, translation content, termbase information, or
+    feature usage is ever collected. The data is sent to a first-party Cloudflare Worker endpoint
+    &ndash; no third-party trackers are involved.</p>
+
+<p>You can change your choice at any time in Settings. If the ping fails (no internet, firewall, etc.),
+    nothing happens &ndash; no retries, no queuing, no error messages.</p>
+
+<p><strong>Supervertaler for memoQ</strong> has usage statistics from version 0.1.1, but asks first:
+    nothing is sent unless you agree, and it sends fewer fields. See <a href="#memoq">section 7</a>.</p>
+
+<h2 id="memoq">7. Supervertaler for memoQ</h2>
+
+<p>The memoQ plugin follows the same principles: your own API key, your documents never passing
+    through a Supervertaler server, and nothing sent anywhere except the connections listed here.</p>
+
+<h3>AI translation</h3>
+
+<p>memoQ asks Supervertaler for a translation when you move to a segment, and when you run
+    Pre-translate with Supervertaler as the machine translation engine. Each request goes to the
+    AI provider you configured (Anthropic, OpenAI or Google, or the endpoint you entered) using
+    your own API key, and may include:</p>
+
+<ul>
+    <li>The segments being translated</li>
+    <li>Segments you have already confirmed in the same document, as examples to follow</li>
+    <li>The best fuzzy match from your translation memory, if you have set memoQ to forward it to
+        Supervertaler</li>
+    <li>Terms from your glossary and termbases that occur in the segment</li>
+    <li>The prompt you selected, the memory bank for the client, and memoQ's project details
+        (client, domain and subject)</li>
+    <li>List numbering read from the original document, and the figure descriptions saved for the
+        project</li>
+</ul>
+
+<p>Two actions in the companion editor send more, and only when you click them:
+    <strong>AutoPrompt</strong> sends the source text Supervertaler has seen, with your confirmed
+    segments and glossary, so the AI can draft a prompt; and <strong>Describe images with
+    AI</strong> sends the document's images so the AI can describe them. The settings also ask your
+    provider, with your API key, for the list of models it offers.</p>
+
+<h3>AI assistants (Claude Desktop, ChatGPT desktop)</h3>
+
+<p>The plugin runs a small server that only programs on your own computer can reach. If you
+    connect an AI assistant to it, the assistant can read the open document, your confirmed
+    segments, glossary, prompts and memory banks, and what it reads is sent to that assistant's
+    provider under your own account with them &ndash; Anthropic for Claude, OpenAI for ChatGPT.
+    Nothing is shared this way unless you connect an assistant and ask it to do something. The live
+    document link, which tells the assistant where you are in memoQ, also talks only to memoQ on
+    your own computer.</p>
+
+<p>Setting up ChatGPT desktop from the editor downloads the connector program from Supervertaler's
+    releases on GitHub (<code>api.github.com</code> and <code>github.com</code>). That request
+    carries only a generic user-agent (<code>Supervertaler-for-memoQ</code>).</p>
+
+<h3>Licence</h3>
+
+<p>The memoQ plugin uses the same Supervertaler licence as the Trados plugin, validated through
+    Lemon Squeezy as described in <a href="#licence">section 5</a>: your licence key and the same
+    anonymous machine identifier, nothing else. From version 0.1.1, while there is no licence key,
+    the free trial is registered as described in <a href="#licence">section 5</a>: the same anonymous
+    machine identifier, the plugin and memoQ versions, your system locale and the trial's start date
+    and status.</p>
+
+<h3>Optional anonymous usage statistics (0.1.1 and later)</h3>
+
+<p>The first time you open the Supervertaler editor, it asks whether the memoQ plugin may send
+    anonymous usage statistics. Nothing is sent unless you answer yes, and you can change your answer
+    at any time under <strong>Settings, Translation settings</strong>. If you agree, one small message
+    is sent each time memoQ starts, to the same first-party endpoint as the Trados plugin's
+    statistics. The only data sent is:</p>
+
+<ul>
+    <li>A random anonymous ID (generated locally, not tied to any account or identity)</li>
+    <li>Plugin version</li>
+    <li>Windows version</li>
+    <li>memoQ version</li>
+    <li>System locale</li>
+</ul>
+
+<p>The country code is derived from the network connection by Cloudflare; no IP addresses are stored.
+    No documents, translations, terminology, file names or feature usage are ever included.</p>
+
+<h3>Update check (0.1.2 and later)</h3>
+
+<p>Once a day, the plugin or the Supervertaler editor asks GitHub (<code>api.github.com</code>) which
+    version of Supervertaler for memoQ is the latest, so it can tell you when a new one is available. The
+    request carries only a generic user-agent (<code>Supervertaler-for-memoQ</code>) &ndash; nothing about
+    you, your computer or your work. If you choose <strong>Download and install</strong>, the installer is
+    downloaded from GitHub, and it is checked against the size and checksum GitHub lists before it runs.
+    You can skip a version, and nothing is ever installed without you choosing to.</p>
+
+<h3>What the memoQ plugin does not send</h3>
+
+<ul>
+    <li>Nothing about you or your work with the update check</li>
+    <li>No usage statistics unless you agree to them, as above</li>
+    <li>No translation content to anyone except the AI provider or assistant you chose</li>
+</ul>
+
+<h3>What it keeps on your computer</h3>
+
+<p>To learn from your work, the plugin keeps the source segments it has seen, the segments you
+    confirmed and the translations it has already produced, together with its settings and a log.
+    They are stored in your Supervertaler data folder and in
+    <code>C:\Users\&lt;you&gt;\AppData\Local\Supervertaler.memoQ\</code>, and are never
+    transmitted. The log names the projects and files you open, so check it before sending it to
+    anyone. <strong>Forget stored context</strong> in the plugin's options removes what it has
+    learned. API keys are stored locally; if you also use Supervertaler for Trados, the memoQ plugin
+    can use the keys you saved there, so you only have to change a key once.</p>
+
+<h2>8. What we do NOT do</h2>
+
+<ul>
+    <li>We do <strong>not</strong> collect data without your explicit consent</li>
+    <li>We do <strong>not</strong> track which features you use, what you translate, or what termbases you open</li>
+    <li>We do <strong>not</strong> use cookies. We count page views on this website and on
+        docs.supervertaler.com with Cloudflare Web Analytics, which sets no cookies and does not identify or
+        follow individual visitors</li>
+    <li>We do <strong>not</strong> sell or share any data with third parties</li>
+    <li>We do <strong>not</strong> have access to your translations, termbases, or documents</li>
+</ul>
+
+<h2>9. Open source transparency</h2>
+
+<p>All Supervertaler products have their source code publicly available on GitHub. You can verify every
+    network call the software makes by inspecting the code yourself:</p>
+
+<ul>
+    <li><a href="https://github.com/Supervertaler/Supervertaler-Workbench" target="_blank"
+            rel="noopener">Supervertaler Workbench source code</a></li>
+    <li><a href="https://github.com/Supervertaler/Supervertaler-for-Trados" target="_blank"
+            rel="noopener">Supervertaler for Trados source code</a></li>
+    <li><a href="https://github.com/Supervertaler/Supervertaler-for-memoQ" target="_blank"
+            rel="noopener">Supervertaler for memoQ source code</a></li>
+</ul>
+
+<h2>10. Your responsibilities</h2>
+
+<p>When you use AI features with cloud-based providers (OpenAI, Anthropic, Google), the text you send is
+    processed by those providers under their own privacy policies. If you are bound by NDAs or
+    confidentiality agreements with your clients, please:</p>
+
+<ul>
+    <li>Review the data handling policy of your chosen AI provider</li>
+    <li>Consider using Ollama for fully offline, local-only AI processing</li>
+    <li>Adjust AI Context settings to limit what data is included in requests (e.g., disable TM matches
+        or restrict the number of context segments)</li>
+    <li>Consult with your client if in doubt about whether AI-assisted translation is permitted</li>
+</ul>
+
+<h2>11. Contact</h2>
+
+<p>If you have questions about this privacy policy or how Supervertaler handles your data, please contact
+    us at <a href="mailto:support@supervertaler.com">support@supervertaler.com</a>.</p>
+
+<h2>12. Changes to this policy</h2>
+
+<p>We will update this page if our data practices change. The date at the top of this page indicates when
+    the policy was last revised.</p>
+
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/sv-icon-brand.svg" width="30" height="30" alt=""> Supervertaler</a>
+        <p>AI translation inside the CAT tool you already use.</p>
+        <p>Built by <a href="https://beijer.uk/">Michael Beijer</a>, a Dutch–&#8288;English technical translator in Hastings. <em lang="nl">Supervertaler</em> is Dutch for &ldquo;super translator&rdquo;.</p>
+      </div>
+
+      <div class="foot-col">
+        <h3>Products</h3>
         <ul>
-            <li><strong>Translation files</strong> &ndash; your SDLXLIFF, DOCX, and other documents remain entirely
-                on your local file system</li>
-            <li><strong>Termbases</strong> &ndash; your Supervertaler glossary databases (<code>.db</code> files) and
-                MultiTerm termbases (<code>.sdltb</code> files)</li>
-            <li><strong>Translation memories</strong> &ndash; all TM data stays local</li>
-            <li><strong>Settings and preferences</strong> &ndash; stored in your local AppData folder</li>
-            <li><strong>Chat history</strong> &ndash; AI Assistant conversations are held in memory only during your
-                session and are never written to disk</li>
+          <li><a href="/trados/">for Trados</a></li>
+          <li><a href="/memoq/">for memoQ</a></li>
+          <li><a href="/sidekick/">Sidekick</a></li>
+          <li><a href="/workbench/">Workbench</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="https://appstore.rws.com/plugin/432">RWS AppStore</a></li>
         </ul>
+      </div>
 
-        <h2>2. Data sent to AI providers (only when you use AI features)</h2>
-
-        <p>When you use the AI Assistant, Batch Translate, or single-segment AI translation, data is sent to the AI
-            provider <strong>you have chosen and configured</strong>. This only happens when you explicitly trigger
-            an AI action &ndash; never in the background.</p>
-
-        <h3>What is sent</h3>
-
-        <p>Depending on the feature and your settings, the following may be included in AI requests:</p>
-
+      <div class="foot-col">
+        <h3>Help</h3>
         <ul>
-            <li>Source text segments (the content you are translating)</li>
-            <li>Target text segments (your existing translations, for context)</li>
-            <li>Terminology from your termbases (source/target term pairs)</li>
-            <li>Translation memory matches (if enabled in AI Context settings)</li>
-            <li>Surrounding segments for document context (configurable)</li>
-            <li>Project and file name, source/target language pair</li>
-            <li>Images you attach in the AI Assistant chat</li>
-            <li>Your chat messages and conversation history (current session only)</li>
+          <li><a href="/docs/">Docs and resources</a></li>
+          <li><a href="https://docs.supervertaler.com/trados/">Trados docs</a></li>
+          <li><a href="https://docs.supervertaler.com/memoq/">memoQ docs</a></li>
+          <li><a href="/changelog/trados/">Trados changelog</a></li>
+          <li><a href="/changelog/memoq/">memoQ changelog</a></li>
         </ul>
+      </div>
 
-        <h3>Where it is sent</h3>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Provider</th>
-                    <th>Destination</th>
-                    <th>Your data is governed by</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>OpenAI</td>
-                    <td>api.openai.com</td>
-                    <td><a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener">OpenAI API Data Usage Policy</a></td>
-                </tr>
-                <tr>
-                    <td>Anthropic (Claude)</td>
-                    <td>api.anthropic.com</td>
-                    <td><a href="https://www.anthropic.com/policies/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a></td>
-                </tr>
-                <tr>
-                    <td>Google (Gemini)</td>
-                    <td>generativelanguage.googleapis.com</td>
-                    <td><a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google Gemini API Terms</a></td>
-                </tr>
-                <tr>
-                    <td>Ollama (local)</td>
-                    <td>localhost (your own machine)</td>
-                    <td>No data leaves your computer</td>
-                </tr>
-                <tr>
-                    <td>Custom endpoint</td>
-                    <td>Server URL you configure</td>
-                    <td>That provider's terms</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="highlight-box">
-            <p><strong>For maximum confidentiality:</strong> If you work with sensitive or NDA-protected content and
-                want AI features without any data leaving your machine, use
-                <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> as your provider. All
-                processing happens locally on your own hardware.</p>
-        </div>
-
-        <h3>What is NOT sent to AI providers</h3>
-
+      <div class="foot-col">
+        <h3>Community</h3>
         <ul>
-            <li>Your full documents &ndash; only the segments relevant to your current request</li>
-            <li>Your API keys for other providers</li>
-            <li>Your license key or account information</li>
-            <li>Any data from other projects or files not currently open</li>
+          <li><a href="https://github.com/orgs/Supervertaler/discussions">Discussions</a></li>
         </ul>
+      </div>
 
-        <h2>3. API keys</h2>
-
-        <p>Your AI provider API keys are stored locally in your settings file
-            (<code>%LocalAppData%\Supervertaler.Trados\settings.json</code>). They are sent only to
-            the respective AI provider when making API calls. Supervertaler never transmits your API keys to
-            any other destination.</p>
-
-        <h2>4. Update checks</h2>
-
-        <p><strong>Supervertaler for Trados</strong> is installed and updated through the RWS AppStore. To tell
-            you when a new version is out, it downloads the AppStore's public list of plugins from RWS
-            (<code>api-appstore.rws.com</code>) when you open the Trados Studio editor, at most once a day, and compares
-            the versions on your computer. The request carries only a generic user-agent
-            (<code>Supervertaler-Trados-UpdateCheck/2.0</code>) &ndash; nothing about you, your computer or
-            your work. If you choose <strong>Install Update</strong>, the update is downloaded from the same
-            RWS AppStore. You can skip a version or postpone the reminder, and nothing is ever installed
-            unless you choose to.</p>
-
-        <p>Setting up ChatGPT desktop from <strong>Connect AI assistant</strong> in the plugin's AI settings
-            downloads the connector program from Supervertaler's releases on GitHub
-            (<code>api.github.com</code> and <code>github.com</code>). Those requests also carry only a
-            generic user-agent, and are made only when you click the button.</p>
-
-        <p><strong>Supervertaler Workbench</strong> looks for a new version only when you choose
-            <strong>Check for Updates</strong>. It asks GitHub (<code>api.github.com</code>) for the latest
-            release, and the request carries only the program's name and version.</p>
-
-        <p>The memoQ plugin's update check is described in <a href="#memoq">section 7</a>.</p>
-
-        <h2 id="licence">5. License validation</h2>
-
-        <p>If you have a paid subscription, your license is validated through Lemon Squeezy
-            (<code>api.lemonsqueezy.com</code>). The only data sent is:</p>
-
+      <div class="foot-col">
+        <h3>About</h3>
         <ul>
-            <li>Your license key</li>
-            <li>An anonymous machine identifier (a one-way hash &ndash; it cannot be reversed to identify your
-                computer)</li>
+          <li><a href="https://beijer.uk/">Author's website</a></li>
+          <li><a href="https://beijer.uk/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="https://github.com/Supervertaler">Source code</a></li>
         </ul>
+      </div>
 
-        <p>No translation content, file names, or personal information is included in license checks.</p>
-
-        <h3>Trial registration (Trados plugin v18/19.20.118 and later; memoQ plugin 0.1.1 and later)</h3>
-
-        <p>If you are using the free 14-day trial (no licence key), the plugin registers the trial once
-            per session on startup with a first-party licence endpoint (a Cloudflare Worker operated by
-            Supervertaler). The only data sent is:</p>
-
-        <ul>
-            <li>The same anonymous machine identifier used for licence activation (a one-way hash &ndash;
-                it cannot be reversed to identify your computer)</li>
-            <li>Plugin version, Trados Studio or memoQ version, and system locale</li>
-            <li>The trial's locally recorded start date and status</li>
-        </ul>
-
-        <p>This gives the trial's start date one reliable, authoritative record, so the trial behaves
-            consistently across reinstalls, data-folder moves, and clock changes. It is part of how the
-            trial functions &ndash; not analytics &ndash; so it is separate from the opt-in usage
-            statistics described below. The country code is derived from the network connection by
-            Cloudflare; no IP addresses are stored. The trial is one per computer, shared by both
-            plugins, so the record also notes which of the two plugins that computer has used. Trial
-            records are kept only while relevant to
-            licensing and are purged after a period of inactivity. If the endpoint cannot be reached
-            (no internet, firewall, air-gapped machine), the trial keeps working normally.</p>
-
-        <h2>6. Optional anonymous usage statistics</h2>
-
-        <p><strong>Supervertaler for Trados</strong> sends anonymous usage statistics unless you switch them off.
-            On first launch, a dialog explains what is sent and offers <strong>Keep it on</strong> or
-            <strong>Turn it off</strong>; closing the dialog keeps them on. You can switch them off at any time
-            in Settings. While they are on, a single lightweight ping is sent once per session on plugin
-            startup. The only data sent is:</p>
-
-        <ul>
-            <li>A random anonymous ID (generated locally, not tied to any account or identity)</li>
-            <li>Plugin version</li>
-            <li>OS version</li>
-            <li>Trados Studio version</li>
-            <li>System locale</li>
-            <li>Whether Windows is running in a virtual machine, and which kind (for example Parallels, which
-                usually means a Mac)</li>
-            <li>Processor architecture (for example x64)</li>
-            <li>Display scaling, Windows text size and the plugin's own interface scale, as percentages</li>
-        </ul>
-
-        <p>The country code is derived from the network connection by Cloudflare (the hosting provider) &ndash;
-            no IP addresses are stored. No personal data, translation content, termbase information, or
-            feature usage is ever collected. The data is sent to a first-party Cloudflare Worker endpoint
-            &ndash; no third-party trackers are involved.</p>
-
-        <p>You can change your choice at any time in Settings. If the ping fails (no internet, firewall, etc.),
-            nothing happens &ndash; no retries, no queuing, no error messages.</p>
-
-        <p><strong>Supervertaler for memoQ</strong> has usage statistics from version 0.1.1, but asks first:
-            nothing is sent unless you agree, and it sends fewer fields. See <a href="#memoq">section 7</a>.</p>
-
-        <h2 id="memoq">7. Supervertaler for memoQ</h2>
-
-        <p>The memoQ plugin follows the same principles: your own API key, your documents never passing
-            through a Supervertaler server, and nothing sent anywhere except the connections listed here.</p>
-
-        <h3>AI translation</h3>
-
-        <p>memoQ asks Supervertaler for a translation when you move to a segment, and when you run
-            Pre-translate with Supervertaler as the machine translation engine. Each request goes to the
-            AI provider you configured (Anthropic, OpenAI or Google, or the endpoint you entered) using
-            your own API key, and may include:</p>
-
-        <ul>
-            <li>The segments being translated</li>
-            <li>Segments you have already confirmed in the same document, as examples to follow</li>
-            <li>The best fuzzy match from your translation memory, if you have set memoQ to forward it to
-                Supervertaler</li>
-            <li>Terms from your glossary and termbases that occur in the segment</li>
-            <li>The prompt you selected, the memory bank for the client, and memoQ's project details
-                (client, domain and subject)</li>
-            <li>List numbering read from the original document, and the figure descriptions saved for the
-                project</li>
-        </ul>
-
-        <p>Two actions in the companion editor send more, and only when you click them:
-            <strong>AutoPrompt</strong> sends the source text Supervertaler has seen, with your confirmed
-            segments and glossary, so the AI can draft a prompt; and <strong>Describe images with
-            AI</strong> sends the document's images so the AI can describe them. The settings also ask your
-            provider, with your API key, for the list of models it offers.</p>
-
-        <h3>AI assistants (Claude Desktop, ChatGPT desktop)</h3>
-
-        <p>The plugin runs a small server that only programs on your own computer can reach. If you
-            connect an AI assistant to it, the assistant can read the open document, your confirmed
-            segments, glossary, prompts and memory banks, and what it reads is sent to that assistant's
-            provider under your own account with them &ndash; Anthropic for Claude, OpenAI for ChatGPT.
-            Nothing is shared this way unless you connect an assistant and ask it to do something. The live
-            document link, which tells the assistant where you are in memoQ, also talks only to memoQ on
-            your own computer.</p>
-
-        <p>Setting up ChatGPT desktop from the editor downloads the connector program from Supervertaler's
-            releases on GitHub (<code>api.github.com</code> and <code>github.com</code>). That request
-            carries only a generic user-agent (<code>Supervertaler-for-memoQ</code>).</p>
-
-        <h3>Licence</h3>
-
-        <p>The memoQ plugin uses the same Supervertaler licence as the Trados plugin, validated through
-            Lemon Squeezy as described in <a href="#licence">section 5</a>: your licence key and the same
-            anonymous machine identifier, nothing else. From version 0.1.1, while there is no licence key,
-            the free trial is registered as described in <a href="#licence">section 5</a>: the same anonymous
-            machine identifier, the plugin and memoQ versions, your system locale and the trial's start date
-            and status.</p>
-
-        <h3>Optional anonymous usage statistics (0.1.1 and later)</h3>
-
-        <p>The first time you open the Supervertaler editor, it asks whether the memoQ plugin may send
-            anonymous usage statistics. Nothing is sent unless you answer yes, and you can change your answer
-            at any time under <strong>Settings, Translation settings</strong>. If you agree, one small message
-            is sent each time memoQ starts, to the same first-party endpoint as the Trados plugin's
-            statistics. The only data sent is:</p>
-
-        <ul>
-            <li>A random anonymous ID (generated locally, not tied to any account or identity)</li>
-            <li>Plugin version</li>
-            <li>Windows version</li>
-            <li>memoQ version</li>
-            <li>System locale</li>
-        </ul>
-
-        <p>The country code is derived from the network connection by Cloudflare; no IP addresses are stored.
-            No documents, translations, terminology, file names or feature usage are ever included.</p>
-
-        <h3>Update check (0.1.2 and later)</h3>
-
-        <p>Once a day, the plugin or the Supervertaler editor asks GitHub (<code>api.github.com</code>) which
-            version of Supervertaler for memoQ is the latest, so it can tell you when a new one is available. The
-            request carries only a generic user-agent (<code>Supervertaler-for-memoQ</code>) &ndash; nothing about
-            you, your computer or your work. If you choose <strong>Download and install</strong>, the installer is
-            downloaded from GitHub, and it is checked against the size and checksum GitHub lists before it runs.
-            You can skip a version, and nothing is ever installed without you choosing to.</p>
-
-        <h3>What the memoQ plugin does not send</h3>
-
-        <ul>
-            <li>Nothing about you or your work with the update check</li>
-            <li>No usage statistics unless you agree to them, as above</li>
-            <li>No translation content to anyone except the AI provider or assistant you chose</li>
-        </ul>
-
-        <h3>What it keeps on your computer</h3>
-
-        <p>To learn from your work, the plugin keeps the source segments it has seen, the segments you
-            confirmed and the translations it has already produced, together with its settings and a log.
-            They are stored in your Supervertaler data folder and in
-            <code>C:\Users\&lt;you&gt;\AppData\Local\Supervertaler.memoQ\</code>, and are never
-            transmitted. The log names the projects and files you open, so check it before sending it to
-            anyone. <strong>Forget stored context</strong> in the plugin's options removes what it has
-            learned. API keys are stored locally; if you also use Supervertaler for Trados, the memoQ plugin
-            can use the keys you saved there, so you only have to change a key once.</p>
-
-        <h2>8. What we do NOT do</h2>
-
-        <ul>
-            <li>We do <strong>not</strong> collect data without your explicit consent</li>
-            <li>We do <strong>not</strong> track which features you use, what you translate, or what termbases you open</li>
-            <li>We do <strong>not</strong> use cookies. We count page views on this website and on
-                docs.supervertaler.com with Cloudflare Web Analytics, which sets no cookies and does not identify or
-                follow individual visitors</li>
-            <li>We do <strong>not</strong> sell or share any data with third parties</li>
-            <li>We do <strong>not</strong> have access to your translations, termbases, or documents</li>
-        </ul>
-
-        <h2>9. Open source transparency</h2>
-
-        <p>All Supervertaler products have their source code publicly available on GitHub. You can verify every
-            network call the software makes by inspecting the code yourself:</p>
-
-        <ul>
-            <li><a href="https://github.com/Supervertaler/Supervertaler-Workbench" target="_blank"
-                    rel="noopener">Supervertaler Workbench source code</a></li>
-            <li><a href="https://github.com/Supervertaler/Supervertaler-for-Trados" target="_blank"
-                    rel="noopener">Supervertaler for Trados source code</a></li>
-            <li><a href="https://github.com/Supervertaler/Supervertaler-for-memoQ" target="_blank"
-                    rel="noopener">Supervertaler for memoQ source code</a></li>
-        </ul>
-
-        <h2>10. Your responsibilities</h2>
-
-        <p>When you use AI features with cloud-based providers (OpenAI, Anthropic, Google), the text you send is
-            processed by those providers under their own privacy policies. If you are bound by NDAs or
-            confidentiality agreements with your clients, please:</p>
-
-        <ul>
-            <li>Review the data handling policy of your chosen AI provider</li>
-            <li>Consider using Ollama for fully offline, local-only AI processing</li>
-            <li>Adjust AI Context settings to limit what data is included in requests (e.g., disable TM matches
-                or restrict the number of context segments)</li>
-            <li>Consult with your client if in doubt about whether AI-assisted translation is permitted</li>
-        </ul>
-
-        <h2>11. Contact</h2>
-
-        <p>If you have questions about this privacy policy or how Supervertaler handles your data, please contact
-            us at <a href="mailto:support@supervertaler.com">support@supervertaler.com</a>.</p>
-
-        <h2>12. Changes to this policy</h2>
-
-        <p>We will update this page if our data practices change. The date at the top of this page indicates when
-            the policy was last revised.</p>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="../sv-icon-brand.svg" alt="Supervertaler" class="logo-img" width="32" height="32">
-                    <span class="brand-name">Supervertaler</span>
-                    <p class="footer-tagline">AI-Enhanced Translation for Professionals</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Product</h4>
-                        <ul>
-                            <li><a href="/#features">Features</a></li>
-                            <li><a href="/pricing/">Pricing</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Documentation</h4>
-                        <ul>
-                            <li><a href="https://docs.supervertaler.com/trados/" target="_blank">Documentation</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Community</h4>
-                        <ul>
-                            <li><a href="https://github.com/orgs/Supervertaler/discussions" target="_blank" title="Supervertaler Discussions">Discussions</a></li>
-                            <li><a href="https://github.com/Supervertaler" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="vertical-align: -2px; margin-right: 4px;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>About</h4>
-                        <ul>
-                            <li><a href="https://beijer.uk" target="_blank">Author's Website</a></li>
-                            <li><a href="https://beijer.uk/contact/" target="_blank">Contact</a></li>
-                            <li><a href="../privacy/">Privacy Policy</a></li>
-                            <li><a href="../terms/">Terms of Use</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Michael Beijer</p>
-                <p class="footer-tech">Built with love for translators</p>
-            </div>
-        </div>
-    </footer>
+    <div class="foot-bottom">
+      <p>© 2026 Michael Beijer. Source-available licence.</p>
+    </div>
+  </div>
+</footer>
 
-    <script src="../script.js?v=2.0.0"></script>
+<a href="#top" class="to-top" aria-label="Back to top" title="Back to top">↑</a>
+<script src="/site.js?v=1"></script>
 </body>
-
 </html>

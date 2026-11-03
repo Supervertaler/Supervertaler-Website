@@ -36,13 +36,32 @@ because reconstructing it after the fact would be guesswork.
   lines fit. Workbench is in the navigation and the footer's Products list on
   every page, and the "Looking for Supervertaler Workbench?" line at the foot
   of each page is gone.
-- **The Workbench page is in the house style.** `/workbench/` was the last
-  page still on the old `styles.css` design, with a blue-to-purple wordmark,
-  centred text and blue buttons. It now has the same header, menu, type and
-  footer as the Sidekick page, in green: the pitch with a "Download for
-  Windows" button, the active-development note, why a CAT tool of its own
-  rather than a plugin, and how to get it on Windows, macOS and Linux. It no
-  longer links `site.webmanifest`.
+- **The Workbench page is in the house style.** `/workbench/` was still on
+  the old `styles.css` design, with a blue-to-purple wordmark, centred text
+  and blue buttons. It now has the same header, menu, type and footer as the
+  Sidekick page, in green: the pitch with a "Download for Windows" button,
+  the active-development note, why a CAT tool of its own rather than a
+  plugin, and how to get it on Windows, macOS and Linux.
+- **The privacy policy is in the house style too**, laid out like the terms
+  of use: the same reading measure, header, menu and footer. Its wording is
+  unchanged, word for word. It was the last page on `styles.css`, which no
+  page now uses.
+- **Docs and resources lists all four products.** `/docs/` gains a Workbench
+  section (installation, first project, file formats, AI providers and local
+  models, troubleshooting), and the four sit two by two. Sidekick's section
+  wears the brand purple, as Sidekick does elsewhere. The changelogs and
+  source code lists add Sidekick and Workbench.
+- **The redirect pages' buttons wear their product's colour.** `/buy` is the
+  licence for both plugins, so its button is the brand purple rather than
+  Trados blue; `/download/memoq` is vermillion rather than blue;
+  `/download/sidekick` is purple rather than black, and no longer needs a
+  light button on a dark page.
+
+### Removed
+
+- `site.webmanifest` and its two icons, `web-app-manifest-192x192.png` and
+  `-512x512.png`: the blue Sv and the Trados blue as the theme colour, linked
+  only from the old Workbench and privacy pages.
 
 ### Fixed
 
@@ -51,6 +70,9 @@ because reconstructing it after the fact would be guesswork.
   were about 8px too long. The gaps between the links (1.5rem to 1.2rem) and
   between the brand and the menu (2rem to 1.5rem) are a little smaller, which
   leaves those two pages 45px to spare in Segoe UI and 28px in Arial.
+- **The privacy policy scrolled sideways on a phone.** The AI providers'
+  addresses in its table and two settings paths are long single words, and
+  pushed the page 100px wider than the screen. They now wrap.
 
 ## 2026-10-23
 

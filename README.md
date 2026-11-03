@@ -38,7 +38,8 @@ back to the 180-pixel touch icon and stretch it, which looks blurry. A new page
 needs its own copy of the block, with its own title, description and URL. The
 easiest way is to copy it from a page in the same colourway.
 
-The three images, `og-image.png`, `og-image-trados.png` and `og-image-memoq.png`,
-are made by `tools/make-icons.py` together with the icons. The docs site uses
+The four images, `og-image.png` (the purple brand mark, also used for Sidekick),
+`og-image-trados.png`, `og-image-memoq.png` and `og-image-workbench.png`, are
+made by `tools/make-icons.py` together with the icons. The docs site uses
 them too, by URL. If you change one, raise the `?v=` on its URL everywhere it is
 used, because the apps keep a preview they have already made.
