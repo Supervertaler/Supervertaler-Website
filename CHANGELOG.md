@@ -30,10 +30,27 @@ because reconstructing it after the fact would be guesswork.
   shows the brand mark.
 - **Workbench is back on the home page.** The cards beside the heading are now
   two groups: "Inside your CAT tool", the two paid plugins as before, and
-  "Free and standalone", one card with Sidekick and Workbench as a row each.
-  Workbench is in the navigation and the footer's Products list on every page,
-  and the "Looking for Supervertaler Workbench?" line at the foot of each page
-  is gone.
+  "Free, on their own", one card with Sidekick and Workbench as one line each:
+  the mark, the short name and a few words ("toolbox, any app", "standalone
+  CAT tool"). The column of cards is 18rem wide rather than 16rem so those
+  lines fit. Workbench is in the navigation and the footer's Products list on
+  every page, and the "Looking for Supervertaler Workbench?" line at the foot
+  of each page is gone.
+- **The Workbench page is in the house style.** `/workbench/` was the last
+  page still on the old `styles.css` design, with a blue-to-purple wordmark,
+  centred text and blue buttons. It now has the same header, menu, type and
+  footer as the Sidekick page, in green: the pitch with a "Download for
+  Windows" button, the active-development note, why a CAT tool of its own
+  rather than a plugin, and how to get it on Windows, macOS and Linux. It no
+  longer links `site.webmanifest`.
+
+### Fixed
+
+- **The menu wrapped under the brand on the Trados and memoQ pages**, the
+  first version of the change above: with Workbench added their nine links
+  were about 8px too long. The gaps between the links (1.5rem to 1.2rem) and
+  between the brand and the menu (2rem to 1.5rem) are a little smaller, which
+  leaves those two pages 45px to spare in Segoe UI and 28px in Arial.
 
 ## 2026-10-23
 
