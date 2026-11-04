@@ -274,6 +274,12 @@ p { margin: 0; }
 .foot-col a:hover { color: var(--ink); text-decoration: underline; }
 .copyright { flex: 1 1 100%; font-size: 14px; border-top: 1px solid var(--rule); padding-top: 20px; }
 
+/* Back to top: shown by site.js after 600px of scrolling */
+.to-top { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 6; width: 44px; height: 44px; display: grid; place-items: center; background: var(--paper); color: var(--ink); border: 1px solid var(--rule); border-radius: 50%; text-decoration: none; font-size: 18px; line-height: 1; box-shadow: 0 2px 10px var(--shadow); opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s; }
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { border-color: var(--brand); color: var(--brand-text); }
+.to-top:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 <style>body{margin:0}</style>
@@ -282,7 +288,7 @@ p { margin: 0; }
 
 <header class="site-header">
   <div class="wrap">
-    <a class="logo" href="#top"><img class="logo-mark" src="/sv-icon-brand.svg" width="32" height="32" alt=""><span>Supervertaler</span></a>
+    <a class="logo brand" href="#top"><img class="logo-mark" src="/sv-icon-brand.svg" width="32" height="32" alt=""><span>Supervertaler</span></a>
     <nav class="nav" aria-label="Main">
       <a href="#products">Products</a>
       <a href="#how">How it works</a>
@@ -468,6 +474,9 @@ p { margin: 0; }
     <p class="copyright">© 2026 Michael Beijer. Source-available licence.</p>
   </div>
 </footer>
+
+<a href="#top" class="to-top" aria-label="Back to top" title="Back to top">↑</a>
+<script src="/site.js?v=1"></script>
 <script>
 /* Close the phone menu when one of its links is tapped, or on Escape. */
 (function () {
