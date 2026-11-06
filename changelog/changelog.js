@@ -100,6 +100,31 @@
         return release.versions.some(function (v) { return compare(parts(v).slice(1), m.slice(1)) > 0; });
     }
 
+    // A Trados release has one build per Studio version, all ending in the
+    // same release number: 18.20.205 / 19.20.205. The page shows that number,
+    // and the builds once, in a line under the heading. The file names only
+    // the 2024 and 2026 builds; the Studio 2022 build (17.x) has shipped with
+    // every release since 199, so it is added here. Anything else (memoQ's
+    // 0.1.x, Trados's old single 4.20.x) is shown as written: returns null.
+    var STUDIOS = { 17: '2022', 18: '2024', 19: '2026' };
+    var FIRST_2022 = 199;
+
+    function studioBuilds(versions) {
+        var ps = versions.map(parts);
+        var ok = ps.every(function (p) {
+            return p.length === 3 && STUDIOS[p[0]] && p[1] === ps[0][1] && p[2] === ps[0][2];
+        });
+        if (!ok) return null;
+        var middle = ps[0][1], release = ps[0][2];
+        var majors = ps.map(function (p) { return p[0]; });
+        if (release >= FIRST_2022 && majors.indexOf(17) < 0) majors.push(17);
+        majors.sort();
+        return {
+            release: String(release),
+            each: majors.map(function (m) { return 'Studio ' + STUDIOS[m] + ': ' + m + '.' + middle + '.' + release; })
+        };
+    }
+
     /* ---- drawing it -------------------------------------------------------- */
 
     function render(text) {
@@ -127,6 +152,8 @@
         shown.forEach(function (r) {
             var id = 'v' + r.versions[0];
             var label = r.versions.join(' / ');
+            var builds = studioBuilds(r.versions);
+            if (builds) label = builds.release;
 
             var article = document.createElement('article');
             article.className = 'cl-release';
@@ -135,12 +162,18 @@
             var h2 = document.createElement('h2');
             var ver = document.createElement('span');
             ver.className = 'cl-ver';
-            ver.textContent = label;
+            ver.textContent = builds ? 'Release ' + label : label;
             var time = document.createElement('time');
             time.dateTime = r.date;
             time.textContent = longDate(r.date);
             h2.append(ver, ' ', time);
             article.append(h2);
+            if (builds) {
+                var line = document.createElement('p');
+                line.className = 'cl-builds';
+                line.textContent = builds.each.join(' · ');
+                article.append(line);
+            }
 
             var body = document.createElement('div');
             body.className = 'cl-body';
@@ -155,6 +188,7 @@
             a.innerHTML = '<span class="cl-ver"></span> <span class="cl-date"></span>';
             a.firstChild.textContent = label;
             a.lastChild.textContent = shortDate(r.date);
+            if (builds) a.className = 'cl-short';
             li.append(a);
             index.append(li);
         });

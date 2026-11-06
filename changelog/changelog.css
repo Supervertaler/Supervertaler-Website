@@ -25,6 +25,8 @@
                  text-decoration: none; color: var(--ink-soft); line-height: 1.35; }
 .cl-versions a:hover { background: var(--wash); color: var(--ink); }
 .cl-versions .cl-date { display: block; color: var(--ink-faint); font-size: .8rem; }
+/* A Trados release: its number with the date beside it, on one line. */
+.cl-versions a.cl-short .cl-date { display: inline; margin-left: .4rem; }
 
 .cl-entries { max-width: var(--measure); min-width: 0; }
 .cl-loading, .cl-problem { color: var(--ink-faint); }
@@ -35,6 +37,7 @@
 .cl-release h2 { font-size: 1.45rem; letter-spacing: -.015em; margin: 0 0 .6rem;
                  display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .9rem; }
 .cl-release h2 time { font-size: .95rem; font-weight: 400; color: var(--ink-faint); }
+.cl-builds { margin: -.3rem 0 .4rem; font-size: .85rem; color: var(--ink-faint); }
 
 /* Added / Changed / Fixed: labels, not headings to read. */
 .cl-body h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em;
