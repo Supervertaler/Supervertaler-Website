@@ -8,6 +8,45 @@ This file starts on 2026-09-16 and covers the work from the site's
 reorganisation onwards. Anything earlier is in the git history rather than here,
 because reconstructing it after the fact would be guesswork.
 
+## 2026-11-08
+
+### Added
+
+- **A light/dark switch on every page**: a sun/moon button at the right of the
+  header, and on a phone beside the menu button. With no choice made, the site
+  follows the computer's own setting, as the home page already did. A click
+  switches, and the browser remembers the choice for later visits
+  (`localStorage`, key `theme`). Clicking back to the computer's own setting
+  forgets the choice, so the site follows the computer again, with no third
+  button state. A line in each page's `<head>` applies a saved choice before
+  anything is drawn, so the other theme never flashes up first; `site.js`
+  runs the button. The redirect pages (`/buy`, `/appstore`,
+  `/download/memoq`, `/download/sidekick`) have no button but follow a saved
+  choice.
+- **Dark mode on the pages in the house style**: everything on `mono.css`,
+  which is the product pages, Pricing, Docs, Terms, Privacy, the changelogs
+  and the case study. This reverses the 2026-09-12 decision to keep the
+  ground white. Since its redesign the home page has gone dark with the
+  system, so a visitor in dark mode went from a dark home page to white
+  product pages. The dark ground, ink and rules are the home page's; the
+  product colours are lighter tints that read as text on dark. Screenshots
+  stay as they are, framed by their hairline.
+
+### Changed
+
+- **The header links are 1rem apart** rather than 1.2rem, to make room for
+  the button on the Trados and memoQ pages' row of nine links.
+- **The browser's own colour follows the page.** `theme-color` sets Safari's
+  tab bar and a phone's address bar, and it was white even when the home page
+  was dark.
+
+### Fixed
+
+- **Two button colours in the home page's dark mode were under the 4.5:1
+  contrast minimum for their white text**: the purple at 4.2:1, the Trados
+  blue at 4.49:1. The purple is now `#7C3AED` (the brand mark's own) and the
+  blue the light mode's `#2F6FDB`.
+
 ## 2026-11-03
 
 ### Changed

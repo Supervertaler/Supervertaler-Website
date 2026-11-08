@@ -33,9 +33,43 @@
        it is: purple 7.1:1, green 5.1:1. */
     --brand:     #6d28d9;
     --workbench: #2e7d32;
+    --ink-strong: #000000;   /* a solid ink button under the pointer */
 
     --measure: 46rem;    /* comfortable reading width for body text */
     --page:    62rem;
+}
+
+/* ---- dark --------------------------------------------------------------
+   Since 2026-11-08, with the sun/moon button in the header. Until then these
+   pages were white whatever the system said (decided 2026-09-12, for the
+   white screenshots), while the home page already went dark: a visitor in
+   dark mode went from a dark home page to a white product page.
+
+   The ground, ink and rules are the home page's dark ones, so that going from
+   one to the other changes nothing but the content. The product colours are
+   lighter tints of the same hues: on a dark ground the marks' own colours are
+   too dark to read as words (Trados blue is 4.0:1 on #121019). Each of these
+   is at least 5.8:1, so the one colour does both jobs here, mark and text.
+
+   Twice, because a visitor's own choice must beat the system's in both
+   directions: the media query covers "dark system, no choice or chose dark",
+   the attribute "chose dark on a light system". The head of each page sets
+   data-theme before anything is drawn; site.js runs the button. */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --ink: #f3f1f8; --ink-soft: #d6d2e0; --ink-faint: #a29db0;
+        --rule: #2c2838; --wash: #19152a; --paper: #121019;
+        --trados: #5b8def; --memoq: #f26a52; --memoq-text: #f26a52;
+        --brand: #a78bfa; --workbench: #6cbf70; --ink-strong: #ffffff;
+        color-scheme: dark;
+    }
+}
+:root[data-theme="dark"] {
+    --ink: #f3f1f8; --ink-soft: #d6d2e0; --ink-faint: #a29db0;
+    --rule: #2c2838; --wash: #19152a; --paper: #121019;
+    --trados: #5b8def; --memoq: #f26a52; --memoq-text: #f26a52;
+    --brand: #a78bfa; --workbench: #6cbf70; --ink-strong: #ffffff;
+    color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -73,8 +107,12 @@ header .wrap { display: flex; align-items: center; gap: 1.5rem;
    made the product pages' row of nine links about 8px too long at 1.5rem,
    and the menu wrapped under the brand. Measured after the change, the row
    has about 45px to spare in Segoe UI and 28px in Arial, which is close to
-   the width of the Mac system font. */
-nav { margin-left: auto; display: flex; gap: 1.2rem; flex-wrap: wrap; }
+   the width of the Mac system font.
+   1rem since 2026-11-08: the sun/moon button after the links takes about
+   34px, more than those 28px, and in Arial the button dropped to a row of
+   its own. With the button and this gap the nine-link row has about 37px
+   to spare in Segoe UI and 20px in Arial. */
+nav { margin-left: auto; display: flex; gap: 1rem; flex-wrap: wrap; }
 nav a { text-decoration: none; color: var(--ink-soft); font-size: 1rem; }
 nav a:hover { color: var(--ink); text-decoration: underline; }
 nav a.here { color: var(--ink); font-weight: 600; }
@@ -192,7 +230,7 @@ h1 .host { color: var(--accent, var(--ink)); }
     padding: .6rem 1.15rem; border-radius: 3px; border: 1px solid var(--ink);
 }
 .go { background: var(--ink); color: var(--paper); }
-.go:hover { background: #000; }
+.go:hover { background: var(--ink-strong); }
 .go-quiet { background: var(--paper); color: var(--ink); }
 .go-quiet:hover { background: var(--wash); }
 .when { display: block; margin-top: .8rem; font-size: .9rem; color: var(--ink-faint); }
@@ -335,7 +373,8 @@ footer a { color: var(--ink-soft); }
 
 /* NOTE: the pages link this as /mono.css?v=N. Cloudflare caches CSS for four
    hours, so without the query a style change reaches visitors long after the
-   markup that depends on it. Bump N in all three pages when this file changes. */
+   markup that depends on it. Bump N in every page that links it when this
+   file changes. */
 
 /* ---- back to top ------------------------------------------------------- */
 .to-top {
@@ -396,4 +435,33 @@ footer a { color: var(--ink-soft); }
    as the .nav-toggle block. */
 @media (max-width: 760px) {
     .punch { font-size: 1.1rem; }
+}
+
+/* ---- light or dark: the sun/moon button -------------------------------- */
+/* After the links in the header. The Trados and memoQ pages' nine links
+   leave little room (see nav above), so on a desktop the button is 32px, sits
+   .6rem from the last link rather than the header's 1.5rem, and reaches half
+   a rem into the column's padding. On a phone it is the full 44px tap
+   target, left of the menu button. The moon shows in light mode and the sun
+   in dark, so it shows where a click goes; that is CSS rather than script,
+   so it is right from the first frame. After the .nav-toggle rules above:
+   the phone block below changes their margin, and source order decides. */
+.theme-toggle {
+    flex: none; width: 32px; height: 32px; margin: 0 -.5rem 0 -.9rem; padding: 0;
+    display: grid; place-items: center;
+    background: none; border: 0; border-radius: 4px; cursor: pointer;
+    color: var(--ink-soft);
+}
+.theme-toggle:hover { color: var(--ink); background: var(--wash); }
+.theme-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.theme-toggle .sun, :root[data-theme="dark"] .theme-toggle .moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .sun { display: block; }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .moon { display: none; }
+    :root:not([data-theme="light"]) .theme-toggle .sun { display: block; }
+}
+@media (max-width: 760px) {
+    .theme-toggle { order: 1; width: 44px; height: 44px; margin: 0 0 0 auto; }
+    .nav-toggle { order: 2; margin-left: 0; }
+    nav { order: 3; }
 }

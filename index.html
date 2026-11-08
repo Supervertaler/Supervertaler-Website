@@ -3,7 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121019" media="(prefers-color-scheme: dark)">
+<script>
+/* Light or dark. With no choice made, the CSS follows the system setting; a
+   choice made with the sun/moon button is applied here, in the head, before
+   anything is drawn, so the other theme never flashes up first. site.js
+   handles the button. */
+(function () { try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+</script>
 <title>Supervertaler – AI translation inside Trados Studio and memoQ</title>
 <meta name="description" content="AI translation that knows more than the sentence in front of it – your confirmed segments, your terminology, your notes on the client. One licence covers the Trados Studio plugin and the memoQ plugin.">
 <meta property="og:type" content="website">
@@ -66,8 +74,8 @@
   :root:not([data-theme="light"]) {
     --ink: #f3f1f8; --ink-soft: #d6d2e0; --ink-faint: #a29db0; --rule: #2c2838;
     --paper: #121019; --wash: #19152a; --wash-rule: #2a2340;
-    --brand: #8b5cf6; --brand-text: #c4b5fd; --on-brand: #ffffff;
-    --trados: #3b74d8; --trados-text: #9cbcf3; --trados-tint: #17233a; --trados-row: #141d30; --trados-chip-rule: #2c4370;
+    --brand: #7c3aed; --brand-text: #c4b5fd; --on-brand: #ffffff;
+    --trados: #2f6fdb; --trados-text: #9cbcf3; --trados-tint: #17233a; --trados-row: #141d30; --trados-chip-rule: #2c4370;
     --memoq: #f26a52; --memoq-btn: #c93a25; --memoq-text: #f6a594; --memoq-tint: #33190f;
     --you-tint: #241b3d; --you-text: #d4c6fb; --free: #7cc47f;
     --window-bar: #1a1724; --window-rule: #332c48; --done-row: #142017; --dot: #3a3548;
@@ -79,8 +87,8 @@
 :root[data-theme="dark"] {
   --ink: #f3f1f8; --ink-soft: #d6d2e0; --ink-faint: #a29db0; --rule: #2c2838;
   --paper: #121019; --wash: #19152a; --wash-rule: #2a2340;
-  --brand: #8b5cf6; --brand-text: #c4b5fd; --on-brand: #ffffff;
-  --trados: #3b74d8; --trados-text: #9cbcf3; --trados-tint: #17233a; --trados-row: #141d30; --trados-chip-rule: #2c4370;
+  --brand: #7c3aed; --brand-text: #c4b5fd; --on-brand: #ffffff;
+  --trados: #2f6fdb; --trados-text: #9cbcf3; --trados-tint: #17233a; --trados-row: #141d30; --trados-chip-rule: #2c4370;
   --memoq: #f26a52; --memoq-btn: #c93a25; --memoq-text: #f6a594; --memoq-tint: #33190f;
   --you-tint: #241b3d; --you-text: #d4c6fb; --free: #7cc47f;
   --window-bar: #1a1724; --window-rule: #332c48; --done-row: #142017; --dot: #3a3548;
@@ -123,9 +131,22 @@ p { margin: 0; }
 .menu-panel { position: absolute; right: 0; top: 52px; background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; padding: 8px; display: flex; flex-direction: column; min-width: 220px; box-shadow: 0 16px 32px -16px var(--shadow); }
 .menu-panel a { padding: 12px 14px; color: var(--ink); text-decoration: none; border-radius: 6px; }
 .menu-panel a:hover { background: var(--wash); }
+/* The sun/moon button: the moon in light mode, the sun in dark, so it shows
+   where a click takes you. Which one shows is pure CSS, so it is right from
+   the first frame. */
+.theme-toggle { flex: none; width: 44px; height: 44px; margin-left: -12px; padding: 0; display: grid; place-items: center; background: none; border: 0; border-radius: 8px; color: var(--ink-soft); cursor: pointer; }
+.theme-toggle:hover { color: var(--ink); background: var(--wash); }
+.theme-toggle:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+.theme-toggle .sun, :root[data-theme="dark"] .theme-toggle .moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .sun { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .moon { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .sun { display: block; }
+}
 @media (max-width: 860px) {
   .nav, .header-cta { display: none; }
-  .menu { display: block; }
+  .menu { display: block; margin-left: -16px; }
+  .theme-toggle { margin-left: auto; }
 }
 
 /* Hero */
@@ -297,6 +318,10 @@ p { margin: 0; }
       <a href="https://github.com/orgs/Supervertaler/discussions">Community</a>
     </nav>
     <a class="btn btn-brand btn-sm header-cta" href="#pricing">Try free for 14 days</a>
+    <button type="button" class="theme-toggle" aria-label="Dark mode" aria-pressed="false" title="Light or dark">
+      <svg class="moon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      <svg class="sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+    </button>
     <details class="menu">
       <summary aria-label="Menu">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
@@ -476,7 +501,7 @@ p { margin: 0; }
 </footer>
 
 <a href="#top" class="to-top" aria-label="Back to top" title="Back to top">↑</a>
-<script src="/site.js?v=1"></script>
+<script src="/site.js?v=2"></script>
 <script>
 /* Close the phone menu when one of its links is tapped, or on Escape. */
 (function () {

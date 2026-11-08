@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+/* A light or dark choice made with the sun/moon button elsewhere on the site. */
+(function () { try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Supervertaler for Trados on the RWS AppStore</title>
 <meta property="og:type" content="website">
@@ -40,6 +44,8 @@
 
 <style>
   :root { color-scheme: light dark; }
+  :root[data-theme="light"] { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark; }
   body {
     font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     display: flex; align-items: center; justify-content: center;
@@ -55,10 +61,14 @@
     font-weight: 600;
   }
   a.go:hover { background: #1d4ed8; }
+  /* Dark when the system is, unless the visitor picked light with the
+     sun/moon button; and dark when they picked dark. */
   @media (prefers-color-scheme: dark) {
-    body { background: #16181d; color: #e6e6e6; }
-    p { color: #a9b0bb; }
+    :root:not([data-theme="light"]) body { background: #16181d; color: #e6e6e6; }
+    :root:not([data-theme="light"]) p { color: #a9b0bb; }
   }
+  :root[data-theme="dark"] body { background: #16181d; color: #e6e6e6; }
+  :root[data-theme="dark"] p { color: #a9b0bb; }
 </style>
 </head>
 <body>
