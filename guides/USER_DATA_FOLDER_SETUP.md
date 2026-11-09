@@ -305,7 +305,7 @@ A: Yes! Use Settings > "Change Data Folder" to move and migrate
 
 - 📖 **User Guide**: [USER_GUIDE.md](../USER_GUIDE.md)
 - 🐛 **Report Issues**: [GitHub Issues](https://github.com/michaelbeijer/Supervertaler/issues)
-- 💬 **Ask Questions**: [Supervertaler Discussions](https://github.com/orgs/Supervertaler/discussions)
+- 💬 **Ask Questions**: [r/Supervertaler on Reddit](https://www.reddit.com/r/Supervertaler/)
 - 🌐 **Website**: [supervertaler.com](https://supervertaler.com)
 
 ---
