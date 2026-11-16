@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+/* A light or dark choice made with the sun/moon button elsewhere on the site. */
+(function () { try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manage your Supervertaler subscription</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Supervertaler">
+<meta property="og:title" content="Manage your Supervertaler subscription">
+<meta property="og:description" content="Where you manage your Supervertaler subscription: payment method, invoices, renewal and cancellation. Handled by Lemon Squeezy.">
+<meta property="og:url" content="https://supervertaler.com/manage/">
+<meta property="og:image" content="https://supervertaler.com/og-image.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Supervertaler">
+<meta name="twitter:card" content="summary_large_image">
+
+<!--
+  Short, stable link to where a customer manages their subscription:
+  https://supervertaler.com/manage
+
+  The plugins' "Manage subscription" link opens this page, not the payment
+  provider's own address. Same reasoning as /buy: when the provider changes,
+  only this file changes, and every installed plugin and every link already
+  sent to a customer keeps working. (Lemon Squeezy closes on 31 March 2027.)
+
+  GitHub Pages serves static files only, so the redirect is done three ways:
+  a meta refresh (works with JS disabled), a script (instant), and a visible
+  link (works even if both are blocked).
+-->
+
+<link rel="canonical" href="https://supervertaler-for-trados.lemonsqueezy.com/billing">
+<meta http-equiv="refresh" content="0; url=https://supervertaler-for-trados.lemonsqueezy.com/billing">
+<meta name="robots" content="noindex, follow">
+
+<style>
+  :root { color-scheme: light dark; }
+  :root[data-theme="light"] { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; margin: 0; padding: 1.5rem;
+    text-align: center; line-height: 1.6;
+  }
+  .card { max-width: 32rem; }
+  h1 { font-size: 1.25rem; font-weight: 600; margin: 0 0 .5rem; }
+  p { margin: .5rem 0; color: #555; }
+  /* The licence covers both plugins, so the brand purple, not Trados blue. */
+  a.go {
+    display: inline-block; margin-top: 1rem; padding: .7rem 1.4rem;
+    background: #6d28d9; color: #fff; text-decoration: none; border-radius: 6px;
+    font-weight: 600;
+  }
+  a.go:hover { background: #5b21b6; }
+  /* Dark when the system is, unless the visitor picked light with the
+     sun/moon button; and dark when they picked dark. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) body { background: #16181d; color: #e6e6e6; }
+    :root:not([data-theme="light"]) p { color: #a9b0bb; }
+  }
+  :root[data-theme="dark"] body { background: #16181d; color: #e6e6e6; }
+  :root[data-theme="dark"] p { color: #a9b0bb; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Taking you to your subscription…</h1>
+    <p>You are being redirected to the page where you manage your Supervertaler
+       subscription, handled by Lemon Squeezy. You sign in there with the email
+       address you bought with.</p>
+    <p>If nothing happens:</p>
+    <a class="go" href="https://supervertaler-for-trados.lemonsqueezy.com/billing">Continue to your subscription →</a>
+  </div>
+  <script>
+    location.replace("https://supervertaler-for-trados.lemonsqueezy.com/billing");
+  </script>
+</body>
+</html>
