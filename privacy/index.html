@@ -241,10 +241,12 @@
     <li><strong>Trados plugin 17/18/19.20.208 and later; memoQ plugin 0.1.31 and later:</strong> to
         <code>licence.supervertaler.com</code>, a first-party licence endpoint (a Cloudflare Worker
         operated by Supervertaler). It passes the check on to Lemon Squeezy, the company that takes
-        the subscription payments, and returns the answer unchanged. To count how many licences use
-        this address, it keeps a one-way hash of the licence key with the dates it was first and last
-        seen and the number of checks. It does not keep the licence key itself, the machine
-        identifier or your IP address.</li>
+        the subscription payments, and returns the answer unchanged. It keeps its own record of each
+        licence it is asked about, so that it can answer by itself once Lemon Squeezy has closed: the
+        licence key, how many computers it may be activated on, whether it is active and until when,
+        the name of the plan, and for each activated computer the anonymous machine identifier and
+        the date of activation. It also counts how often a licence is checked. It does not keep your
+        name, your email address or your IP address.</li>
     <li><strong>Earlier versions:</strong> directly to Lemon Squeezy
         (<code>api.lemonsqueezy.com</code>).</li>
 </ul>
