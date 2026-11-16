@@ -235,25 +235,34 @@
 
 <p>No translation content, file names, or personal information is included in license checks.</p>
 
-<p>Where the check goes depends on the version:</p>
+<p>Who receives the check depends on the version:</p>
 
 <ul>
-    <li><strong>Trados plugin 17/18/19.20.208 and later; memoQ plugin 0.1.31 and later:</strong> to
-        <code>licence.supervertaler.com</code>, a first-party licence endpoint (a Cloudflare Worker
-        operated by Supervertaler). It passes the check on to Lemon Squeezy, the company that takes
-        the subscription payments, and returns the answer unchanged. It keeps its own record of each
-        licence it is asked about, so that it can answer by itself once Lemon Squeezy has closed: the
-        licence key, how many computers it may be activated on, whether it is active and until when,
-        the name of the plan, and for each activated computer the anonymous machine identifier and
-        the date of activation. It also counts how often a licence is checked. It does not keep your
-        name, your email address or your IP address.</li>
-    <li><strong>Earlier versions:</strong> directly to Lemon Squeezy
-        (<code>api.lemonsqueezy.com</code>).</li>
+    <li><strong>Current versions</strong> send it to Lemon Squeezy
+        (<code>api.lemonsqueezy.com</code>), the company that takes the subscription payments.</li>
+    <li><strong>The next versions of both plugins</strong> (Trados plugin 17/18/19.20.208, memoQ plugin
+        0.1.31) send it to <code>licence.supervertaler.com</code>, a first-party licence endpoint
+        (a Cloudflare Worker operated by Supervertaler), which passes it on to Lemon Squeezy and
+        returns the answer unchanged.</li>
 </ul>
 
-<p>Lemon Squeezy is closing on 31 March 2027. After that the same check will be answered by the
-    Supervertaler endpoint itself, which is why later versions use an address of our own. This page
-    will be updated when that changes.</p>
+<h3>What the Supervertaler licence endpoint keeps</h3>
+
+<p>Lemon Squeezy is closing on 31 March 2027. From then on the Supervertaler licence endpoint will
+    answer licence checks itself. To be ready for that, since 16 November 2026 it keeps its own
+    record of every Supervertaler licence, copied from Lemon Squeezy:</p>
+
+<ul>
+    <li>The licence key</li>
+    <li>How many computers it may be activated on, whether it is active and until when, and the
+        name of the plan</li>
+    <li>For each activated computer, the anonymous machine identifier and the date of
+        activation</li>
+    <li>How often the licence has been checked through the endpoint</li>
+</ul>
+
+<p>It does not keep your name, your email address or your IP address. This page will be updated
+    when the endpoint starts answering licence checks itself.</p>
 
 <h3>Trial registration (Trados plugin v18/19.20.118 and later; memoQ plugin 0.1.1 and later)</h3>
 
