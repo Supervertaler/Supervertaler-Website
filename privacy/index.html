@@ -82,7 +82,7 @@
 <article class="article">
 
 <h1>Privacy Policy</h1>
-<p class="byline">Last updated: 28 October 2026</p>
+<p class="byline">Last updated: 16 November 2026</p>
 
 <div class="short">
     <p><strong>The short version:</strong> Supervertaler does not collect, store, or transmit your data to
@@ -224,8 +224,8 @@
 
 <h2 id="licence">5. License validation</h2>
 
-<p>If you have a paid subscription, your license is validated through Lemon Squeezy
-    (<code>api.lemonsqueezy.com</code>). The only data sent is:</p>
+<p>If you have a paid subscription, the plugin checks your licence when it starts, and when you
+    activate or deactivate it. The only data sent is:</p>
 
 <ul>
     <li>Your license key</li>
@@ -234,6 +234,24 @@
 </ul>
 
 <p>No translation content, file names, or personal information is included in license checks.</p>
+
+<p>Where the check goes depends on the version:</p>
+
+<ul>
+    <li><strong>Trados plugin 17/18/19.20.208 and later; memoQ plugin 0.1.31 and later:</strong> to
+        <code>licence.supervertaler.com</code>, a first-party licence endpoint (a Cloudflare Worker
+        operated by Supervertaler). It passes the check on to Lemon Squeezy, the company that takes
+        the subscription payments, and returns the answer unchanged. To count how many licences use
+        this address, it keeps a one-way hash of the licence key with the dates it was first and last
+        seen and the number of checks. It does not keep the licence key itself, the machine
+        identifier or your IP address.</li>
+    <li><strong>Earlier versions:</strong> directly to Lemon Squeezy
+        (<code>api.lemonsqueezy.com</code>).</li>
+</ul>
+
+<p>Lemon Squeezy is closing on 31 March 2027. After that the same check will be answered by the
+    Supervertaler endpoint itself, which is why later versions use an address of our own. This page
+    will be updated when that changes.</p>
 
 <h3>Trial registration (Trados plugin v18/19.20.118 and later; memoQ plugin 0.1.1 and later)</h3>
 
@@ -335,8 +353,8 @@
 
 <h3>Licence</h3>
 
-<p>The memoQ plugin uses the same Supervertaler licence as the Trados plugin, validated through
-    Lemon Squeezy as described in <a href="#licence">section 5</a>: your licence key and the same
+<p>The memoQ plugin uses the same Supervertaler licence as the Trados plugin, validated
+    as described in <a href="#licence">section 5</a>: your licence key and the same
     anonymous machine identifier, nothing else. From version 0.1.1, while there is no licence key,
     the free trial is registered as described in <a href="#licence">section 5</a>: the same anonymous
     machine identifier, the plugin and memoQ versions, your system locale and the trial's start date
