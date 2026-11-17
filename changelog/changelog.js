@@ -149,6 +149,7 @@
 
         entries.innerHTML = '';
         index.innerHTML = '';
+        entries.append(foldSwitch());
         shown.forEach(function (r) {
             var id = 'v' + r.versions[0];
             var label = r.versions.join(' / ');
@@ -213,6 +214,65 @@
         body.querySelectorAll('li').forEach(function (li) {
             if (li.textContent.trim().charAt(0) === '★') li.classList.add('cl-star');
         });
+        body.querySelectorAll(':scope > ul > li').forEach(foldEntry);
+    }
+
+    /* ---- headlines first ---------------------------------------------------- */
+
+    // An entry is written as a bold sentence that says what changed, then the
+    // detail. The page shows the bold sentence and folds the rest under it, so
+    // a release reads as a list of lines; a click (or the switch above the
+    // first release) opens the detail. An entry with no bold opening, or with
+    // nothing after it, is shown as written.
+    function foldEntry(li) {
+        var holder = li.firstElementChild && li.firstElementChild.tagName === 'P' ? li.firstElementChild : li;
+        var head = [];
+        var node = holder.firstChild;
+        while (node && node.nodeType === 3 && /^[\s★]*$/.test(node.textContent)) {
+            head.push(node);
+            node = node.nextSibling;
+        }
+        if (!node || node.nodeName !== 'STRONG') return;
+        head.push(node);
+
+        var rest = [];
+        for (var n = node.nextSibling; n; n = n.nextSibling) rest.push(n);
+        var after = [];
+        if (holder !== li) for (var m = holder.nextSibling; m; m = m.nextSibling) after.push(m);
+        var hasMore = after.length || rest.some(function (x) { return x.textContent.trim() !== ''; });
+        if (!hasMore) return;
+
+        var details = document.createElement('details');
+        var summary = document.createElement('summary');
+        head.forEach(function (x) { summary.append(x); });
+        var more = document.createElement('div');
+        more.className = 'cl-more';
+        var p = document.createElement('p');
+        rest.forEach(function (x) { p.append(x); });
+        if (p.textContent.trim() !== '') more.append(p);
+        after.forEach(function (x) { more.append(x); });
+        details.append(summary, more);
+        li.textContent = '';
+        li.append(details);
+        li.classList.add('cl-fold');
+    }
+
+    // One switch for the whole page: every detail open, or every detail folded.
+    function foldSwitch() {
+        var p = document.createElement('p');
+        p.className = 'cl-foldall';
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = 'Show all details';
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', function () {
+            var open = button.getAttribute('aria-pressed') !== 'true';
+            entries.querySelectorAll('li.cl-fold > details').forEach(function (d) { d.open = open; });
+            button.setAttribute('aria-pressed', open ? 'true' : 'false');
+            button.textContent = open ? 'Hide all details' : 'Show all details';
+        });
+        p.append(button, ' Each line opens when you click it.');
+        return p;
     }
 
     var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',

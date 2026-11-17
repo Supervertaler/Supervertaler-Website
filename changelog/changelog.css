@@ -33,7 +33,7 @@
 
 .cl-release { padding-top: 1.75rem; border-top: 1px solid var(--rule); margin-bottom: 1.5rem;
               scroll-margin-top: 1rem; }
-.cl-release:first-child { border-top: 0; padding-top: 0; }
+.cl-release:first-of-type { border-top: 0; padding-top: 0; }
 .cl-release h2 { font-size: 1.45rem; letter-spacing: -.015em; margin: 0 0 .6rem;
                  display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .9rem; }
 .cl-release h2 time { font-size: .95rem; font-weight: 400; color: var(--ink-faint); }
@@ -58,6 +58,22 @@
 /* The things a release would be announced for. */
 .cl-body li.cl-star { list-style: none; margin-left: -1.2rem; padding: .6rem .8rem;
                       border-left: 3px solid var(--accent); background: var(--wash); }
+
+/* Headlines first: an entry shows its bold opening sentence, and the detail
+   opens under it. The summary's own triangle stands in for the bullet. */
+.cl-body li.cl-fold { list-style: none; margin-left: -1.2rem; margin-bottom: .45rem; }
+.cl-body li.cl-fold > details > summary { cursor: pointer; color: var(--ink); padding: .1rem 0; }
+.cl-body li.cl-fold > details > summary::marker { color: var(--ink-faint); }
+.cl-body li.cl-fold > details > summary:hover { color: var(--accent); }
+.cl-body li.cl-fold > details > summary strong { font-weight: 600; }
+.cl-body li.cl-fold > details[open] > summary { margin-bottom: .35rem; }
+.cl-more { padding-left: 1.05rem; margin-bottom: .9rem; }
+.cl-more p { margin: 0 0 .5rem; }
+.cl-body li.cl-star.cl-fold { margin-left: -1.2rem; }
+.cl-foldall { margin: 0 0 1.25rem; font-size: .9rem; color: var(--ink-faint); }
+.cl-foldall button { font: inherit; color: var(--ink); background: var(--wash); border: 1px solid var(--rule);
+                     border-radius: 4px; padding: .3rem .7rem; margin-right: .5rem; cursor: pointer; }
+.cl-foldall button:hover { border-color: var(--accent); }
 
 /* The changelog list at /changelog/ */
 .cl-pick { display: grid; gap: 1.5rem; max-width: var(--measure);
