@@ -170,7 +170,10 @@ p { margin: 0; }
 .window-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--dot); display: block; }
 .window-bar span { margin-left: 8px; }
 .window-body { display: grid; grid-template-columns: minmax(0, 1fr) 262px; }
-.grid { border-right: 1px solid var(--rule); font-size: 13px; line-height: 1.45; }
+.grid { position: relative; border-right: 1px solid var(--rule); font-size: 13px; line-height: 1.45; }
+/* One divider between source and target down the whole grid, as in Trados, also below the last row.
+   At the middle of the two text columns: 30px number column + half of the rest = 50% + 15px. */
+.grid::after { content: ""; position: absolute; top: 0; bottom: 0; left: calc(50% + 15px); width: 1px; background: var(--rule); pointer-events: none; }
 .row { display: grid; grid-template-columns: 30px minmax(0, 1fr) minmax(0, 1fr); border-bottom: 1px solid var(--rule); }
 .row:last-child { border-bottom: 0; }
 .row > * { padding: 10px; }
@@ -178,8 +181,6 @@ p { margin: 0; }
 .row .src { color: var(--ink-soft); }
 .row .done { color: var(--ink-soft); background: var(--done-row); }
 .row .empty { color: var(--ink-faint); }
-/* A thin divider between source and target on every row, as in the Trados grid. */
-.row .tgt, .row .done, .row .empty { border-left: 1px solid var(--rule); }
 .row.active { background: var(--trados-row); }
 .row.active .num { color: var(--trados-text); font-weight: 500; }
 .row.active .src, .row.active .tgt { color: var(--ink); }
@@ -206,7 +207,8 @@ p { margin: 0; }
   .grid { border-right: 0; border-bottom: 1px solid var(--rule); }
   .row { grid-template-columns: 26px minmax(0, 1fr); }
   .row .src { grid-column: 2; }
-  .row .tgt, .row .done, .row .empty { grid-column: 2; padding-top: 0; background: none; border-left: 0; }
+  .row .tgt, .row .done, .row .empty { grid-column: 2; padding-top: 0; background: none; }
+  .grid::after { display: none; }
   .row.active .tgt { color: var(--trados-text); }
   .row.dim { display: none; }
 
