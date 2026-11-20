@@ -35,7 +35,9 @@
             return r.text();
         })
         .then(render)
-        .catch(function () {
+        .catch(function (e) {
+            // Also catches a fault in drawing the page; say which in the console.
+            if (window.console) console.error('changelog:', e);
             entries.innerHTML = '';
             var p = document.createElement('p');
             p.className = 'cl-problem';
@@ -54,15 +56,48 @@
     // released, and is left out: a translator cannot have it yet.
     var HEADING = /^## \[([^\]]+)\]\s*[–-]\s*(\d{4}-\d{2}-\d{2})\s*$/;
 
+    // Sidekick and Workbench write their headings differently, and are read
+    // as written rather than rewritten:
+    //   "## 2026-11-19" - Sidekick, which has no version numbers: the date is the release.
+    //   "## v1.10.381 - November 19, 2026", "## [1.9.41] - December 16, 2025",
+    //   "## 🎯 Match Panel Consolidation (v1.9.154) - January 25, 2026" - Workbench.
+    // A heading with no date in it ("Unreleased", "Versioning Strategy") is
+    // not a release, and is left out with what is under it.
+    var ISO_DATE = /\b\d{4}-\d{2}-\d{2}\b/;
+    var MONTH_DATE = /\b(January|February|March|April|May|June|July|August|September|October|November|December) (\d{1,2}), (\d{4})\b/;
+    var VERSION = /\bv?(\d+\.\d+\.\d+(?:-[0-9A-Za-z]+)?)/;
+    var VERSION_GROUP = /[\[(][^\])]*\d+\.\d+\.\d+[^\])]*[\])]/;
+
+    function heading(line) {
+        var m = HEADING.exec(line);
+        if (m) return { versions: m[1].split('/').map(function (v) { return v.trim(); }),
+                        date: m[2], title: '' };
+        var text = line.slice(3).trim();
+        var date = ISO_DATE.exec(text), found = date;
+        if (date) date = date[0];
+        else if ((found = MONTH_DATE.exec(text))) {
+            date = found[3] + '-' + pad(MONTHS.indexOf(found[1]) + 1) + '-' + pad(found[2]);
+        }
+        if (!date) return null;
+        var rest = text.replace(found[0], '');
+        var v = VERSION.exec(rest);
+        // What is left once the version and date are taken out is the
+        // release's own name, if it has one ("Match Panel Consolidation").
+        var title = VERSION_GROUP.test(rest) ? rest.replace(VERSION_GROUP, '') : v ? rest.replace(v[0], '') : rest;
+        title = title.replace(/^[\s–\-:]+|[\s–\-:]+$/g, '');
+        if (!/[A-Za-z]/.test(title)) title = '';
+        return { versions: v ? [v[1]] : [], date: date, title: title };
+    }
+
+    function pad(n) { n = String(n); return n.length < 2 ? '0' + n : n; }
+
     function releases(text) {
         var list = [];
         var current = null;
         text.replace(/\r\n/g, '\n').split('\n').forEach(function (line) {
             if (line.indexOf('## ') === 0) {
-                var m = HEADING.exec(line);
-                current = m ? { versions: m[1].split('/').map(function (v) { return v.trim(); }),
-                                date: m[2], body: [] } : null;
-                if (current) list.push(current);
+                current = heading(line);
+                if (current) { current.body = []; list.push(current); }
                 return;
             }
             // Everything before the first release is the file's own preamble,
@@ -110,6 +145,7 @@
     var FIRST_2022 = 199;
 
     function studioBuilds(versions) {
+        if (!versions.length) return null;   // Sidekick: a date, no builds
         var ps = versions.map(parts);
         var ok = ps.every(function (p) {
             return p.length === 3 && STUDIOS[p[0]] && p[1] === ps[0][1] && p[2] === ps[0][2];
@@ -150,8 +186,13 @@
         entries.innerHTML = '';
         index.innerHTML = '';
         entries.append(foldSwitch());
+        var ids = {};
         shown.forEach(function (r) {
-            var id = 'v' + r.versions[0];
+            // Sidekick has no version numbers: a release is its date.
+            var dated = !r.versions.length;
+            var id = dated ? 'd' + r.date : 'v' + r.versions[0];
+            // Workbench's file has the odd version twice; each needs its own anchor.
+            if (ids[id]) id += '-' + (++ids[id]); else ids[id] = 1;
             var label = r.versions.join(' / ');
             var builds = studioBuilds(r.versions);
             if (builds) label = builds.release;
@@ -161,18 +202,23 @@
             article.id = id;
 
             var h2 = document.createElement('h2');
-            var ver = document.createElement('span');
-            ver.className = 'cl-ver';
-            ver.textContent = builds ? 'Release ' + label : label;
             var time = document.createElement('time');
             time.dateTime = r.date;
             time.textContent = longDate(r.date);
-            h2.append(ver, ' ', time);
+            if (dated) {
+                h2.append(time);
+            } else {
+                var ver = document.createElement('span');
+                ver.className = 'cl-ver';
+                ver.textContent = builds ? 'Release ' + label : label;
+                h2.append(ver, ' ', time);
+            }
             article.append(h2);
-            if (builds) {
+            if (builds || r.title) {
                 var line = document.createElement('p');
                 line.className = 'cl-builds';
-                line.textContent = builds.each.join(' · ');
+                if (builds) line.textContent = builds.each.join(' · ');
+                else line.innerHTML = DOMPurify.sanitize(marked.parseInline(r.title));
                 article.append(line);
             }
 
@@ -186,9 +232,13 @@
             var li = document.createElement('li');
             var a = document.createElement('a');
             a.href = '#' + id;
-            a.innerHTML = '<span class="cl-ver"></span> <span class="cl-date"></span>';
-            a.firstChild.textContent = label;
-            a.lastChild.textContent = shortDate(r.date);
+            if (dated) {
+                a.textContent = shortDate(r.date);
+            } else {
+                a.innerHTML = '<span class="cl-ver"></span> <span class="cl-date"></span>';
+                a.firstChild.textContent = label;
+                a.lastChild.textContent = shortDate(r.date);
+            }
             if (builds) a.className = 'cl-short';
             li.append(a);
             index.append(li);

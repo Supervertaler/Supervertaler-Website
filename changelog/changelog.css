@@ -1,4 +1,4 @@
-/* The changelog pages (/changelog/trados/, /changelog/memoq/). Their own
+/* The changelog pages (/changelog/trados/, /memoq/, /sidekick/, /workbench/). Their own
    file rather than more of mono.css, which every page loads: the rules below
    mean nothing anywhere else. The house style still applies - black type, one
    accent per product, set by the page as --accent. */
@@ -37,6 +37,8 @@
 .cl-release h2 { font-size: 1.45rem; letter-spacing: -.015em; margin: 0 0 .6rem;
                  display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .9rem; }
 .cl-release h2 time { font-size: .95rem; font-weight: 400; color: var(--ink-faint); }
+/* Sidekick has no version numbers: the date is the heading. */
+.cl-release h2 time:only-child { font-size: inherit; font-weight: inherit; color: inherit; }
 .cl-builds { margin: -.3rem 0 .4rem; font-size: .85rem; color: var(--ink-faint); }
 
 /* Added / Changed / Fixed: labels, not headings to read. */
@@ -54,6 +56,12 @@
 .cl-body code { font-family: Consolas, "SF Mono", Menlo, monospace; font-size: .88em;
                 background: var(--wash); border: 1px solid var(--rule); border-radius: 3px;
                 padding: 0 .25em; overflow-wrap: anywhere; }
+/* Code blocks (Workbench's older entries have some) scroll inside
+   themselves instead of pushing the page sideways. */
+.cl-body pre { overflow-x: auto; background: var(--wash); border: 1px solid var(--rule);
+               border-radius: 4px; padding: .6rem .8rem; font-size: .88rem; }
+.cl-body pre code { background: none; border: 0; padding: 0; overflow-wrap: normal; }
+.cl-body table { display: block; overflow-x: auto; }
 
 /* The things a release would be announced for. */
 .cl-body li.cl-star { list-style: none; margin-left: -1.2rem; padding: .6rem .8rem;

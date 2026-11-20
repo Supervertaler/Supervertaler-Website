@@ -11,12 +11,12 @@
    choice, mono.css follows the system. site.js runs the button. */
 (function () { try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
 </script>
-<title>Changelogs – Supervertaler for Trados and memoQ</title>
-<meta name="description" content="What changed in each release of Supervertaler for Trados and Supervertaler for memoQ.">
+<title>Changelogs – Supervertaler for Trados, memoQ, Sidekick and Workbench</title>
+<meta name="description" content="What changed in each release of Supervertaler for Trados, Supervertaler for memoQ, Sidekick and Workbench.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Supervertaler">
-<meta property="og:title" content="Changelogs – Supervertaler for Trados and memoQ">
-<meta property="og:description" content="What changed in each release of Supervertaler for Trados and Supervertaler for memoQ.">
+<meta property="og:title" content="Changelogs – Supervertaler for Trados, memoQ, Sidekick and Workbench">
+<meta property="og:description" content="What changed in each release of Supervertaler for Trados, Supervertaler for memoQ, Sidekick and Workbench.">
 <meta property="og:url" content="https://supervertaler.com/changelog/">
 <meta property="og:image" content="https://supervertaler.com/og-image.png?v=3">
 <meta property="og:image:width" content="1200">
@@ -27,7 +27,8 @@
 <link rel="icon" href="/favicon.ico?v=3" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
 <link rel="stylesheet" href="/mono.css?v=35">
-<link rel="stylesheet" href="/changelog/changelog.css?v=1">
+<link rel="stylesheet" href="/changelog/changelog.css?v=4">
+<style>.product.sidekick { --c: var(--brand); } .product.workbench { --c: var(--workbench); }</style>
 
 </head>
 <body>
@@ -57,7 +58,7 @@
 <section class="hero cl-hero">
   <div class="wrap">
     <h1>Changelogs</h1>
-    <p class="standfirst">What changed in each release of the two plugins, newest first.</p>
+    <p class="standfirst">What changed in each release of the plugins, Sidekick and Workbench, newest first.</p>
   </div>
 </section>
 
@@ -72,6 +73,16 @@
       <h2><img class="mark" src="/sv-icon-memoq.svg" width="30" height="30" alt="">Supervertaler <span class="host">for memoQ</span></h2>
       <p class="where">The add-in for memoQ 11 and 12.</p>
       <p><a class="go-quiet" href="/changelog/memoq/">memoQ changelog</a></p>
+    </div>
+    <div class="product sidekick">
+      <h2><img class="mark" src="/sv-icon-brand.svg" width="30" height="30" alt="">Supervertaler <span class="host">Sidekick</span></h2>
+      <p class="where">The free toolbox that works over any Windows app.</p>
+      <p><a class="go-quiet" href="/changelog/sidekick/">Sidekick changelog</a></p>
+    </div>
+    <div class="product workbench">
+      <h2><img class="mark" src="/sv-icon-workbench.svg" width="30" height="30" alt="">Supervertaler <span class="host">Workbench</span></h2>
+      <p class="where">The free, open-source CAT tool of its own.</p>
+      <p><a class="go-quiet" href="/changelog/workbench/">Workbench changelog</a></p>
     </div>
   </div>
 </section>
@@ -106,6 +117,8 @@
           <li><a href="https://docs.supervertaler.com/memoq/">memoQ docs</a></li>
           <li><a href="/changelog/trados/">Trados changelog</a></li>
           <li><a href="/changelog/memoq/">memoQ changelog</a></li>
+          <li><a href="/changelog/sidekick/">Sidekick changelog</a></li>
+          <li><a href="/changelog/workbench/">Workbench changelog</a></li>
         </ul>
       </div>
 

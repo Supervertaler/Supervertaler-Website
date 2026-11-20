@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121019" media="(prefers-color-scheme: dark)">
+<script>
+/* Light or dark: a choice made with the sun/moon button, applied before
+   anything is drawn so the other theme never flashes up first. With no
+   choice, mono.css follows the system. site.js runs the button. */
+(function () { try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+<title>What's new in Supervertaler Sidekick – changelog</title>
+<meta name="description" content="Every update of Supervertaler Sidekick, newest first: what was added, changed and fixed.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Supervertaler">
+<meta property="og:title" content="What's new in Supervertaler Sidekick – changelog">
+<meta property="og:description" content="Every update of Supervertaler Sidekick, newest first: what was added, changed and fixed.">
+<meta property="og:url" content="https://supervertaler.com/changelog/sidekick/">
+<meta property="og:image" content="https://supervertaler.com/og-image.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Supervertaler Sidekick">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico?v=3" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="stylesheet" href="/mono.css?v=35">
+<link rel="stylesheet" href="/changelog/changelog.css?v=4">
+<style>:root { --accent: var(--brand); }</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/sv-icon-brand.svg" width="30" height="30" alt=""> Supervertaler</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav">
+      <a href="/trados/" title="A plugin inside Trados Studio: AI translation, live terminology and an assistant that sees the whole document. Paid.">for Trados</a>
+      <a href="/memoq/" title="A plugin inside memoQ: an AI translation engine that learns from what you confirm, with your glossary enforced. Same licence as Trados.">for memoQ</a>
+      <a href="/sidekick/" title="A free toolbox that works over any Windows app: clipboard history, quick translations, AI actions and terminology lookups. Not tied to a CAT tool.">Sidekick</a>
+      <a href="/workbench/" title="A free, open-source CAT tool of its own, for Windows, macOS and Linux: AI translation, translation memory, terminology and QA, with no Trados or memoQ needed.">Workbench</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://www.reddit.com/r/Supervertaler/">Community</a>
+    </nav>
+    <button type="button" class="theme-toggle" aria-label="Dark mode" aria-pressed="false" title="Light or dark">
+      <svg class="moon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      <svg class="sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<!--
+  The changelog is not in this file. changelog.js reads CHANGELOG.md from the
+  product's own repository as the page opens, so a release never needs a
+  website commit and this page cannot fall behind the file.
+-->
+<main data-changelog data-repo="Supervertaler-Sidekick">
+
+<section class="hero cl-hero">
+  <div class="wrap">
+    <h1>What's new in Supervertaler <span class="host">Sidekick</span></h1>
+    <p class="standfirst">
+      Every update of Supervertaler Sidekick, newest first.
+    </p>
+    <p class="cl-since" id="cl-since" hidden></p>
+  </div>
+</section>
+
+<div class="wrap cl-layout">
+  <aside class="cl-versions" aria-label="Releases">
+    <details open>
+      <summary>Releases</summary>
+      <ol id="cl-index"></ol>
+    </details>
+  </aside>
+  <div class="cl-entries" id="cl-entries">
+    <p class="cl-loading">Loading the changelog…</p>
+    <noscript><p class="cl-problem">This page needs JavaScript to show the changelog.
+      <a href="https://github.com/Supervertaler/Supervertaler-Sidekick/blob/main/CHANGELOG.md">Read it on GitHub</a> instead.</p></noscript>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/sv-icon-brand.svg" width="30" height="30" alt=""> Supervertaler</a>
+        <p>AI translation inside the CAT tool you already use.</p>
+        <p>Built by <a href="https://beijer.uk/">Michael Beijer</a>, a Dutch–&#8288;English technical translator in Hastings. <em lang="nl">Supervertaler</em> is Dutch for &ldquo;super translator&rdquo;.</p>
+      </div>
+
+      <div class="foot-col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="/trados/">for Trados</a></li>
+          <li><a href="/memoq/">for memoQ</a></li>
+          <li><a href="/sidekick/">Sidekick</a></li>
+          <li><a href="/workbench/">Workbench</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="https://appstore.rws.com/plugin/432">RWS AppStore</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="/docs/">Docs and resources</a></li>
+          <li><a href="https://docs.supervertaler.com/trados/">Trados docs</a></li>
+          <li><a href="https://docs.supervertaler.com/memoq/">memoQ docs</a></li>
+          <li><a href="/changelog/trados/">Trados changelog</a></li>
+          <li><a href="/changelog/memoq/">memoQ changelog</a></li>
+          <li><a href="/changelog/sidekick/">Sidekick changelog</a></li>
+          <li><a href="/changelog/workbench/">Workbench changelog</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>Community</h3>
+        <ul>
+          <li><a href="https://www.reddit.com/r/Supervertaler/">Community</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://beijer.uk/">Author's website</a></li>
+          <li><a href="https://beijer.uk/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="https://github.com/Supervertaler">Source code</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <p>© 2026 Michael Beijer. Source-available licence.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="to-top" aria-label="Back to top" title="Back to top">↑</a>
+<script src="/site.js?v=2"></script>
+<script src="/changelog/vendor/marked.min.js?v=12.0.2"></script>
+<script src="/changelog/vendor/purify.min.js?v=3.1.6"></script>
+<script src="/changelog/changelog.js?v=5"></script>
+</body>
+</html>
