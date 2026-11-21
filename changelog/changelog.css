@@ -64,20 +64,33 @@
 .cl-body table { display: block; overflow-x: auto; }
 
 /* The things a release would be announced for. */
-.cl-body li.cl-star { list-style: none; margin-left: -1.2rem; padding: .6rem .8rem;
-                      border-left: 3px solid var(--accent); background: var(--wash); }
+.cl-body li.cl-star { list-style: none; padding: .6rem .8rem; border-left: 3px solid var(--accent);
+                      background: var(--wash);
+                      /* The tint and the red line sit in the margin, where the bullets are, so
+                         a starred line's text starts where every other line's text starts
+                         (Michael, 21 Nov: the line pushed it to the right). */
+                      margin-left: calc(-.8rem - 3px); }
 
 /* Headlines first: an entry shows its bold opening sentence, and the detail
-   opens under it. The summary's own triangle stands in for the bullet. */
-.cl-body li.cl-fold { list-style: none; margin-left: -1.2rem; margin-bottom: .45rem; }
-.cl-body li.cl-fold > details > summary { cursor: pointer; color: var(--ink); padding: .1rem 0; }
-.cl-body li.cl-fold > details > summary::marker { color: var(--ink-faint); }
+   opens under it. A plain bullet, like any other line, and a small chevron
+   after the sentence that turns when it opens: no column of triangles down the
+   left (Michael, 21 Nov). */
+.cl-body li.cl-fold { margin-bottom: .45rem; }
+.cl-body li.cl-fold > details > summary { cursor: pointer; color: var(--ink); padding: .1rem 0;
+                                          list-style: none; display: block; }
+.cl-body li.cl-fold > details > summary::-webkit-details-marker { display: none; }
+.cl-body li.cl-fold > details > summary::marker { content: ''; }
+.cl-body li.cl-fold > details > summary::after {
+    content: ''; display: inline-block; width: .38em; height: .38em; margin-left: .5em;
+    border-right: 1.5px solid var(--ink-faint); border-bottom: 1.5px solid var(--ink-faint);
+    transform: translateY(-.15em) rotate(-45deg); transition: transform .15s; }
+.cl-body li.cl-fold > details[open] > summary::after { transform: translateY(-.25em) rotate(45deg); }
 .cl-body li.cl-fold > details > summary:hover { color: var(--accent); }
+.cl-body li.cl-fold > details > summary:hover::after { border-color: var(--accent); }
 .cl-body li.cl-fold > details > summary strong { font-weight: 600; }
 .cl-body li.cl-fold > details[open] > summary { margin-bottom: .35rem; }
-.cl-more { padding-left: 1.05rem; margin-bottom: .9rem; }
+.cl-more { margin-bottom: .9rem; }
 .cl-more p { margin: 0 0 .5rem; }
-.cl-body li.cl-star.cl-fold { margin-left: -1.2rem; }
 .cl-foldall { margin: 0 0 1.25rem; font-size: .9rem; color: var(--ink-faint); }
 .cl-foldall button { font: inherit; color: var(--ink); background: var(--wash); border: 1px solid var(--rule);
                      border-radius: 4px; padding: .3rem .7rem; margin-right: .5rem; cursor: pointer; }

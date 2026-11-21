@@ -164,6 +164,7 @@
     /* ---- drawing it -------------------------------------------------------- */
 
     function render(text) {
+        var newer = 0;
         var all = releases(text);
         var shown = since ? all.filter(function (r) { return isNewer(r, since); }) : all;
 
@@ -171,6 +172,7 @@
             banner.hidden = false;
             banner.textContent = '';
             if (shown.length) {
+                newer = shown.length;
                 banner.append('What changed since version ' + since + ': '
                     + shown.length + (shown.length === 1 ? ' release' : ' releases') + ', newest first. ');
             } else {
@@ -243,6 +245,20 @@
             li.append(a);
             index.append(li);
         });
+
+        // Open what the reader came for (Michael, 21 Nov: open entries read better): from the
+        // update window, every release they have not got yet; otherwise the newest release.
+        // Older releases stay as headlines, or a long changelog becomes a wall of text.
+        var articles = entries.querySelectorAll('article.cl-release');
+        for (var i = 0; i < Math.max(newer, 1) && i < articles.length; i++) {
+            articles[i].querySelectorAll('li.cl-fold > details').forEach(function (d) { d.open = true; });
+        }
+        var all_open = !entries.querySelector('li.cl-fold > details:not([open])');
+        var button = entries.querySelector('.cl-foldall button');
+        if (button && all_open) {
+            button.setAttribute('aria-pressed', 'true');
+            button.textContent = 'Hide all details';
+        }
 
         // The page arrived empty and the anchor had nothing to land on.
         if (location.hash) {
