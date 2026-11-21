@@ -246,25 +246,47 @@
             index.append(li);
         });
 
-        // Open what the reader came for (Michael, 21 Nov: open entries read better): from the
-        // update window, every release they have not got yet; otherwise the newest release.
-        // Older releases stay as headlines, or a long changelog becomes a wall of text.
-        var articles = entries.querySelectorAll('article.cl-release');
-        for (var i = 0; i < Math.max(newer, 1) && i < articles.length; i++) {
-            articles[i].querySelectorAll('li.cl-fold > details').forEach(function (d) { d.open = true; });
-        }
-        var all_open = !entries.querySelector('li.cl-fold > details:not([open])');
-        var button = entries.querySelector('.cl-foldall button');
-        if (button && all_open) {
-            button.setAttribute('aria-pressed', 'true');
-            button.textContent = 'Hide all details';
+        // Open what the reader came for (Michael, 21 Nov: open entries read better): a release
+        // the link names (#v0.1.21); from the update window, every release they have not got
+        // yet; otherwise the newest release. Older releases stay as headlines, or a long
+        // changelog becomes a wall of text.
+        var articles = [].slice.call(entries.querySelectorAll('article.cl-release'));
+        var target = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+        if (target && articles.indexOf(target) >= 0) {
+            openOnly(target);
+            target.scrollIntoView();   // the page arrived empty and the anchor had nothing to land on
+        } else {
+            articles.forEach(function (a, i) { setOpen(a, i < Math.max(newer, 1)); });
+            syncSwitch();
         }
 
-        // The page arrived empty and the anchor had nothing to land on.
-        if (location.hash) {
-            var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-            if (target) target.scrollIntoView();
-        }
+        // A release picked in the list opens, and the others fold (Michael, 21 Nov), so the
+        // page shows that release and nothing else open. The link's own jump follows the
+        // folding, so it lands on the right place.
+        index.addEventListener('click', function (e) {
+            var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+            if (!a) return;
+            var picked = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+            if (picked) openOnly(picked);
+        });
+    }
+
+    function setOpen(article, open) {
+        article.querySelectorAll('li.cl-fold > details').forEach(function (d) { d.open = open; });
+    }
+
+    function openOnly(article) {
+        entries.querySelectorAll('article.cl-release').forEach(function (a) { setOpen(a, a === article); });
+        syncSwitch();
+    }
+
+    // The switch above the releases says what a click on it would do.
+    function syncSwitch() {
+        var button = entries.querySelector('.cl-foldall button');
+        if (!button) return;
+        var allOpen = !entries.querySelector('li.cl-fold > details:not([open])');
+        button.setAttribute('aria-pressed', allOpen ? 'true' : 'false');
+        button.textContent = allOpen ? 'Hide all details' : 'Show all details';
     }
 
     function tidy(body) {
